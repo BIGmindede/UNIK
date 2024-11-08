@@ -1,0 +1,146 @@
+body {
+    background-color: rgb(36, 36, 46);
+    font-family: 'Secular One', sans-serif; 
+}
+
+a {
+    text-decoration: underline #000;
+}
+
+ul {
+    list-style: none;
+}
+
+main {
+    width: 100%;
+    height: 100%;
+}
+
+article {
+    position: absolute;
+    left: 50%;
+    top:50%;
+    transform: translateX(-50%) translateY(-50%);
+    width: 50vh;
+    height: 60%;
+    background-color: #fff;
+    outline: 2vh solid black;
+    border-radius: 3vh;
+    box-shadow: 0 0 4vh 0.5vw black;
+}
+
+#logreg_page section{
+    width:100%;
+    height: 100%;
+}
+
+#logreg_logo {
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60%;
+    height: 30%;
+}
+
+#logreg_logo img{
+    position: relative;
+    filter:invert(100%);
+    float: left;
+    width: 11vh;
+}
+
+#logreg_logo h5{
+    margin: 0;
+    font-size: 10vh;
+    color: #000;
+}
+
+#logreg_page ul{
+    position: absolute;
+    padding: 0;
+    width: 100%;
+    left: 0;
+    top:55%;
+    transform: translateY(-50%);
+}
+
+#logreg_page ul li {
+    display: block;
+    width: 100%;
+}
+
+#logreg_page ul span {
+    display: block;
+    width: 50%;
+    padding: 3vh 0;
+    text-align: center;
+    background-color: #000;
+    margin: 4vh 50%;
+    transform: translateX(-50%);
+    transition: all 0.25s ease-in-out;
+    font-size: 3vh;
+    color: #fff;
+    border-radius: 1vh;
+}
+
+#logreg_page ul span:hover {
+    transform: translateX(-50%) scale(1.05);
+}
+
+form {
+    position: absolute;
+    width: 50%;
+    top:35%;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 2.5vh;
+}
+
+form input {
+    width: 100%;
+    height: 4vh;
+    margin-bottom: 3vh;
+    outline: 0;
+    font-size: 2.5vh;
+    border: 0.1vh solid black;
+    border-radius: 1vh;
+    padding: 0 0 0 0.5vh;
+}
+
+form button {
+    width: 100%;
+    height: 7vh;
+    margin-bottom: 3vh;
+    outline: 0;
+    font-size: 2.5vh;
+    background-color: #000;
+    color: #fff;
+    border: none;
+    border-radius: 1vh;
+    padding: 0;
+    transition: all 0.25s ease-in-out;
+}
+
+form button:hover {
+    transform: scale(1.05);
+    cursor: pointer;
+}
+
+#footer_nav {
+    position: absolute;
+    bottom: 2vh;
+    left: 2vh;
+}
+
+#footer_nav a {
+    color: rgb(34, 33, 46)
+}
+
+#leave_guest::before {
+    content: "< ";
+}
+
+#reg_page {
+    height: 75%;
+}

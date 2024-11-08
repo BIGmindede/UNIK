@@ -1,0 +1,96 @@
+article *{
+    width: 100%;
+    color: black;
+}
+
+hr {
+    border: 0.1vh solid #000;
+    width: 90%;
+}
+
+table {
+    width: 100%;
+    padding: 3vh;
+    border-spacing: 3vh;
+}
+
+tr {
+    width: 100%;
+    box-shadow: 0 0 0.5vh 0.1vh black;
+    border-radius: 2vh;
+}
+
+td {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+td div {
+    position: relative;
+    width: 80%;
+    padding: 3vh;
+}
+
+td p {
+    font-size: 2.5vh;
+}
+
+td div h4 {
+    text-align: left;
+    font-size: 3vh;
+}
+
+.leftcol {
+    position: relative;
+    margin: 0 auto;
+    padding: 3vh;
+    width: 20%;
+    height: 20%;
+    float: left;
+}
+
+@media (max-width: 122vh) {
+    .leftcol {
+        width: 30%;
+    }
+    td div {
+        width: 70%;
+    }
+}
+
+@media (max-width: 105vh) {
+
+    h1 {
+        font-size: 4vh;
+    }
+
+    .leftcol {
+        width: 40%;
+    }
+    td div {
+        width: 60%;
+    }
+}
+
+@media (max-width: 75vh) {
+    .leftcol {
+        width: 100%;
+        padding-bottom: 0;
+    }
+
+    td div {
+        position: relative;
+        width: 100%;
+        padding: 3vh;
+    }
+    
+    td p {
+        font-size: 2.5vh;
+    }
+    
+    td div h4 {
+        text-align: center;
+        font-size: 3vh;
+    }
+}
+

@@ -1,0 +1,13 @@
+version: '3.8'
+
+services:
+  server_apache:
+    build: server/
+    ports:
+      - 1234:80
+  client:
+    build: client/
+    command: python ./client.py
+    network_mode: host
+    depends_on:
+      - server_apache

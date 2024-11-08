@@ -1,0 +1,218 @@
+* {
+    font-family: 'Spectral', serif;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Spectral', serif;
+    overflow: auto;
+    display: block;
+    background-position: 0 4vw;
+}
+
+main {
+    background-image: none;
+    position: relative;
+    width: 100%;
+    background-color: #ffffff;
+    z-index: 2;
+    overflow: hidden;
+    padding-top: 3vw;
+}
+
+article {
+    padding: 2vw;
+}
+
+section {
+    position: relative;
+}
+
+h1 {
+    text-align: center;
+    font-family: 'Spectral', serif;
+    font-size: 3.1vw;
+    padding: 1vw;
+    display: block;
+    font-weight: 1200;
+    text-decoration: none;
+    color: #ffffff;
+}
+h2 {
+    text-align: center;
+    font-family:'Spectral', serif;
+    font-size: 2.5vw;
+    padding: 0vw;
+    display: block;
+}
+h3 {
+    text-align: center;
+    font-family: 'Spectral', serif;
+    font-size: 1.1vw;
+    padding: 1vw;
+    display: block;
+    font-weight: 1200;
+    text-decoration: none;
+    color: #000000;
+}
+h4 {
+    text-align: center;
+    font-family: 'Spectral', serif;
+    font-size: 1.1vw;
+    width: 50vw;
+    padding: 1vw;
+    display: block;
+    font-weight: 1200;
+    text-decoration: underline;
+    color: #000000;
+}
+h5 {
+    width: 100%;
+    text-align: center;
+    font-size: 9.19vw;
+    color:#000000;
+    margin-left: 50%;
+    transform: translateX(-50%);
+    font-family: 'Secular One', sans-serif; 
+}
+h6 {
+    width:64%;
+    text-align: center;
+    font-size: 1.5vw;
+    line-height: 1;
+    font-weight: 100;
+    font-family: Courier, monospace;
+    color:#ffffff;
+    margin-left: 50%;
+    transform: translateX(-50%);
+    padding: 1vw;
+}
+
+cite {
+    font-size: 1.3vw;
+    display: block;
+}
+
+p {
+    font-size: 1.5vw;
+    font-family: 'Spectral', serif;
+}
+
+hr {
+    width: 90%;
+    margin: 1vh 5%;
+}
+
+#banner_note {
+    position: relative;
+    padding-top: 17vw;
+    width: 100%;
+    height: 47vw;
+}
+
+#banner_note h6::before{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(14, 14, 14, 55%);
+    backdrop-filter: blur(10px);
+    border-radius: 1vw;
+    z-index: -1;
+}
+
+#socials {
+    /* background-image: url(socials_container.png); */
+    background-color: #fdfff5;
+    border: 0.25vw solid #002305;
+    border-radius: 0.3vw 0 0 0.3vw;
+    background-size: 4vw 17vw;
+    background-repeat: no-repeat;
+    height: 15vw;
+    width: 4vw;
+    position: fixed;
+    bottom: calc(47vh - 16vw);
+    right: -3.75vw;
+    padding: 0.75vw 0.25vw;
+    transition: right 0.25s ease-in-out;
+}
+
+#socials img {
+    display: block;
+    margin: 1vw 0;
+    width: 3vw;
+    height: 3vw;
+}
+
+#socials_arrow {
+    background-image: url(arrow_left.png);
+    background-color: #fff;
+    background-size: 1vw 2vw;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 1.5vw;
+    height: 3vw;
+    position: fixed;
+    right: 0.25vw;
+    bottom: calc(47vh - 10vw);
+    transition: width 0.25s ease, background-color 0.25s ease,
+     border 0.25s ease, transform 0.5s ease-in-out, right 0.25s ease-in-out;
+}
+
+#socials_arrow_checkbox:checked ~ #socials{
+    right: -0.25vw;
+}
+
+footer {
+    position: relative;
+    background-color: #000000;
+    width: 100%;
+    height: 8.5vh;
+    box-shadow: 0 0 0.3vw 0.1vw black;
+    z-index: 2;
+}
+
+#contacts {
+    position:relative;
+    display: block;
+    list-style: none;
+    width: 100%;
+    height: 8.5vh;
+}
+
+#contacts li {
+    position:relative;
+    float: left;
+    width: 25%;
+    height: 8.5vh;
+}
+
+#contacts li a {
+    position: absolute;
+    display: block;
+    top: 50%;
+    left: 50%;
+    transform: translateY(-50%) translateX(-50%);
+    text-decoration: none;
+    color: #ffffff;
+}
+
+#contacts a img {
+    height: calc(2vw + 1.6vh);
+    margin: 0 auto;
+}
+
+@media (max-width: 75vh) {
+    body {
+        background-position: 0 11vh;
+    }
+
+    #banner_note h6 {
+        font-size: 3vw;
+        width:80%;
+    }
+}

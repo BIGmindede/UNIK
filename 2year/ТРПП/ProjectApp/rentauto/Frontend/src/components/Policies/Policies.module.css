@@ -1,0 +1,74 @@
+.wrap {
+    padding: 0 30px 20px 30px;
+}
+
+.policies * {
+    user-select: none;
+    transition: all 0.25s ease-in-out;
+}
+
+.policies {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.policies li label {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.policies label h2 > span + span::before{
+    content: "+";
+    color: red;
+    transition: all .25 ease-in-out;
+}
+
+.policies div{
+    padding: 0 20px;
+    box-sizing: border-box;
+}
+
+.policies li label h2{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 10px;
+    border-bottom: 1px solid forestgreen;
+    cursor: pointer;
+    box-sizing: border-box;
+}
+
+.policies li label h2:hover{
+    background-color: lightgreen;
+}
+
+.policies li label h2:hover span + span::before{
+    filter: brightness(0.5);
+}
+
+.policies input {
+    display: none;
+}
+
+
+.policies input ~ div {
+    display: none;
+}
+
+.policies input:checked ~ label {
+    background-color: lightgreen;
+}
+
+.policies input:checked ~ label h2 > span + span::before {
+    content: '-';
+    filter: brightness(0.5);
+}
+
+.policies input:checked ~ div {
+    display: block;
+}
+

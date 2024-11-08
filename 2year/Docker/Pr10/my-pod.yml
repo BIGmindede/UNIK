@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: app-pod
+spec:
+  containers:
+  - name: app1-container
+    image: sentmentl/kubeimage1:v1
+    ports:
+    - containerPort: 8080
+  - name: app2-container
+    image: sentmentl/kubeimage2:v1
+    ports:
+    - containerPort: 8081
+
+    

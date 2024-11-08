@@ -1,0 +1,108 @@
+Task 1
+artificial intelligence - (искусственный интеллект)
+
+nanomedicine - (наномедицина)
+
+artificial neural network - (искусственная нейронная сеть)
+
+nanotechnology - (нанотехнологии)
+
+biometrics - (биометрия)
+
+nanotransistors - (нанотранзисторы)
+
+machine learning - (машинное обучение)
+
+pervasive computing - (всепроникающие вычисления)
+
+nanobots - (нанороботы)
+
+robotics - (робототехника)
+
+nanocomputers - (нанокомпьютеры)
+
+smart home appliances - (умные бытовые приборы)
+
+nanomaterials - (наноматериалы)
+
+ubiquitous devices - (вездесущие устройства)
+
+Task 2
+1. What is an artificial neural network?
+- An artificial neural network is a computing system inspired by the biological neural networks that make up animal brains. It is based on a collection of connected units, or nodes, called artificial neurons,
+which simulate the neurons in a biological brain. Neural networks are brain-inspired systems which are intended to replicate the way that humans learn. They are one of the main tools used in machine learning.
+
+2. What problems do professionals come across when working with artificial neural networks?
+- One of the main challenges is the amount of time it takes to train networks, which can require a considerable amount of computing power for more complex tasks. The biggest issue, however,
+is that neural networks are “black boxes,” in which the user feeds in data and receives answers. They can fine-tune the answers, but they don’t have access to the exact decision-making process.
+This is the problem a number of researchers are working on today, but it will only become more important as artificial neural networks play a bigger and bigger role in our lives.
+
+Task 3
+1. Artificial neural networks are one of the main tools used in machine learning.
+2. Broadly speaking neural networks are designed for spotting patterns in data.
+3. Artificial neural network is based on artificial neurons.
+4. In the same way that we learn from experience in our lives, neural networks require data to learn.
+5. On a technical level, one of the biggest challenges is the amount of time it takes to train networks.
+
+Task 5
+Как работает искусственная нейронная сеть?
+Хотя нейронные сети (также называемые "персептроны") существуют с 1940-х годов, только в последние несколько десятилетий они стали основной частью искусственного интеллекта.
+Это связано с появлением техники, называемой "обратным распространением ошибки". Нейронные сети состоят из входного и выходного слоев, а также (в большинстве случаев) скрытого слоя,
+состоящего из блоков, которые преобразуют входные данные в что-то, что может использовать выходной слой. Обратное распространение позволяет сетям корректировать свои скрытые слои нейронов в ситуациях,
+когда результат не соответствует тому, что создатель надеется получить - например, сеть, предназначенная для распознавания собак, которая ошибочно идентифицирует кошку.
+
+Еще одним важным прорывом стало появление глубоких нейронных сетей, в которых различные слои многослойной сети извлекают разные функции, пока она не сможет распознать то, что ищет.
+Чтобы получить базовое представление о том, как глубокая нейронная сеть обучается, представьте себе конвейерную линию на фабрике. После того, как входные данные (набор данных) вводятся,
+они передаются по конвейерной ленте, и каждый последующий этап или слой извлекает разный набор высокоуровневых функций. Если сеть предназначена для распознавания объекта, первый слой может анализировать яркость его пикселей.
+Следующий слой может затем идентифицировать любые края на изображении на основе линий из похожих пикселей. После этого другой слой может распознавать текстуры и формы и т. д.
+К моменту достижения четвертого или пятого слоя, глубокая нейронная сеть создаст сложные детекторы функций. Она может понимать, что некоторые элементы изображения (например, пара глаз, нос и рот) часто встречаются вместе.
+
+После этого исследователи, которые обучили сеть, могут дать метки выходу и затем использовать обратное распространение, чтобы исправить ошибки, которые были допущены.
+Через некоторое время сеть может выполнять свои собственные задачи классификации без помощи человека.
+Когда исследователи или компьютерные ученые начинают обучать нейронную сеть, они обычно делят свои данные на три набора. Первый - это тренировочный набор, который помогает сети установить различные веса между ее узлами.
+После этого они настраивают ее, используя набор проверки. Наконец, они используют тестовый набор, чтобы увидеть, может ли она успешно преобразовать входные данные в желаемый выход.
+
+Task 6
+1. Neural network - a system of interconnected artificial neurons that can process and analyze data, used in artificial intelligence.
+2. Backpropagation - a technique used in neural networks to adjust the weights of connections between neurons based on the error in the output, allowing the network to learn and improve its accuracy over time.
+3. Perceptrons - a type of neural network consisting of a single layer of interconnected neurons, used for simple classification tasks.
+4. Artificial intelligence - the simulation of human intelligence in machines, including tasks such as problem-solving, learning, and decision-making.
+5. Computer scientists - professionals who study and develop computer technology and applications.
+6. To train the network - to teach a neural network to recognize patterns in data by adjusting its weights and biases through exposure to training examples.
+7. Complex feature detectors - neurons within a neural network that are able to identify and respond to specific features or patterns in input data, often at higher levels of abstraction than simpler neurons in the network.
+
+Task 7
+1. A technique called backpropagation allows networks to adjust their hidden layers of neurons in situations where the outcome does not match what the creator is hoping for.
+2. Different layers of a neural network extract different features until it can recognize what it is looking for.
+3. The researchers who have trained the network can give labels to the output, and then use backpropagation to correct any mistakes which have been made.
+4. The network can carry out its own classification tasks without human help.
+5. Computer scientists use a test set to see if a neural network can successfully turn the input into the desired output.
+
+Task 8
+1. What is the internet of things?
+- The internet of things is a system of interrelated computing devices, mechanical and digital machines, objects, animals or people that are provided with unique identifiers (UIDs) and the ability to
+transfer data over a network without requiring human-to-human or human-to-computer interaction.
+2. What are the benefits of using the internet of things?
+- The benefits of using the internet of things include gaining complete control over one's life, providing businesses with real-time insights into how their systems work, automating processes and 
+reducing labor costs, cutting down on waste and improving service delivery, and offering transparency into customer transactions. However, some disadvantages include potential security risks,
+managing massive amounts of data from numerous devices, bugs in the system affecting all connected devices, and difficulty in communication between devices from different manufacturers due to lack of international standardization.
+
+Task 10
+1. The internet of things, or IoT, is a system of interrelated smart devices, mechanical and digital machines.
+2. IoT is a system of devices that are provided with the ability to transfer data over a network without requiring human-to-human or human-to-computer interaction.
+3. A thing in the internet of things can be a person with a heart monitor implant, a farm animal with a biochip transponder.
+4. An IoT ecosystem consists of web-enabled computing devices that use embedded systems, such as processors, sensors and communication hardware.
+5. IoT can also use artificial intelligence (AI) and machine learning to make data collecting processes easier and more dynamic.
+
+Task 11
+1. An artificial neural network consists of a set of interconnected nodes called artificial neurons.
+2. Neural networks are not programmed in the traditional sense of the word, they are trained.
+3. The more data a neural network processes, the more accurate its subsequent work will be.
+4. A neural network is a "black box" into which the user inputs data and receives answers. You can increase the accuracy of the answers, but you don't know exactly how these answers were obtained.
+5. Neural networks are excellent tools for finding patterns that are too complex or numerous for a programmer to teach a machine to recognize.
+6. Neural networks are behind many of the biggest achievements in artificial intelligence.
+7. The internet of things helps people better control their lives and increases the efficiency of many companies.
+8. The internet of things can also use artificial intelligence and machine learning to make the data collection process easier and more dynamic.
+9. The more information is transmitted between devices, the higher the likelihood that a hacker can steal confidential information.
+10. Automation of tasks helps improve the quality of business services and reduces the need for human intervention.
+11. The internet of things allows companies to see in real-time how their systems are actually working.

@@ -1,0 +1,7 @@
+version: '3'
+services:
+  my-maven-app:
+    build: .
+    ports:
+      - "8080:8080"
+      

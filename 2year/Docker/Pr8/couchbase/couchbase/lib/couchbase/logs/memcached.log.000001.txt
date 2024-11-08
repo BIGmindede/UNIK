@@ -1,0 +1,40 @@
+2023-05-24T12:22:20.800107+00:00 INFO ---------- Opening logfile: /opt/couchbase/var/lib/couchbase/logs/memcached.log.000001.txt
+2023-05-24T12:22:20.802024+00:00 INFO Couchbase version 6.5.0-4960 starting.
+2023-05-24T12:22:20.802109+00:00 INFO Breakpad enabled. Minidumps will be written to '/opt/couchbase/var/lib/couchbase/crash'
+2023-05-24T12:22:20.802651+00:00 INFO Using SLA configuration: {"COMPACT_DB":{"slow":"1800 s"},"DELETE_BUCKET":{"slow":"10 s"},"SEQNO_PERSISTENCE":{"slow":"30 s"},"comment":"Current MCBP SLA configuration","default":{"slow":"500 ms"},"version":1}
+2023-05-24T12:22:20.802686+00:00 INFO Enable standard input listener
+2023-05-24T12:22:20.802787+00:00 INFO NUMA: NOT setting memory allocation policy to 'interleave' - request failed: Operation not permitted
+2023-05-24T12:22:20.803769+00:00 INFO Loading RBAC configuration from [/opt/couchbase/var/lib/couchbase/config/memcached.rbac]
+2023-05-24T12:22:20.806292+00:00 INFO Loading error maps from [/opt/couchbase/etc/couchbase/kv/error_maps]
+2023-05-24T12:22:20.806955+00:00 INFO Starting external authentication manager
+2023-05-24T12:22:20.814769+00:00 INFO Audit descriptor 20492 changed from: disabled to: enabled
+2023-05-24T12:22:20.814803+00:00 INFO Audit descriptor 20487 changed from: disabled to: enabled
+2023-05-24T12:22:20.814811+00:00 INFO Audit descriptor 20486 changed from: disabled to: enabled
+2023-05-24T12:22:20.814812+00:00 INFO Audit descriptor 20484 changed from: disabled to: enabled
+2023-05-24T12:22:20.814813+00:00 INFO Audit descriptor 20483 changed from: disabled to: enabled
+2023-05-24T12:22:20.814813+00:00 INFO Audit descriptor 20482 changed from: disabled to: enabled
+2023-05-24T12:22:20.814813+00:00 INFO Audit descriptor 20481 changed from: disabled to: enabled
+2023-05-24T12:22:20.814814+00:00 INFO Audit descriptor 20480 changed from: disabled to: enabled
+2023-05-24T12:22:20.814827+00:00 INFO Changing logging level to 0
+2023-05-24T12:22:20.816580+00:00 INFO Create bucket "<internal>" by using "nobucket.so"
+2023-05-24T12:22:20.818846+00:00 INFO Enable port(s)
+2023-05-24T12:22:20.819201+00:00 INFO 9 Listen on IPv4: 0.0.0.0:11210
+2023-05-24T12:22:20.819267+00:00 INFO 10 Listen on IPv6: [::]:11210
+2023-05-24T12:22:20.819391+00:00 INFO 11 Listen on IPv4: 0.0.0.0:11209
+2023-05-24T12:22:20.819435+00:00 INFO 12 Listen on IPv6: [::]:11209
+2023-05-24T12:22:20.819512+00:00 INFO 13 Listen on IPv4: 0.0.0.0:11207
+2023-05-24T12:22:20.819559+00:00 INFO 14 Listen on IPv6: [::]:11207
+2023-05-24T12:22:20.819677+00:00 INFO 15 Listen on IPv4: 0.0.0.0:11206
+2023-05-24T12:22:20.819723+00:00 INFO 16 Listen on IPv6: [::]:11206
+2023-05-24T12:22:20.875779+00:00 INFO Initialization complete. Accepting clients.
+2023-05-24T12:22:21.537837+00:00 INFO 79: Client 127.0.0.1:35937 authenticated as <ud>@ns_server</ud>
+2023-05-24T12:22:21.538059+00:00 INFO 79: HELO [regular] [ 127.0.0.1:35937 - 127.0.0.1:11209 (<ud>@ns_server</ud>) ]
+2023-05-24T12:22:21.538236+00:00 INFO 79: Loading RBAC configuration from [/opt/couchbase/var/lib/couchbase/config/memcached.rbac] [ 127.0.0.1:35937 - 127.0.0.1:11209 (<ud>@ns_server</ud>) ]
+2023-05-24T12:22:21.539811+00:00 INFO 79: RBAC configuration updated [ 127.0.0.1:35937 - 127.0.0.1:11209 (<ud>@ns_server</ud>) ]
+2023-05-24T12:22:21.631874+00:00 INFO 79: Client 127.0.0.1:39509 authenticated as <ud>@ns_server</ud>
+2023-05-24T12:22:21.632041+00:00 INFO 79: HELO [regular] [ 127.0.0.1:39509 - 127.0.0.1:11209 (<ud>@ns_server</ud>) ]
+2023-05-24T12:22:21.642634+00:00 INFO 80: Client 127.0.0.1:36005 authenticated as <ud>@ns_server</ud>
+2023-05-24T12:22:21.642844+00:00 INFO 80: HELO [regular] [ 127.0.0.1:36005 - 127.0.0.1:11209 (<ud>@ns_server</ud>) ]
+2023-05-24T12:22:21.643012+00:00 INFO 80: [ 127.0.0.1:36005 - 127.0.0.1:11209 (<ud>@ns_server</ud>) ] Updated global cluster configuration. New revision: 11
+2023-05-24T12:22:21.643057+00:00 INFO Pushing new cluster config for bucket:[] revision:[11]
+2023-05-24T12:23:23.875297+00:00 WARNING system clock changed? difference = 63, memcached_epoch = 1684930940, memcached_uptime = 60, new memcached_epoch = 1684930943, next check 120

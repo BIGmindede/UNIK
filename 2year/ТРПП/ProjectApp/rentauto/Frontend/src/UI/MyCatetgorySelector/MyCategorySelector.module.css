@@ -1,0 +1,62 @@
+.option {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 100px;
+    width: 33vw;
+    max-width: 150px;
+    height: 40px;
+    margin: 10px 35px 10px 5px;
+    font-size: 1.2rem;
+    background-color: rgba(255, 255, 255, 0.753);
+    outline: 1px solid rgba(0, 0, 0, 0.39);
+    user-select: none;
+    cursor: pointer;
+    transition: all 0.25s ease-in-out;
+}
+
+
+.option::after {
+    content: "\2716";
+    position: absolute;
+    right: -25px;
+    width: 25px;
+    height: calc(100% + 2px);
+    font-size: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: rotate(45deg);
+    transition: all 0.25s ease-in-out;
+    color: white;
+}
+
+
+.option::before {
+    content: "";
+    position: absolute;
+    right: -25px;
+    height: calc(100% + 2px);
+    width: 25px;
+    background-color: #00bb35;
+    transition: all 0.25s ease-in-out;
+}
+
+.option:hover {
+    background-color: #00bb35;
+}
+
+.selected {
+    background-color: #00bb35;
+    color: white;
+}
+
+.selected::after {
+    transform: rotate(360deg);
+}
+
+
+.selected::before {
+    background-color: red;
+}

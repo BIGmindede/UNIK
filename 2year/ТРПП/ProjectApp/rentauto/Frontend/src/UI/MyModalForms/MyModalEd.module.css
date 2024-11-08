@@ -1,0 +1,68 @@
+.vis {
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.603);
+}
+
+.vis form {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    background-color: gainsboro;
+    padding: 30px 0;
+    width: 500px;
+    border-radius: 20px;
+    opacity: 1;
+}
+
+.vis form label {
+    width: 60%;
+}
+
+.vis label input{
+    width: 100%;
+    height: 30px;
+    margin: 0 auto;
+    box-sizing: border-box;
+    -webkit-box-sizing:border-box;
+    -moz-box-sizing: border-box;
+}
+
+.vis label[for="age"] input {
+    margin-left: 10px;
+    display: inline-block;
+    width: 14%;
+}
+
+.vis > * {
+    display: block;
+}
+
+.hid {
+    display: none;
+    opacity: 0;
+}
+
+.unchWarn {
+    color: red;
+    background-color: cornsilk;
+    border-radius: 5px;
+    padding: 10px 10px 20px 10px;
+}
+
+.unchWarnHid {
+    display: none;
+}
+
+textarea {
+    width: 100%;
+    box-sizing: border-box;
+}

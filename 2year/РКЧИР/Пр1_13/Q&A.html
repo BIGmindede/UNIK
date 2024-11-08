@@ -1,0 +1,749 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <link rel = "stylesheet" href = "style.css">
+        <link rel = "stylesheet" href = "header.css">
+        <link rel = "stylesheet" href = "Q&A.css">
+        <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+        <title>Q&A</title>
+        <link rel="icon" type = "image/png" sizes = "32x32" href="fav.png">
+    </head>
+    <body>
+        <header>
+            <nav id = "navpan">
+                <ul>
+                    <li id = "search">
+                        <div id = "searchbox"><input type ="search" placeholder="Найти..."><img src = "search_button.png" id = "search_button"></div>
+                    </li>
+                    <li id = "navbar">
+                        <ul>
+                            <li id = "catalog"><a href = "catalog.html"><p>Каталог</p></a>
+                                <ul>
+                                    <li><a href = "catalog.html #cakes"><p>Торты</p></a></li>
+                                    <li><a href = "catalog.html #pies"><p>Пироги</p></a></li>
+                                    <li><a href = "catalog.html #cheesecakes"><p>Чизкейки</p></a></li>
+                                    <li><a href = "catalog.html #bisquits"><p>Пирожные</p></a></li>
+                                    <li><a href = "catalog.html #tarts"><p>Тарталетки</p></a></li>
+                                </ul>
+                            </li>
+                            <li><a href = "personal_order_form.html"><p>Под заказ</p></a></li>
+                            <li id = "title"><a href = "index.html"><img src = "logo.png"></a></li>
+                            <li><a href = "about_us.html"><p>О нас</p></a></li>
+                            <li><a href = "Q&A.html"><p>Q&A</p></a></li>
+                        </ul>
+                    </li>
+                    <li id = "user_field">
+                        <ul>
+                            <li id = "user_icon"><a href = "logreg.html"><img src = "user_icon.png"></a></li>
+                            <li id = "messages"><span id = "message_marker">0</span>
+                                <ul>
+                                    
+                                </ul>
+                            </li>
+                            <script src="messages.js"></script>
+                            <li>
+                                <ul>
+                                    <li><p id = "user_name"><a href = "logreg.html">User1234567891011</a></p>
+                                        <script src="trancate.js"></script>
+                                    </li>
+                                    <li id = "goods">
+                                        <a href = "cart.html"><img id = "cart_icon" src = "cart_icon.png"></a>
+                                        <a href = "liked.html"><img id = "liked_icon" src = "liked_icon.png"></a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+            <nav id = "burger-menu">
+                <input type="checkbox" name="burger_menu_toggle" id="burger_menu_toggle" hidden>
+                <ul id = "title">
+                    <li id="burger_menu_checkbox">
+                        <label id = "burger_menu_label" for="burger_menu_toggle" onclick><span id = "burger_menu_icon"></span></label>
+                    </li>
+                    <li id="burger_menu_logo">
+                        <a id = "logo" href = "index.html"><img src = "logo.png"></a>
+                    </li>
+                </ul>
+                <ul>
+                    <li><a href="logreg.html"><p>Учетная запись</p></a></li>
+                    <li><a href="cart.html"><p>Kорзина</p></a></li>
+                    <li><a href="liked.html"><p>Понравившиеся</p></a></li>
+                    <li id = "catalog_burger_menu"><a href="catalog.html"><p>Каталог</p></a></li>
+                    <li><a href = "personal_order_form.html"><p>Под заказ</p></a></li>
+                    <li><a href = "about_us.html"><p>О нас</p></a></li>
+                    <li><a href = "Q&A.html"><p>Q&A</p></a></li>
+                </ul>
+                    
+            </nav>
+        </header>
+        <main>
+            <article><h1>Практические задания (в меню - Q&A)</h1><hr>
+                <section><h2>Практика 1</h2>
+                    <h3>Пункт1</h3>
+                    <h1>Заголовок h1</h1>
+                    <h2>Заголовок h2</h2>
+                    <h3>Заголовок h3</h3>
+                    <h3>Пункт2</h3>
+                    <p>Какой то параграф<br>
+                    перенесенный на новую строку текст этого параграфа</p>
+                    <pre>
+                    Преформатированный текст параграфа
+                        пишу сразу так,
+                            как хочу чтобы выглядел параграф
+                    </pre>
+                    <h3>Пункт3</h3>
+                    <b>Жирный шрифт тега b</b><br>
+                    <strong>Жирный шрифт тега strong</strong><br>
+                    <i>Курсив тега i</i><br>
+                    <em>Курсив тега em</em><br>
+                    <u>Подчеркнутый текс</u><sub>Нижний индекс</sub><sup>Верхний индекс</sup><br>
+                    <cite>Какая-то цитата</cite>
+                    <blockquote>Длинная цитата Длинная цитата Длинная цитата Длинная цитата Длинная цитата</blockquote>
+                    <abbr title="Определение термина">термин</abbr><br>
+                    <h3>Пункт4</h3>
+                    <a href="#info">Ссылка якорь на раздел футера "О нас"</a><br>
+                    <a href="#jakor">Ссылка якорь на заголовок h2 секции с 12 практикой</a>
+                    <h3>Пункт5</h3>
+                    <p>Ссылка на просмотр аниме <a href="https://jut.su/onepunchman/season-2/episode-11.html">Onepunchman 11 эпизод</a></p>
+                    <h3>Пункт6</h3>
+                    <p>Ссылка на номер телефона находится внизу в футере в разделе Контакты</p>
+                    <h3>Пункт7</h3>
+                    <p>Ссылка на почтовый клиент находится внизу в футере в разделе Контакты</p>
+                    <h3>Пункт8</h3>
+                    <ol type = "A" start="3">Список с буквенными индексами начинающийся с "C"
+                        <li>Пункт 1</li>
+                        <li>Пункт 2</li>
+                        <li>Пункт 3</li>
+                    </ol>
+                    <h3>Пункт9</h3>
+                    <ol>Cписок со вложенным списком
+                        <li>Пункт1
+                            <ul>
+                                <li>Подпункт1</li>
+                                <li>Подпункт2</li>
+                                <li>Подпункт3</li>
+                            </ul>
+                        </li>
+                        <li>Пункт2</li>
+                        <li>Пункт3</li>
+                    </ol>
+                    <h3>Пункт10</h3>
+                    <dl>Список описаний
+                        <dt>Тег</dt>
+                          <dd>Тег — это специальный символ разметки, который применяется для 
+                              вставки различных элементов на веб-страницу таких как: рисунки, 
+                              таблицы, ссылки и др., и для изменения их вида.</dd>
+                        <dt>HTML-документ</dt>
+                          <dd>Обычный текстовый файл, который может содержать в себе текст, 
+                              теги и стили. Изображения и другие объекты хранятся отдельно. 
+                              Содержимое такого файла обычно называется HTML-код.</dd>
+                        <dt>Сайт</dt>
+                        <dd>Cайт — это набор отдельных веб-страниц, которые связаны между собой 
+                              ссылками и единым оформлением.</dd>
+                    </dl>
+                    <h3>Пункт11</h3>
+                    <img src = "map.png" usemap = "#figuri" alt = "Доступны 4 фигуры для выбора" >
+                    <map name = "figuri" >
+                        <area shape = "rect" coords = "8,8,172,172" href = "red.html" alt = "Красный квадрат" >
+                        <area shape = "circle" coords = "302,92,86" href = "green.html" alt = "Зелёный круг." >
+                        <area shape = "poly" coords = "515,13,414,172,613,172" href = "blue.html" alt = "Голубой треугольник" >
+                        <area shape = "poly" coords = "726,13,701,66,647,92,701,117,726,170,752,118,805,93,751,67"  href = "yellow.html" alt = "Желтая звезда" >
+                    </map>
+                    <h3>Пункт12</h3>
+                    <p>фавиконка там где и должна быть</p>
+                </section>
+                <section><h2>Практика 2</h2>
+                    <p>хедер в верху страницы, основная часть состоит из блока main,
+                     в котором находятся блоки article и aside(боковая выдвигающаяся панель справа),
+                     футер находится внизу страницы шрифт гугл fonts - "Gothic"</p>
+                </section>
+                <section><h2>Практика 3</h2>
+                </section>
+                <section><h2>Практика 4</h2>
+                    <p>Переход к форме - пункт "под заказ" в меню хедера</p>
+                    <iframe src="video.html" frameborder="0"></iframe>
+                </section>
+                <section><h2>Практика 5</h2>
+                    <h3>Пункт1</h3>
+                    <h3>Подпункт1</h3><p>Свойство opacity используется при наведении на карточку товара на главной странице сайта (Клик по логотипу ресурса в хедере страницы)</p>
+                    <p>Свойство visible изменяется для бургер меню хедера и стандартного меню хедера при изменении ориентации страницы (с горизонтальной на вертикальную и наоборот)</p>
+                    <h3>Подпункт2</h3><p>Комбинаторы наследования в меню бургере(ширина  страницы меньше или равна 75% от высоты)</p>
+                    <h3>Подпункт3</h3><p>Псевдоэлементы before и after используются в иконке бургер-меню</p>
+                    <h3>Подпункт4</h3><p>Псевдокласс :checked используется для стилизации иконки бургер-меню</p>
+                    <h3>Подпункт5</h3><p>свойство transform работатет для псевдоэлементов before и after при нажатии на иконку бургер-меню</p>
+                    <h3>Пункт2</h3>
+                    <p>Адаптивная галерея изображений на странице "О нас" сайта (Клик по пункту "О нас" в меню хедера)</p>
+                </section>
+                <section><h2>Практика 6</h2>
+                    <h3>Пункт2</h3>
+                    <p>Список уведомлений появляется при наведении на маркер уведомлений в нижнем правом углу иконки пользователя, находящейся справа в меню хедера</p>
+                    <h3>Пункт3</h3>
+                    <p>Карточки находятся на главной странице и странице каталога(Клик по логотипу ресурса или по пункту каталог в меню хедера)</p>
+                    <h3>Пункт4</h3>
+                    <div id = "video_cont">
+                        <video src="vidos.mp4" width="90%" height="90%" controls></video>
+                    </div>
+                </section>
+                <section><h2>Практика 7</h2>
+                    <h3>Пункт1</h3>
+                    <div class="container_gm">
+                        <div class="box_gm">
+                          <span></span>
+                          <div class="content_gm">
+                            <h2>Card one</h2>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                            <a href="#">Read More</a>
+                          </div>
+                        </div>
+                        <div class="box_gm">
+                          <span></span>
+                          <div class="content_gm">
+                            <h2>Card two</h2>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                            <a href="#">Read More</a>
+                          </div>
+                        </div>
+                        <div class="box_gm">
+                          <span></span>
+                          <div class="content_gm">
+                            <h2>Card three</h2>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                            <a href="#">Read More</a>
+                          </div>
+                        </div>
+                      </div>
+                      <h3>Пункт2</h3>
+                      <p>Кнопки социальных сетей находятся в боковой выдвигающейся панели справа</p>
+                      <h3>Пункт3</h3>
+                      <p>Форма регистрации находится на странице регистрации (Клик по иконке пользователя в хедере сайта)</p>
+                      <h3>Пункт4</h3>
+                      <div class="container_b">
+                        <div class="box_b">
+                          <div class="content_b">
+                            <h2>01</h2>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                            <a href="#">Read More</a>
+                          </div>
+                        </div>
+                        <div class="box_b">
+                          <div class="content_b">
+                            <h2>02</h2>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                            <a href="#">Read More</a>
+                          </div>
+                        </div>
+                        <div class="box_b">
+                          <div class="content_b">
+                            <h2>03</h2>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                            <a href="#">Read More</a>
+                          </div>
+                        </div>
+                      </div>
+                      <h3>Пункт5</h3>
+                      <div class="container_g">
+                        <div class="box_g">
+                          <div class="content_g">
+                            <h2>01</h2>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                            <a href="#">Read More</a>
+                          </div>
+                        </div>
+                        <div class="box_g">
+                          <div class="content_g">
+                            <h2>02</h2>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                            <a href="#">Read More</a>
+                          </div>
+                        </div>
+                        <div class="box_g">
+                          <div class="content_g">
+                            <h2>03</h2>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                            <a href="#">Read More</a>
+                          </div>
+                        </div>
+                      </div>
+                </section>
+                <section><h2>Практика 8</h2>
+                    <h3>Пункт1</h3>
+                    <a href="grid_page.html">GRIDPAGE</a>
+                    <h3>Пункт2</h3>
+                    <div id = "grid_gallery">
+                        <div id = "pic1"></div>
+                        <div id = "pic2"></div>
+                        <div id = "pic3"></div>
+                        <div id = "pic4"></div>
+                        <div id = "pic5"></div>
+                        <div id = "pic6"></div>
+                        <div id = "pic7"></div>
+                        <div id = "pic8"></div>
+                    </div>
+                    <h3>Пункт3</h3>
+                    <p>Форма на странице персонального заказа (Клик по пункту "Под заказ" меню хедера)</p>
+                    <p>Футер внизу страницы</p>
+                </section>
+                <section id = "Pr9"><h2>Практика 9</h2>
+                    <h3>Пункт1</h3>
+                    <p>Подтверждение при переходе на страницу авторизации (Клик по иконке пользователя в меню хедера справа)</p>
+                    <h3>Пункт2</h3>
+                    <p>Prompt'ы при переходе на страницу авторизации и выполнении требования confirm по заданию 1</p>
+                    <h3>Пункт3</h3>
+                    <p>Кнопка "Нравится" в карточках товаров в каталоге и на главноей странице (Клик по пункту "Каталог" или логотипу сайта, кнопка в правом верхнем углу каждой карточки)</p>
+                    <h3>Пункт4</h3>
+                    <div id = "drawer">
+                        <i class="fa fa-heart" aria-hidden="true"></i>
+                    </div>
+                    <script>
+                        var field = document.getElementById("drawer");
+                        var icons = field.getElementsByTagName("i");
+                        var icon = field.getElementsByTagName("i")[0];
+                        icon.style.position = "absolute";
+                        icon.style.zIndex = 2;
+                        var clicked = false;
+                        var posx;
+                        var posy;
+                        var contain = document.getElementById("Pr9");
+                        draw();
+                        function drawNext() {
+                            let prev = icons.length - 1;
+                            let heartx = icons[prev].getBoundingClientRect().x + (posx - icons[prev].getBoundingClientRect().x) - Pr9.getBoundingClientRect().x + "px";
+                            let hearty = icons[prev].getBoundingClientRect().y + (posy - icons[prev].getBoundingClientRect().y) - Pr9.getBoundingClientRect().y + "px";
+                            
+                            let pattern = document.createElement("i");
+                            pattern.className = "fa fa-heart-o";
+                            pattern.setAttribute("aria-hidden", "true");
+                            pattern.style.position = "absolute";
+                            pattern.style.left = heartx;
+                            pattern.style.top = hearty;
+                            field.append(pattern);
+                        }
+                        var timerAdd;
+                        function draw() {
+                            icon.onclick = function() {
+                                if (!clicked) {
+                                    document.onmousemove = function() {
+                                        posx = event.clientX;
+                                        posy = event.clientY;
+                                    }
+                                    clicked = true;
+                                    draw();
+                                    timerAdd = setInterval(() => {drawNext()},25);
+                                }
+                                else {
+                                    document.onmousemove = false;
+                                    clearInterval(timerAdd);
+                                    clicked = false;
+                                }
+                            }
+                        }
+                    </script>
+                </section>
+                <section><h2>Практика 10</h2>
+                    <h3>Пункт2</h3>
+                    <p>Добавление товара в корзину - клик по кнопке "В корзину" при наведении на карточки товаров в каталоге и на главной странице</p>
+                    <h3>Пункт3</h3>
+                    <p>Функция truncate работает для имен пользователей если длина больше 13 символов (Имя пользователя в правом верхнем углу хедера)</p>
+                </section>
+                <section><h2>Практика 11</h2>
+                    <h3>Пункт2</h3>
+                    <p>Фильтр на странице понравивщихся товаров (Клик по иконке сердечка в правой части хедера)</p>
+                    <h3>Пункт3</h3>
+                    <p>Сортировка на странице понравивщихся товаров (Клик по иконке сердечка в правой части хедера)</p>
+                    <h3>Пункт4</h3>
+                    <p>Уведомления появляющиеся каждый три секунды в правой части хедера</p>
+                    <h3>Пункт5</h3>
+                    <p>Клик по маркеру уведомлений останавливает их поялвение на 10 секунд</p>
+                </section>
+                <section><h2 id = "jakor">Практика 12</h2>
+                    <h3>Часть 1</h3>
+                    <a href="https://jut.su/onepunchman/season-2/episode-11.html">внешний 1</a>
+                    <a href="https://www.youtube.com/watch?v=h0Pc4DJkeFg">внешний 2</a>
+                    <a href="index.html">внутренний</a>
+                    <script>
+                        var outers = Array.from(document.getElementsByTagName("article")[0].getElementsByTagName("a")).filter(i => i.hostname != document.domain);
+                        for (let i = 0; i < outers.length; i++) {
+                            outers[i].style.color = "red";
+                        }
+                    </script>
+                    <h3>Часть 2</h3>
+                    <ul class = "task12_2">Список:</ul>
+                    <script>
+                        setTimeout(() => {
+                        lst = document.querySelector(".task12_2");
+                        do {
+                            var cont = prompt("Введите что добавить в список (Практика 12):");
+                            if (cont != undefined && cont.length > 0) {
+                                let newLi = document.createElement("li");
+                                newLi.innerText = cont;
+                                lst.append(newLi);
+                            }
+                        }
+                        while(cont != undefined && cont.length > 0);}
+                        ,2000);
+                    </script>
+                    <h3>Часть 3</h3>
+                    <div id = "Notifications"></div>
+                    <script>
+                    notis = document.getElementById("Notifications");
+                    notis.style.height = "200px";
+                    var intervalAdd = setInterval(() => {
+                        var noti = document.createElement("div");
+                        noti.className = "Notification";
+                        noti.style.width = "200px";
+                        noti.style.height = "100px";
+                        noti.style.background = "gray";
+                        noti.innerText = "Notification!!! Alert!!!";
+                        notis.append(noti);
+                        var intervalDel = setInterval(() => {
+                            if (noti != undefined) noti.remove();
+                        }, 1500);
+                    },5000);
+                    </script>
+                    <h3>Часть 4</h3>
+                    <div id = "img_field">
+                        <img src="red.png" width="20px">
+                        <img src="green.png" width="40px">
+                        <img src="blue.png" width="60px">
+                    </div> 
+                    <script>
+                        var img_field = document.getElementById("img_field");
+                        var imgs = img_field.getElementsByTagName("img");
+                            for (let i = 0; i < imgs.length; i++) {
+                                let mrg = (img_field.offsetWidth - imgs[i].width) / 2;
+                                imgs[i].style.margin = "0 " + mrg + "px";
+                            }
+                    </script>
+                    <h3>Часть 5</h3>
+                    <cite>Уведомления - оранжевый маркер в хедере под иконкой пользователя</cite>
+                </section>
+                <section id = "pr5"><h2>Практическая 13</h2>
+                    <h3>Пункт1</h3>
+                    <div id = "contents">
+                        <a href="https://www.google.ru/" target="_blank">Ссылка с выбором переходить или нет</a>
+                    </div>
+                    <script>
+                        links = document.getElementById("contents").getElementsByTagName("a");
+                        setLinksActivity();
+                        function setLinksActivity() {
+                            for (let i = 0; i < links.length; i++) {
+                                links[i].onclick = () => {
+                                    let checker = confirm("Вы действительно хотите перейти по ссылке?");
+                                    if (checker == true) {}
+                                    else {
+                                        links[i].onclick = event.preventDefault();
+                                        setLinksActivity();
+                                    }
+                                };
+                            }
+                        }
+                    </script>
+                    <h3>Пункт2</h3>
+                    <img src="cake1.jpg" id = "selected_img">
+                    <div id = "all_imgs">
+                        <img src="cake1.jpg" id = "selected_img">
+                        <img src="cake2.jpg" id = "selected_img">
+                        <img src="cake3.jpg" id = "selected_img">
+                        <img src="cake4.jpg" id = "selected_img">
+                    </div>
+                    <script>
+                        main_img = document.getElementById("selected_img")
+                        list_imgs = document.getElementById("all_imgs").getElementsByTagName("img");
+                        for (let i = 0; i < list_imgs.length; i++) {
+                            list_imgs[i].onclick = () => {
+                                main_img.src = list_imgs[i].src;
+                            };
+                        }
+                    </script>
+                    <h3>Пункт3</h3>
+                    <ul id = "list_manager">
+                        <li>first</li>
+                        <li>second</li>
+                        <li>third</li>
+                        <li>fourth</li>
+                        <li>fifth</li>
+                    </ul>
+                    <script>
+                        list_mng = document.getElementById("list_manager").getElementsByTagName("li");
+                        last = 0;
+                        for (let i = 0; i < list_mng.length; i++) {
+                            list_mng[i].onclick = () => {
+                                if (!(event.ctrlKey || event.shiftKey)) {
+                                    for (let j = 0; j < list_mng.length; j++) {
+                                        list_mng[j].removeAttribute("class");
+                                    }
+                                    list_mng[i].className = "selected";
+                                    last = i;
+                                }
+                                else if (event.ctrlKey) {
+                                    if (list_mng[i].className == "selected") {
+                                        list_mng[i].removeAttribute("class");
+                                    }
+                                    else {
+                                        list_mng[i].className = "selected";
+                                        last = i;
+                                    }
+                                }
+                                else if (event.shiftKey) {
+                                    let min = list_mng.length - 1;
+                                    let max = 0;
+                                    for (let j = 0; j < list_mng.length; j++) {
+                                        if (list_mng[j].className == "selected" && min > j) min = j;
+                                        if (list_mng[j].className == "selected" && max < j) max = j;
+                                    }
+                                    for (let g = min; g <= max; g++) {
+                                            list_mng[g].removeAttribute("class");
+                                        }
+                                    if (min > i) {
+                                        for (let g = i; g <= last; g++) {
+                                            list_mng[g].className = "selected";
+                                        }
+                                    }
+                                    else if (max < i) {
+                                        for (let g = last; g <= i; g++) {
+                                            list_mng[g].className = "selected";
+                                        }  
+                                    }
+                                    else if (min < i < max) {
+                                        if (list_mng[i].className == "selected") {
+                                            list_mng[i].className = "selected";
+                                            last = i;
+                                        }
+                                        else if(last < i) {
+                                            for (let g = last; g <= i; g++) {
+                                                list_mng[g].className = "selected";
+                                            } 
+                                        }
+                                        else if(last > i) {
+                                            for (let g = i; g <= last; g++) {
+                                                list_mng[g].className = "selected";
+                                            } 
+                                        }
+                                         
+                                    }
+                                }
+                            };
+                        }
+                    </script>
+                    <h3>Пункт4</h3>
+                    <div id = "track">
+                        <div id = "tracker"></div>
+                    </div>
+                    <script>
+                        track = document.getElementById("track");
+                        tracker = document.getElementById("tracker");
+                        setPos();
+                        function setPos() {
+                            track.onclick = function() {
+                                pos = (event.clientX - tracker.offsetWidth/2);
+                                if (pos > (track.getBoundingClientRect().left/2 + tracker.offsetWidth/2 + 5) && pos < (track.offsetWidth + track.getBoundingClientRect().left - tracker.offsetWidth*0.75 - 5)) {
+                                    tracker.style.transform = "translateX(" + (event.clientX - tracker.offsetWidth*2) + "px) translateY(-50%)";
+                                    setPos();
+                                }
+                            }
+                        }
+                        movePos();
+                        function movePos() {
+                            tracker.onmousedown = function() {
+                                document.onmousemove = function() {
+                                    pos = (event.clientX - tracker.offsetWidth/2);
+                                    if (pos > (track.getBoundingClientRect().left/2 + tracker.offsetWidth/2 + 5) && pos < (track.offsetWidth + track.getBoundingClientRect().left - tracker.offsetWidth*0.75 - 5)) {
+                                        tracker.style.transform = "translateX(" + (event.clientX - tracker.offsetWidth*2) + "px) translateY(-50%)";
+                                        movePos();
+                                    }
+                                }
+                                document.onmouseup = function() {
+                                    document.onmousemove = function() {
+                                        return false;
+                                    }
+                                }
+                            }
+                        }
+                        tracker.ondragstart = function() {
+                            return false;
+                        }
+                    </script>
+                    <h3>Пункт5</h3>
+                    <div id = "test_cart">Корзина
+                        <span>Пусто</span>
+                    </div>
+                    <div id = "test_goods">
+                        <div class = "test_good" cost = "500">item1</div>
+                        <div class = "test_good" cost = "300">item2</div>
+                        <div class = "test_good" cost = "1200">item3</div>
+                        <div class = "test_good" cost = "100">item4</div>
+                    </div>
+                    <script>
+                        var pract = document.getElementById("pr5");
+                        var test_goods_list = document.getElementById("test_goods");
+                        var test_goods = document.getElementsByClassName("test_good");
+                        for (let i = 0; i < test_goods.length; i++) {
+                            test_goods[i].innerText += "\nЦена: " + test_goods[i].getAttribute("cost");
+                        }
+                        var sum = 0;
+                        drag();
+                        function drag() {
+                            for (let i = 0; i < test_goods.length; i++) {
+                                test_goods[i].onmousedown = function() {
+                                    var copy = document.createElement("div");
+                                    copy.className = "test_good";
+                                    copy.style.position = "absolute";
+                                    copy.innerText = test_goods[i].innerText;
+                                    test_goods_list.append(copy);
+                                    drag_item();
+                                    function drag_item() {
+                                        pract.onmousemove = function() {
+                                            copy.style.left = event.clientX - copy.offsetWidth/2 - 20 + "px";
+                                            copy.style.top = event.clientY + copy.offsetHeight*2 + "px";
+                                            drag_item();
+                                        }
+                                    }
+                                    test_goods_list.onmouseup = function() {
+                                        sum += Number(test_goods[i].getAttribute("cost"));
+                                        test_cart.getElementsByTagName("span")[0].innerText = sum;
+                                    }
+                                    document.onmouseup = function() {
+                                        pract.onmousemove = function() {
+                                            return false;
+                                        }
+                                        copy.remove();
+                                    }
+                                }
+                            }
+                        }
+                    </script>
+                    <h3>Пункт6</h3>
+                    <div id = "anim_canvas">
+                        <div id = "ball"></div>
+                    </div>
+                    <script>
+                        var ball = document.getElementById("ball");
+                        var posX = 0;
+                        var posY = 0;
+                        var br = false;
+                        var tr = false;
+                        var tl = false;
+                        var bl = true;
+                        var canv = document.getElementById("anim_canvas");
+                        console.log(ball.offsetTop);
+                        console.log(canv.height);
+                        let timer = setInterval(function() {
+                            if (br) {
+                                posX+= 10;
+                                posY+= 10;
+                                if (ball.offsetLeft >= canv.offsetWidth-70 && ball.offsetTop < canv.offsetHeight-75) {
+                                    br = false;
+                                    bl = true;
+                                }
+                                else if (ball.offsetLeft < canv.offsetWidth-70 && ball.offsetTop >= canv.offsetHeight-75) {
+                                    br = false;
+                                    tr = true;
+                                }
+                            }
+                            else if (tr) {
+                                posX+= 10;
+                                posY-= 10;
+                                if (ball.offsetLeft >= canv.offsetWidth-70 && ball.offsetTop > 15) {
+                                    tr = false;
+                                    tl = true;
+                                }
+                                else if (ball.offsetLeft < canv.offsetWidth-70 && ball.offsetTop <= 15) {
+                                    tr = false;
+                                    br = true;
+                                }
+                            }
+                            else if (tl) {
+                                posX-= 10;
+                                posY-= 10;
+                                if (ball.offsetLeft < 15 && ball.offsetTop > 15) {
+                                    tl = false;
+                                    tr = true;
+                                }
+                                else if (ball.offsetLeft > 15 && ball.offsetTop <= 15) {
+                                    tl = false;
+                                    bl = true;
+                                }
+                            }
+                            else if (bl) {
+                                posX-= 10;
+                                posY+= 10;
+                                if (ball.offsetLeft <= 15 && ball.offsetTop < canv.offsetHeight-75) {
+                                    bl = false;
+                                    br = true;
+                                }
+                                else if (ball.offsetLeft > 15 && ball.offsetTop >= canv.offsetHeight-75) {
+                                    bl = false;
+                                    tl = true;
+                                }
+                            }
+                            ball.style.left = posX + "px";
+                            ball.style.top = posY + "px";
+                        },60);
+                        
+                    </script>
+                </section>
+            </article>
+            <aside>
+                <input type = "checkbox" id = "socials_arrow_checkbox" width="100px" height="100px" hidden>
+                <div id = "logreg_socials">
+                    <ul>
+                        <li>
+                            <i class="fa fa-github" aria-hidden="true"></i></li>
+                        <li>
+                            <i class="fa fa-telegram" aria-hidden="true"></i>
+                        </li>
+                        <li>
+                            <i class="fa fa-youtube-play" aria-hidden="true"></i>
+                        </li>
+                        <li>
+                            <i class="fa fa-vk" aria-hidden="true"></i>
+                        </li>
+                        <li>
+                            <i class="fa fa-instagram" aria-hidden="true"></i>
+                        </li>
+                    </ul>
+                </div>
+                <label id = "socials_arrow" for = "socials_arrow_checkbox" onclick></label>
+            </aside>
+        </main>
+        <footer>
+            <ul>
+                <li id="info">
+                    <span>О нас:</span>
+                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Tenetur libero, nihil at quisquam amet earum modi ad sapiente repellendus suscipit repudiandae deleniti totam possimus. Placeat quod numquam maiores ducimus! Maxime!
+                </li>
+                <li id="navigation">
+                    <span>Навигация:</span>
+                    <ul>
+                        <li><a href = "index.html">Главная</a></li>
+                        <li><a href = "catalog.html">Каталог</a></li>
+                        <li><a href = "personal_order_form.html">Под заказ</a></li>
+                        <li><a href = "about_us.html">О нас</a></li>
+                        <li><a href = "Q&A.html">Q&A</a></li>
+                    </ul>
+                </li>
+                <li id="categories">
+                    <span>Каталог:</span>
+                    <ul>
+                        <li><a href = "#">Тарталетки</a></li>
+                        <li><a href = "#">Чизкейки</a></li>
+                        <li><a href = "#">Пироги</a></li>
+                        <li><a href = "#">Пирожные</a></li>
+                        <li><a href = "#">Торты</a></li>
+                    </ul>
+                </li>
+                <li id="contacts">
+                    <span>Контакты:</span>
+                    <ul> 
+                        <li><a href="tel:+7(991)537-44-15"><img src = "phone_icon.png">Телефон: +7(991)537-44-15</a></li>
+                        <li><a href="mailto:hitrov.qazws@gmail.com"><img src = "mail_icon.png">E-mail: hitrov.qazws@gmail.com</a></li>
+                        <li><a href="https://yandex.ru/maps/-/CCUVnGu11B" target="_blank"><address><img src = "map_point_icon.png">Адресс: 11-я парковая улица, д36</address></a></li>
+                    </ul>
+                </li>
+            </ul>
+        </footer>
+    </body>
+</html>

@@ -1,0 +1,17 @@
+.header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgb(48, 45, 78);
+}
+
+.header h2 {
+    color:aliceblue;
+    margin: 0 20px;
+}
+
+.main {
+    background-color: aliceblue;
+    padding: 50px;
+}

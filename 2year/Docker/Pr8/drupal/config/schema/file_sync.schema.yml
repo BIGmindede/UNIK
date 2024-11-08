@@ -1,0 +1,22 @@
+file_sync.operation:
+  type: config_object
+  label: 'File sync operation'
+  mapping:
+    id:
+      type: label
+      label: 'ID'
+    label:
+      type: label
+      label: 'Label'
+    plugin_id:
+      type: string
+      label: 'Plugin ID'
+    settings:
+      type: sequence
+      label: 'Settings'
+    enabled:
+      type: boolean
+      label: 'Enabled'
+    cron:
+      type: boolean
+      label: 'Run on cron'

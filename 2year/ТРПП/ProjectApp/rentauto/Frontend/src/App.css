@@ -1,0 +1,28 @@
+@font-face {
+    font-family: 'HankenGroteskLight';
+    src: url(./Fonts/HankenGrotesk-Light.ttf);
+}
+
+@font-face {
+    font-family: 'MurechoLight';
+    src: url(./Fonts/Murecho-Light.ttf);
+}
+
+body {
+    padding: 0;
+    margin: 0;
+    font-family: 'MurechoLight';
+    color: black;
+    width: 100vh;
+    margin: 0 auto;
+    background-color: white;
+    box-sizing: border-box;
+    outline: 1px solid gray;
+}
+
+@media (max-width: 100vh) {
+    body {
+        width: 100%;
+        margin: 0;
+    } 
+}

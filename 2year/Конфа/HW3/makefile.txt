@@ -1,0 +1,20 @@
+all: for_mini_make
+
+for_mini_make: main.o emit_signal.o print_signal.o
+ g++ main.o emit_signal.o print_signal.o -o for_mini_make
+ echo "<Linking executables>"
+
+main.o: main.cpp
+ g++ -c main.cpp
+ echo "<Compiling main.cpp>"
+
+emit_signal.o: emit_signal.cpp
+ g++ -c emit_signal.cpp
+ echo "<Compiling emit_signal.cpp>"
+
+print_signal.o: print_signal.cpp
+ g++ -c print_signal.cpp
+ echo "<Compiling print_signal.cpp>"
+
+test:
+ echo "<Makefile compiled>"

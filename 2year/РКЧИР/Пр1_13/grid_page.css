@@ -1,0 +1,102 @@
+.mallbery-caa {
+    display:none;
+}
+
+body {
+    width: 100vw;
+    display: grid;
+    grid-template-columns: 23vw 46vw 23vw;
+    grid-gap: 2vw 2vw;
+    overflow-x: hidden;
+    padding: 0 2vw;
+}
+
+h1 {
+    margin: 1vw;
+}
+
+ul {
+    list-style: none;
+}
+
+body * {
+    background-color: bisque;
+    font-family: Century Gothic;
+    padding: 1vw;
+}
+
+header {
+    display: inline-block;
+    grid-area: 1 / 1 / 2 / 4;
+    border: 2px solid orangered;
+    border-radius: 10px;
+}
+
+header h1{
+    float: left;
+}
+
+header ul li {
+    float: left;
+}
+
+sidebar {
+    display: block;
+    grid-area: 2 / 1 / 3 / 2;
+    border: 2px solid orangered;
+    border-radius: 10px;
+}
+
+main {
+    display: flex;
+    flex-wrap: wrap;
+    grid-area: 2 / 2 / 3 / 4;
+    border: 2px solid orangered;
+    border-radius: 10px;
+}
+
+main > h1 {
+    display: block;
+    width: 100%;
+}
+
+main section {
+    display: block;
+    width: 60%;
+}
+
+main section h1{
+    display: block;
+}
+
+main aside {
+    position: absolute;
+    right: 4vw;
+    width: 20%;
+    display: block;
+}
+
+footer {
+    display: block;
+    grid-area: 3 / 1 / 4 / 4;
+    border: 2px solid orangered;
+    border-radius: 10px;
+}
+
+@media (max-width: 80vh) {
+    sidebar {
+        grid-area: 2 / 1 / 3 / 4;
+    }
+
+    sidebar ul li{
+        float: left;
+    }
+
+    main {
+        grid-area: 3 / 1 / 4 / 4;
+    }
+
+    footer {
+        grid-area: 4 / 1 / 5 / 4;
+    }
+}

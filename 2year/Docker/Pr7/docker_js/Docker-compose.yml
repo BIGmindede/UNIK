@@ -1,0 +1,13 @@
+version: '3'
+
+services:
+  server_js:
+    build: server/
+    ports:
+      - 1234:8000
+  client_js:
+    build: client/
+    command: python ./client.py
+    network_mode: host
+    depends_on:
+      - server_js

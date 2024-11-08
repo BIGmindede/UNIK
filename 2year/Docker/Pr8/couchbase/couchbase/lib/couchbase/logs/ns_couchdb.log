@@ -1,0 +1,2936 @@
+[ns_server:info,2023-05-15T19:22:21.126Z,couchdb_ns_1@cb.local:<0.77.0>:ns_couchdb:init_logging:125]Brought up ns_couchdb logging
+[ns_server:debug,2023-05-15T19:22:21.132Z,couchdb_ns_1@cb.local:<0.77.0>:dist_manager:configure_net_kernel:293]Set net_kernel vebosity to 10 -> 0
+[ns_server:info,2023-05-15T19:22:21.135Z,couchdb_ns_1@cb.local:<0.77.0>:ns_couchdb:start:51]CouchDB node 'couchdb_ns_1@cb.local' was initialized for 'ns_1@cb.local'. Cookie: '44ef736b3b40f209185c95982bd3b0e72a58d4e061e3194b2588f2997d5a75f2'
+[ns_server:debug,2023-05-15T19:22:21.149Z,couchdb_ns_1@cb.local:menelaus_users_cache<0.134.0>:versioned_cache:init:47]Starting versioned cache menelaus_users_cache
+[ns_server:debug,2023-05-15T19:22:21.150Z,couchdb_ns_1@cb.local:menelaus_users_cache<0.134.0>:dist_manager:wait_for_node:282]Observed node 'ns_1@cb.local' to come up
+[error_logger:info,2023-05-15T19:22:21.150Z,couchdb_ns_1@cb.local:error_logger<0.32.0>:ale_error_logger_handler:do_log:203]
+=========================INFO REPORT=========================
+{net_kernel,{connect,normal,'ns_1@cb.local'}}
+[error_logger:info,2023-05-15T19:22:21.150Z,couchdb_ns_1@cb.local:error_logger<0.32.0>:ale_error_logger_handler:do_log:203]
+=========================PROGRESS REPORT=========================
+          supervisor: {local,ns_couchdb_sup}
+             started: [{pid,<0.134.0>},
+                       {name,menelaus_users_auth_cache},
+                       {mfargs,{menelaus_users,start_auth_cache,[]}},
+                       {restart_type,{permanent,5}},
+                       {shutdown,1000},
+                       {child_type,worker}]
+
+[error_logger:info,2023-05-15T19:22:21.214Z,couchdb_ns_1@cb.local:error_logger<0.32.0>:ale_error_logger_handler:do_log:203]
+=========================PROGRESS REPORT=========================
+          supervisor: {local,cb_couch_sup}
+             started: [{pid,<0.137.0>},
+                       {id,cb_auth_info},
+                       {mfargs,{cb_auth_info,start_link,[]}},
+                       {restart_type,permanent},
+                       {shutdown,brutal_kill},
+                       {child_type,worker}]
+
+[error_logger:info,2023-05-15T19:22:21.229Z,couchdb_ns_1@cb.local:error_logger<0.32.0>:ale_error_logger_handler:do_log:203]
+=========================PROGRESS REPORT=========================
+          supervisor: {local,sasl_safe_sup}
+             started: [{pid,<0.143.0>},
+                       {id,alarm_handler},
+                       {mfargs,{alarm_handler,start_link,[]}},
+                       {restart_type,permanent},
+                       {shutdown,2000},
+                       {child_type,worker}]
+
+[error_logger:info,2023-05-15T19:22:21.229Z,couchdb_ns_1@cb.local:error_logger<0.32.0>:ale_error_logger_handler:do_log:203]
+=========================PROGRESS REPORT=========================
+          supervisor: {local,sasl_sup}
+             started: [{pid,<0.142.0>},
+                       {id,sasl_safe_sup},
+                       {mfargs,
+                           {supervisor,start_link,
+                               [{local,sasl_safe_sup},sasl,safe]}},
+                       {restart_type,permanent},
+                       {shutdown,infinity},
+                       {child_type,supervisor}]
+
+[error_logger:info,2023-05-15T19:22:21.239Z,couchdb_ns_1@cb.local:error_logger<0.32.0>:ale_error_logger_handler:do_log:203]
+=========================PROGRESS REPORT=========================
+          supervisor: {local,sasl_sup}
+             started: [{pid,<0.144.0>},
+                       {id,release_handler},
+                       {mfargs,{release_handler,start_link,[]}},
+                       {restart_type,permanent},
+                       {shutdown,2000},
+                       {child_type,worker}]
+
+[error_logger:info,2023-05-15T19:22:21.239Z,couchdb_ns_1@cb.local:error_logger<0.32.0>:ale_error_logger_handler:do_log:203]
+=========================PROGRESS REPORT=========================
+         application: sasl
+          started_at: 'couchdb_ns_1@cb.local'
+
+[error_logger:info,2023-05-15T19:22:21.256Z,couchdb_ns_1@cb.local:error_logger<0.32.0>:ale_error_logger_handler:do_log:203]
+=========================PROGRESS REPORT=========================
+          supervisor: {local,inets_sup}
+             started: [{pid,<0.150.0>},
+                       {id,ftp_sup},
+                       {mfargs,{ftp_sup,start_link,[]}},
+                       {restart_type,permanent},
+                       {shutdown,infinity},
+                       {child_type,supervisor}]
+
+[error_logger:info,2023-05-15T19:22:21.295Z,couchdb_ns_1@cb.local:error_logger<0.32.0>:ale_error_logger_handler:do_log:203]
+=========================PROGRESS REPORT=========================
+          supervisor: {local,httpc_profile_sup}
+             started: [{pid,<0.153.0>},
+                       {id,httpc_manager},
+                       {mfargs,
+                           {httpc_manager,start_link,
+                               [default,only_session_cookies,inets]}},
+                       {restart_type,permanent},
+                       {shutdown,4000},
+                       {child_type,worker}]
+
+[error_logger:info,2023-05-15T19:22:21.295Z,couchdb_ns_1@cb.local:error_logger<0.32.0>:ale_error_logger_handler:do_log:203]
+=========================PROGRESS REPORT=========================
+          supervisor: {local,httpc_sup}
+             started: [{pid,<0.152.0>},
+                       {id,httpc_profile_sup},
+                       {mfargs,
+                           {httpc_profile_sup,start_link,
+                               [[{httpc,{default,only_session_cookies}}]]}},
+                       {restart_type,permanent},
+                       {shutdown,infinity},
+                       {child_type,supervisor}]
+
+[error_logger:info,2023-05-15T19:22:21.301Z,couchdb_ns_1@cb.local:error_logger<0.32.0>:ale_error_logger_handler:do_log:203]
+=========================PROGRESS REPORT=========================
+          supervisor: {local,httpc_sup}
+             started: [{pid,<0.155.0>},
+                       {id,httpc_handler_sup},
+                       {mfargs,{httpc_handler_sup,start_link,[]}},
+                       {restart_type,permanent},
+                       {shutdown,infinity},
+                       {child_type,supervisor}]
+
+[error_logger:info,2023-05-15T19:22:21.301Z,couchdb_ns_1@cb.local:error_logger<0.32.0>:ale_error_logger_handler:do_log:203]
+=========================PROGRESS REPORT=========================
+          supervisor: {local,inets_sup}
+             started: [{pid,<0.151.0>},
+                       {id,httpc_sup},
+                       {mfargs,
+                           {httpc_sup,start_link,
+                               [[{httpc,{default,only_session_cookies}}]]}},
+                       {restart_type,permanent},
+                       {shutdown,infinity},
+                       {child_type,supervisor}]
+
+[error_logger:info,2023-05-15T19:22:21.307Z,couchdb_ns_1@cb.local:error_logger<0.32.0>:ale_error_logger_handler:do_log:203]
+=========================PROGRESS REPORT=========================
+          supervisor: {local,inets_sup}
+             started: [{pid,<0.156.0>},
+                       {id,httpd_sup},
+                       {mfargs,{httpd_sup,start_link,[[]]}},
+                       {restart_type,permanent},
+                       {shutdown,infinity},
+                       {child_type,supervisor}]
+
+[error_logger:info,2023-05-15T19:22:21.315Z,couchdb_ns_1@cb.local:error_logger<0.32.0>:ale_error_logger_handler:do_log:203]
+=========================PROGRESS REPORT=========================
+          supervisor: {local,inets_sup}
+             started: [{pid,<0.157.0>},
+                       {id,tftp_sup},
+                       {mfargs,{tftp_sup,start_link,[[]]}},
+                       {restart_type,permanent},
+                       {shutdown,infinity},
+                       {child_type,supervisor}]
+
+[error_logger:info,2023-05-15T19:22:21.315Z,couchdb_ns_1@cb.local:error_logger<0.32.0>:ale_error_logger_handler:do_log:203]
+=========================PROGRESS REPORT=========================
+         application: inets
+          started_at: 'couchdb_ns_1@cb.local'
+
+[error_logger:info,2023-05-15T19:22:21.315Z,couchdb_ns_1@cb.local:error_logger<0.32.0>:ale_error_logger_handler:do_log:203]
+=========================PROGRESS REPORT=========================
+         application: oauth
+          started_at: 'couchdb_ns_1@cb.local'
+
+[error_logger:info,2023-05-15T19:22:21.331Z,couchdb_ns_1@cb.local:error_logger<0.32.0>:ale_error_logger_handler:do_log:203]
+=========================PROGRESS REPORT=========================
+          supervisor: {local,lhttpc_sup}
+             started: [{pid,<0.163.0>},
+                       {id,lhttpc_manager},
+                       {mfargs,
+                           {lhttpc_manager,start_link,
+                               [[{name,lhttpc_manager}]]}},
+                       {restart_type,permanent},
+                       {shutdown,10000},
+                       {child_type,worker}]
+
+[error_logger:info,2023-05-15T19:22:21.331Z,couchdb_ns_1@cb.local:error_logger<0.32.0>:ale_error_logger_handler:do_log:203]
+=========================PROGRESS REPORT=========================
+         application: lhttpc
+          started_at: 'couchdb_ns_1@cb.local'
+
+[error_logger:info,2023-05-15T19:22:21.339Z,couchdb_ns_1@cb.local:error_logger<0.32.0>:ale_error_logger_handler:do_log:203]
+=========================PROGRESS REPORT=========================
+         application: xmerl
+          started_at: 'couchdb_ns_1@cb.local'
+
+[error_logger:info,2023-05-15T19:22:21.350Z,couchdb_ns_1@cb.local:error_logger<0.32.0>:ale_error_logger_handler:do_log:203]
+=========================PROGRESS REPORT=========================
+         application: compiler
+          started_at: 'couchdb_ns_1@cb.local'
+
+[error_logger:info,2023-05-15T19:22:21.357Z,couchdb_ns_1@cb.local:error_logger<0.32.0>:ale_error_logger_handler:do_log:203]
+=========================PROGRESS REPORT=========================
+         application: syntax_tools
+          started_at: 'couchdb_ns_1@cb.local'
+
+[error_logger:info,2023-05-15T19:22:21.358Z,couchdb_ns_1@cb.local:error_logger<0.32.0>:ale_error_logger_handler:do_log:203]
+=========================PROGRESS REPORT=========================
+         application: mochiweb
+          started_at: 'couchdb_ns_1@cb.local'
+
+[error_logger:info,2023-05-15T19:22:21.368Z,couchdb_ns_1@cb.local:error_logger<0.32.0>:ale_error_logger_handler:do_log:203]
+=========================PROGRESS REPORT=========================
+          supervisor: {local,os_mon_sup}
+             started: [{pid,<0.172.0>},
+                       {id,disksup},
+                       {mfargs,{disksup,start_link,[]}},
+                       {restart_type,permanent},
+                       {shutdown,2000},
+                       {child_type,worker}]
+
+[error_logger:info,2023-05-15T19:22:21.402Z,couchdb_ns_1@cb.local:error_logger<0.32.0>:ale_error_logger_handler:do_log:203]
+=========================PROGRESS REPORT=========================
+          supervisor: {local,os_mon_sup}
+             started: [{pid,<0.173.0>},
+                       {id,memsup},
+                       {mfargs,{memsup,start_link,[]}},
+                       {restart_type,permanent},
+                       {shutdown,2000},
+                       {child_type,worker}]
+
+[error_logger:info,2023-05-15T19:22:21.404Z,couchdb_ns_1@cb.local:error_logger<0.32.0>:ale_error_logger_handler:do_log:203]
+=========================PROGRESS REPORT=========================
+          supervisor: {local,kernel_safe_sup}
+             started: [{pid,<0.175.0>},
+                       {id,timer_server},
+                       {mfargs,{timer,start_link,[]}},
+                       {restart_type,permanent},
+                       {shutdown,1000},
+                       {child_type,worker}]
+
+[error_logger:info,2023-05-15T19:22:21.410Z,couchdb_ns_1@cb.local:error_logger<0.32.0>:ale_error_logger_handler:do_log:203]
+=========================PROGRESS REPORT=========================
+          supervisor: {local,os_mon_sup}
+             started: [{pid,<0.176.0>},
+                       {id,cpu_sup},
+                       {mfargs,{cpu_sup,start_link,[]}},
+                       {restart_type,permanent},
+                       {shutdown,2000},
+                       {child_type,worker}]
+
+[error_logger:info,2023-05-15T19:22:21.410Z,couchdb_ns_1@cb.local:error_logger<0.32.0>:ale_error_logger_handler:do_log:203]
+=========================PROGRESS REPORT=========================
+         application: os_mon
+          started_at: 'couchdb_ns_1@cb.local'
+
+[error_logger:info,2023-05-15T19:22:21.414Z,couchdb_ns_1@cb.local:error_logger<0.32.0>:ale_error_logger_handler:do_log:203]
+=========================INFO REPORT=========================
+       alarm_handler: {set,{system_memory_high_watermark,[]}}
+
+[error_logger:info,2023-05-15T19:22:21.418Z,couchdb_ns_1@cb.local:error_logger<0.32.0>:ale_error_logger_handler:do_log:203]
+=========================PROGRESS REPORT=========================
+         application: couch_view_parser
+          started_at: 'couchdb_ns_1@cb.local'
+
+[error_logger:info,2023-05-15T19:22:21.425Z,couchdb_ns_1@cb.local:error_logger<0.32.0>:ale_error_logger_handler:do_log:203]
+=========================PROGRESS REPORT=========================
+         application: couch_set_view
+          started_at: 'couchdb_ns_1@cb.local'
+
+[error_logger:info,2023-05-15T19:22:21.445Z,couchdb_ns_1@cb.local:error_logger<0.32.0>:ale_error_logger_handler:do_log:203]
+=========================PROGRESS REPORT=========================
+          supervisor: {local,couch_index_sup}
+             started: [{pid,<0.185.0>},
+                       {id,couch_query_logger},
+                       {mfargs,{couch_query_logger,start_link,[]}},
+                       {restart_type,permanent},
+                       {shutdown,1000},
+                       {child_type,worker}]
+
+[error_logger:info,2023-05-15T19:22:21.445Z,couchdb_ns_1@cb.local:error_logger<0.32.0>:ale_error_logger_handler:do_log:203]
+=========================PROGRESS REPORT=========================
+         application: couch_index_merger
+          started_at: 'couchdb_ns_1@cb.local'
+
+[error_logger:info,2023-05-15T19:22:21.450Z,couchdb_ns_1@cb.local:error_logger<0.32.0>:ale_error_logger_handler:do_log:203]
+=========================PROGRESS REPORT=========================
+         application: mapreduce
+          started_at: 'couchdb_ns_1@cb.local'
+
+[error_logger:info,2023-05-15T19:22:21.472Z,couchdb_ns_1@cb.local:error_logger<0.32.0>:ale_error_logger_handler:do_log:203]
+=========================PROGRESS REPORT=========================
+          supervisor: {local,couch_server_sup}
+             started: [{pid,<0.187.0>},
+                       {id,couch_config},
+                       {mfargs,
+                           {couch_server_sup,couch_config_start_link_wrapper,
+                               [["/opt/couchbase/etc/couchdb/default.ini",
+                                 "/opt/couchbase/etc/couchdb/default.d/capi.ini",
+                                 "/opt/couchbase/etc/couchdb/default.d/geocouch.ini",
+                                 "/opt/couchbase/etc/couchdb/local.ini"],
+                                <0.187.0>]}},
+                       {restart_type,permanent},
+                       {shutdown,brutal_kill},
+                       {child_type,worker}]
+
+[error_logger:info,2023-05-15T19:22:21.477Z,couchdb_ns_1@cb.local:error_logger<0.32.0>:ale_error_logger_handler:do_log:203]
+=========================PROGRESS REPORT=========================
+          supervisor: {local,couch_primary_services}
+             started: [{pid,<0.190.0>},
+                       {id,couch_task_events},
+                       {mfargs,
+                           {gen_event,start_link,[{local,couch_task_events}]}},
+                       {restart_type,permanent},
+                       {shutdown,brutal_kill},
+                       {child_type,worker}]
+
+[error_logger:info,2023-05-15T19:22:21.481Z,couchdb_ns_1@cb.local:error_logger<0.32.0>:ale_error_logger_handler:do_log:203]
+=========================PROGRESS REPORT=========================
+          supervisor: {local,couch_primary_services}
+             started: [{pid,<0.191.0>},
+                       {id,couch_task_status},
+                       {mfargs,{couch_task_status,start_link,[]}},
+                       {restart_type,permanent},
+                       {shutdown,brutal_kill},
+                       {child_type,worker}]
+
+[error_logger:info,2023-05-15T19:22:21.485Z,couchdb_ns_1@cb.local:error_logger<0.32.0>:ale_error_logger_handler:do_log:203]
+=========================PROGRESS REPORT=========================
+          supervisor: {local,couch_primary_services}
+             started: [{pid,<0.192.0>},
+                       {id,couch_file_write_guard},
+                       {mfargs,{couch_file_write_guard,sup_start_link,[]}},
+                       {restart_type,permanent},
+                       {shutdown,10000},
+                       {child_type,worker}]
+
+[error_logger:info,2023-05-15T19:22:21.511Z,couchdb_ns_1@cb.local:error_logger<0.32.0>:ale_error_logger_handler:do_log:203]
+=========================PROGRESS REPORT=========================
+          supervisor: {local,couch_primary_services}
+             started: [{pid,<0.193.0>},
+                       {id,couch_server},
+                       {mfargs,{couch_server,sup_start_link,[]}},
+                       {restart_type,permanent},
+                       {shutdown,brutal_kill},
+                       {child_type,worker}]
+
+[error_logger:info,2023-05-15T19:22:21.511Z,couchdb_ns_1@cb.local:error_logger<0.32.0>:ale_error_logger_handler:do_log:203]
+=========================PROGRESS REPORT=========================
+          supervisor: {local,couch_primary_services}
+             started: [{pid,<0.194.0>},
+                       {id,couch_db_update_event},
+                       {mfargs,
+                           {gen_event,start_link,[{local,couch_db_update}]}},
+                       {restart_type,permanent},
+                       {shutdown,brutal_kill},
+                       {child_type,worker}]
+
+[error_logger:info,2023-05-15T19:22:21.511Z,couchdb_ns_1@cb.local:error_logger<0.32.0>:ale_error_logger_handler:do_log:203]
+=========================PROGRESS REPORT=========================
+          supervisor: {local,couch_primary_services}
+             started: [{pid,<0.195.0>},
+                       {id,couch_replication_event},
+                       {mfargs,
+                           {gen_event,start_link,[{local,couch_replication}]}},
+                       {restart_type,permanent},
+                       {shutdown,brutal_kill},
+                       {child_type,worker}]
+
+[error_logger:info,2023-05-15T19:22:21.515Z,couchdb_ns_1@cb.local:error_logger<0.32.0>:ale_error_logger_handler:do_log:203]
+=========================PROGRESS REPORT=========================
+          supervisor: {local,couch_primary_services}
+             started: [{pid,<0.196.0>},
+                       {id,couch_replication_supervisor},
+                       {mfargs,{couch_rep_sup,start_link,[]}},
+                       {restart_type,permanent},
+                       {shutdown,infinity},
+                       {child_type,supervisor}]
+
+[error_logger:info,2023-05-15T19:22:21.521Z,couchdb_ns_1@cb.local:error_logger<0.32.0>:ale_error_logger_handler:do_log:203]
+=========================PROGRESS REPORT=========================
+          supervisor: {local,couch_primary_services}
+             started: [{pid,<0.197.0>},
+                       {id,couch_log},
+                       {mfargs,{couch_log,start_link,[]}},
+                       {restart_type,permanent},
+                       {shutdown,brutal_kill},
+                       {child_type,worker}]
+
+[error_logger:info,2023-05-15T19:22:21.527Z,couchdb_ns_1@cb.local:error_logger<0.32.0>:ale_error_logger_handler:do_log:203]
+=========================PROGRESS REPORT=========================
+          supervisor: {local,couch_primary_services}
+             started: [{pid,<0.198.0>},
+                       {id,couch_main_index_barrier},
+                       {mfargs,
+                           {couch_index_barrier,start_link,
+                               [couch_main_index_barrier,
+                                "max_parallel_indexers"]}},
+                       {restart_type,permanent},
+                       {shutdown,brutal_kill},
+                       {child_type,worker}]
+
+[error_logger:info,2023-05-15T19:22:21.527Z,couchdb_ns_1@cb.local:error_logger<0.32.0>:ale_error_logger_handler:do_log:203]
+=========================PROGRESS REPORT=========================
+          supervisor: {local,couch_primary_services}
+             started: [{pid,<0.199.0>},
+                       {id,couch_replica_index_barrier},
+                       {mfargs,
+                           {couch_index_barrier,start_link,
+                               [couch_replica_index_barrier,
+                                "max_parallel_replica_indexers"]}},
+                       {restart_type,permanent},
+                       {shutdown,brutal_kill},
+                       {child_type,worker}]
+
+[error_logger:info,2023-05-15T19:22:21.527Z,couchdb_ns_1@cb.local:error_logger<0.32.0>:ale_error_logger_handler:do_log:203]
+=========================PROGRESS REPORT=========================
+          supervisor: {local,couch_primary_services}
+             started: [{pid,<0.200.0>},
+                       {id,couch_spatial_index_barrier},
+                       {mfargs,
+                           {couch_index_barrier,start_link,
+                               [couch_spatial_index_barrier,
+                                "max_parallel_spatial_indexers"]}},
+                       {restart_type,permanent},
+                       {shutdown,brutal_kill},
+                       {child_type,worker}]
+
+[error_logger:info,2023-05-15T19:22:21.527Z,couchdb_ns_1@cb.local:error_logger<0.32.0>:ale_error_logger_handler:do_log:203]
+=========================PROGRESS REPORT=========================
+          supervisor: {local,couch_server_sup}
+             started: [{pid,<0.189.0>},
+                       {id,couch_primary_services},
+                       {mfargs,{couch_primary_sup,start_link,[]}},
+                       {restart_type,permanent},
+                       {shutdown,infinity},
+                       {child_type,supervisor}]
+
+[error_logger:info,2023-05-15T19:22:21.536Z,couchdb_ns_1@cb.local:error_logger<0.32.0>:ale_error_logger_handler:do_log:203]
+=========================PROGRESS REPORT=========================
+          supervisor: {local,couch_secondary_services}
+             started: [{pid,<0.202.0>},
+                       {id,couch_db_update_notifier_sup},
+                       {mfargs,{couch_db_update_notifier_sup,start_link,[]}},
+                       {restart_type,permanent},
+                       {shutdown,infinity},
+                       {child_type,supervisor}]
+
+[error_logger:info,2023-05-15T19:22:21.541Z,couchdb_ns_1@cb.local:error_logger<0.32.0>:ale_error_logger_handler:do_log:203]
+=========================PROGRESS REPORT=========================
+          supervisor: {local,couch_secondary_services}
+             started: [{pid,<0.203.0>},
+                       {id,query_servers},
+                       {mfargs,{couch_query_servers,start_link,[]}},
+                       {restart_type,permanent},
+                       {shutdown,brutal_kill},
+                       {child_type,worker}]
+
+[error_logger:info,2023-05-15T19:22:21.643Z,couchdb_ns_1@cb.local:error_logger<0.32.0>:ale_error_logger_handler:do_log:203]
+=========================PROGRESS REPORT=========================
+          supervisor: {local,couch_secondary_services}
+             started: [{pid,<0.205.0>},
+                       {id,spatial_view_manager},
+                       {mfargs,
+                           {couch_set_view,start_link,[prod,spatial_view]}},
+                       {restart_type,permanent},
+                       {shutdown,brutal_kill},
+                       {child_type,worker}]
+
+[error_logger:info,2023-05-15T19:22:21.661Z,couchdb_ns_1@cb.local:error_logger<0.32.0>:ale_error_logger_handler:do_log:203]
+=========================PROGRESS REPORT=========================
+          supervisor: {local,couch_secondary_services}
+             started: [{pid,<0.208.0>},
+                       {id,set_view_manager},
+                       {mfargs,
+                           {couch_set_view,start_link,[prod,mapreduce_view]}},
+                       {restart_type,permanent},
+                       {shutdown,brutal_kill},
+                       {child_type,worker}]
+
+[error_logger:info,2023-05-15T19:22:21.666Z,couchdb_ns_1@cb.local:error_logger<0.32.0>:ale_error_logger_handler:do_log:203]
+=========================PROGRESS REPORT=========================
+          supervisor: {local,couch_secondary_services}
+             started: [{pid,<0.210.0>},
+                       {id,couch_set_view_ddoc_cache},
+                       {mfargs,{couch_set_view_ddoc_cache,start_link,[]}},
+                       {restart_type,permanent},
+                       {shutdown,brutal_kill},
+                       {child_type,worker}]
+
+[error_logger:info,2023-05-15T19:22:21.692Z,couchdb_ns_1@cb.local:error_logger<0.32.0>:ale_error_logger_handler:do_log:203]
+=========================PROGRESS REPORT=========================
+          supervisor: {local,couch_secondary_services}
+             started: [{pid,<0.212.0>},
+                       {id,httpd},
+                       {mfargs,{couch_httpd,start_link,[]}},
+                       {restart_type,permanent},
+                       {shutdown,brutal_kill},
+                       {child_type,worker}]
+
+[error_logger:info,2023-05-15T19:22:21.692Z,couchdb_ns_1@cb.local:error_logger<0.32.0>:ale_error_logger_handler:do_log:203]
+=========================PROGRESS REPORT=========================
+          supervisor: {local,couch_secondary_services}
+             started: [{pid,<0.229.0>},
+                       {id,index_merger_pool},
+                       {mfargs,
+                           {lhttpc_manager,start_link,
+                               [[{connection_timeout,90000},
+                                 {pool_size,10000},
+                                 {name,couch_index_merger_connection_pool}]]}},
+                       {restart_type,permanent},
+                       {shutdown,brutal_kill},
+                       {child_type,worker}]
+
+[error_logger:info,2023-05-15T19:22:21.705Z,couchdb_ns_1@cb.local:error_logger<0.32.0>:ale_error_logger_handler:do_log:203]
+=========================PROGRESS REPORT=========================
+          supervisor: {local,couch_secondary_services}
+             started: [{pid,<0.230.0>},
+                       {id,spatial_view_manager_dev},
+                       {mfargs,{couch_set_view,start_link,[dev,spatial_view]}},
+                       {restart_type,permanent},
+                       {shutdown,brutal_kill},
+                       {child_type,worker}]
+
+[error_logger:info,2023-05-15T19:22:21.725Z,couchdb_ns_1@cb.local:error_logger<0.32.0>:ale_error_logger_handler:do_log:203]
+=========================PROGRESS REPORT=========================
+          supervisor: {local,couch_secondary_services}
+             started: [{pid,<0.232.0>},
+                       {id,view_manager},
+                       {mfargs,{couch_view,start_link,[]}},
+                       {restart_type,permanent},
+                       {shutdown,brutal_kill},
+                       {child_type,worker}]
+
+[error_logger:info,2023-05-15T19:22:21.740Z,couchdb_ns_1@cb.local:error_logger<0.32.0>:ale_error_logger_handler:do_log:203]
+=========================PROGRESS REPORT=========================
+          supervisor: {local,couch_secondary_services}
+             started: [{pid,<0.234.0>},
+                       {id,set_view_manager_dev},
+                       {mfargs,
+                           {couch_set_view,start_link,[dev,mapreduce_view]}},
+                       {restart_type,permanent},
+                       {shutdown,brutal_kill},
+                       {child_type,worker}]
+
+[error_logger:info,2023-05-15T19:22:21.756Z,couchdb_ns_1@cb.local:error_logger<0.32.0>:ale_error_logger_handler:do_log:203]
+=========================PROGRESS REPORT=========================
+          supervisor: {local,couch_secondary_services}
+             started: [{pid,<0.236.0>},
+                       {id,uuids},
+                       {mfargs,{couch_uuids,start,[]}},
+                       {restart_type,permanent},
+                       {shutdown,brutal_kill},
+                       {child_type,worker}]
+
+[error_logger:info,2023-05-15T19:22:21.756Z,couchdb_ns_1@cb.local:error_logger<0.32.0>:ale_error_logger_handler:do_log:203]
+=========================PROGRESS REPORT=========================
+          supervisor: {local,couch_server_sup}
+             started: [{pid,<0.201.0>},
+                       {id,couch_secondary_services},
+                       {mfargs,{couch_secondary_sup,start_link,[]}},
+                       {restart_type,permanent},
+                       {shutdown,infinity},
+                       {child_type,supervisor}]
+
+[error_logger:info,2023-05-15T19:22:21.779Z,couchdb_ns_1@cb.local:error_logger<0.32.0>:ale_error_logger_handler:do_log:203]
+=========================PROGRESS REPORT=========================
+          supervisor: {local,couch_audit_sup}
+             started: [{pid,<0.242.0>},
+                       {id,couch_audit},
+                       {mfargs,{couch_audit,start_link,[]}},
+                       {restart_type,permanent},
+                       {shutdown,1000},
+                       {child_type,worker}]
+
+[error_logger:info,2023-05-15T19:22:21.779Z,couchdb_ns_1@cb.local:error_logger<0.32.0>:ale_error_logger_handler:do_log:203]
+=========================PROGRESS REPORT=========================
+         application: couch_audit
+          started_at: 'couchdb_ns_1@cb.local'
+
+[error_logger:info,2023-05-15T19:22:21.780Z,couchdb_ns_1@cb.local:error_logger<0.32.0>:ale_error_logger_handler:do_log:203]
+=========================PROGRESS REPORT=========================
+          supervisor: {local,cb_couch_sup}
+             started: [{pid,<0.188.0>},
+                       {id,couch_app},
+                       {mfargs,
+                           {couch_app,start,
+                               [fake,
+                                ["/opt/couchbase/etc/couchdb/default.ini",
+                                 "/opt/couchbase/etc/couchdb/local.ini"]]}},
+                       {restart_type,permanent},
+                       {shutdown,infinity},
+                       {child_type,supervisor}]
+
+[error_logger:info,2023-05-15T19:22:21.780Z,couchdb_ns_1@cb.local:error_logger<0.32.0>:ale_error_logger_handler:do_log:203]
+=========================PROGRESS REPORT=========================
+          supervisor: {local,ns_couchdb_sup}
+             started: [{pid,<0.135.0>},
+                       {name,cb_couch_sup},
+                       {mfargs,{cb_couch_sup,start_link,[]}},
+                       {restart_type,permanent},
+                       {shutdown,5000},
+                       {child_type,supervisor}]
+
+[error_logger:info,2023-05-15T19:22:21.793Z,couchdb_ns_1@cb.local:error_logger<0.32.0>:ale_error_logger_handler:do_log:203]
+=========================PROGRESS REPORT=========================
+          supervisor: {local,ns_couchdb_sup}
+             started: [{pid,<0.244.0>},
+                       {name,timeout_diag_logger},
+                       {mfargs,{timeout_diag_logger,start_link,[]}},
+                       {restart_type,permanent},
+                       {shutdown,1000},
+                       {child_type,worker}]
+
+[error_logger:info,2023-05-15T19:22:21.797Z,couchdb_ns_1@cb.local:error_logger<0.32.0>:ale_error_logger_handler:do_log:203]
+=========================PROGRESS REPORT=========================
+          supervisor: {local,ns_couchdb_sup}
+             started: [{pid,<0.245.0>},
+                       {name,ns_memcached_sockets_pool},
+                       {mfargs,{ns_memcached_sockets_pool,start_link,[]}},
+                       {restart_type,permanent},
+                       {shutdown,1000},
+                       {child_type,worker}]
+
+[error_logger:info,2023-05-15T19:22:21.799Z,couchdb_ns_1@cb.local:error_logger<0.32.0>:ale_error_logger_handler:do_log:203]
+=========================PROGRESS REPORT=========================
+          supervisor: {local,ns_couchdb_sup}
+             started: [{pid,<0.246.0>},
+                       {name,ns_couchdb_stats_collector},
+                       {mfargs,{ns_couchdb_stats_collector,start_link,[]}},
+                       {restart_type,permanent},
+                       {shutdown,1000},
+                       {child_type,worker}]
+
+[error_logger:info,2023-05-15T19:22:21.804Z,couchdb_ns_1@cb.local:error_logger<0.32.0>:ale_error_logger_handler:do_log:203]
+=========================PROGRESS REPORT=========================
+          supervisor: {local,ns_couchdb_config_sup}
+             started: [{pid,<0.248.0>},
+                       {id,ns_config_events},
+                       {mfargs,
+                           {gen_event,start_link,[{local,ns_config_events}]}},
+                       {restart_type,permanent},
+                       {shutdown,1000},
+                       {child_type,worker}]
+
+[error_logger:info,2023-05-15T19:22:21.804Z,couchdb_ns_1@cb.local:error_logger<0.32.0>:ale_error_logger_handler:do_log:203]
+=========================PROGRESS REPORT=========================
+          supervisor: {local,ns_couchdb_config_sup}
+             started: [{pid,<0.249.0>},
+                       {id,ns_config_events_local},
+                       {mfargs,
+                           {gen_event,start_link,
+                               [{local,ns_config_events_local}]}},
+                       {restart_type,permanent},
+                       {shutdown,brutal_kill},
+                       {child_type,worker}]
+
+[error_logger:info,2023-05-15T19:22:21.815Z,couchdb_ns_1@cb.local:error_logger<0.32.0>:ale_error_logger_handler:do_log:203]
+=========================PROGRESS REPORT=========================
+          supervisor: {local,ns_couchdb_config_sup}
+             started: [{pid,<0.250.0>},
+                       {id,ns_config},
+                       {mfargs,
+                           {ns_config,start_link,
+                               [{pull_from_node,'ns_1@cb.local'}]}},
+                       {restart_type,permanent},
+                       {shutdown,1000},
+                       {child_type,worker}]
+
+[error_logger:info,2023-05-15T19:22:21.817Z,couchdb_ns_1@cb.local:error_logger<0.32.0>:ale_error_logger_handler:do_log:203]
+=========================PROGRESS REPORT=========================
+          supervisor: {local,ns_couchdb_config_sup}
+             started: [{pid,<0.251.0>},
+                       {id,ns_couchdb_config_rep},
+                       {mfargs,{ns_couchdb_config_rep,start_link,[]}},
+                       {restart_type,permanent},
+                       {shutdown,1000},
+                       {child_type,worker}]
+
+[error_logger:info,2023-05-15T19:22:21.820Z,couchdb_ns_1@cb.local:error_logger<0.32.0>:ale_error_logger_handler:do_log:203]
+=========================PROGRESS REPORT=========================
+          supervisor: {local,ns_couchdb_config_sup}
+             started: [{pid,<0.252.0>},
+                       {id,cb_config_couch_sync},
+                       {mfargs,{cb_config_couch_sync,start_link,[]}},
+                       {restart_type,permanent},
+                       {shutdown,1000},
+                       {child_type,worker}]
+
+[error_logger:info,2023-05-15T19:22:21.822Z,couchdb_ns_1@cb.local:error_logger<0.32.0>:ale_error_logger_handler:do_log:203]
+=========================PROGRESS REPORT=========================
+          supervisor: {local,ns_couchdb_config_sup}
+             started: [{pid,<0.255.0>},
+                       {id,ns_config_log},
+                       {mfargs,{ns_config_log,start_link,[]}},
+                       {restart_type,permanent},
+                       {shutdown,1000},
+                       {child_type,worker}]
+
+[error_logger:info,2023-05-15T19:22:21.822Z,couchdb_ns_1@cb.local:error_logger<0.32.0>:ale_error_logger_handler:do_log:203]
+=========================PROGRESS REPORT=========================
+          supervisor: {local,ns_couchdb_sup}
+             started: [{pid,<0.247.0>},
+                       {name,ns_couchdb_config_sup},
+                       {mfargs,{ns_couchdb_config_sup,start_link,[]}},
+                       {restart_type,permanent},
+                       {shutdown,infinity},
+                       {child_type,supervisor}]
+
+[error_logger:error,2023-05-15T19:22:21.825Z,couchdb_ns_1@cb.local:error_logger<0.32.0>:ale_error_logger_handler:do_log:203]
+=========================SUPERVISOR REPORT=========================
+     Supervisor: {local,couch_secondary_services}
+     Context:    child_terminated
+     Reason:     normal
+     Offender:   [{pid,<0.212.0>},
+                  {id,httpd},
+                  {mfargs,{couch_httpd,start_link,[]}},
+                  {restart_type,permanent},
+                  {shutdown,brutal_kill},
+                  {child_type,worker}]
+
+
+[error_logger:info,2023-05-15T19:22:21.826Z,couchdb_ns_1@cb.local:error_logger<0.32.0>:ale_error_logger_handler:do_log:203]
+=========================PROGRESS REPORT=========================
+          supervisor: {local,couch_secondary_services}
+             started: [{pid,<0.258.0>},
+                       {id,httpd},
+                       {mfargs,{couch_httpd,start_link,[]}},
+                       {restart_type,permanent},
+                       {shutdown,brutal_kill},
+                       {child_type,worker}]
+
+[ns_server:debug,2023-05-15T19:22:21.828Z,couchdb_ns_1@cb.local:compiled_roles_cache<0.275.0>:versioned_cache:init:47]Starting versioned cache compiled_roles_cache
+[ns_server:debug,2023-05-15T19:22:21.828Z,couchdb_ns_1@cb.local:compiled_roles_cache<0.275.0>:dist_manager:wait_for_node:282]Observed node 'ns_1@cb.local' to come up
+[error_logger:info,2023-05-15T19:22:21.828Z,couchdb_ns_1@cb.local:error_logger<0.32.0>:ale_error_logger_handler:do_log:203]
+=========================PROGRESS REPORT=========================
+          supervisor: {local,ns_couchdb_sup}
+             started: [{pid,<0.275.0>},
+                       {name,compiled_roles_cache},
+                       {mfargs,{menelaus_roles,start_compiled_roles_cache,[]}},
+                       {restart_type,{permanent,5}},
+                       {shutdown,1000},
+                       {child_type,worker}]
+
+[error_logger:info,2023-05-15T19:22:21.828Z,couchdb_ns_1@cb.local:error_logger<0.32.0>:ale_error_logger_handler:do_log:203]
+=========================INFO REPORT=========================
+{net_kernel,{connect,normal,'ns_1@cb.local'}}
+[error_logger:info,2023-05-15T19:22:21.830Z,couchdb_ns_1@cb.local:error_logger<0.32.0>:ale_error_logger_handler:do_log:203]
+=========================PROGRESS REPORT=========================
+          supervisor: {local,ns_couchdb_sup}
+             started: [{pid,<0.278.0>},
+                       {name,request_throttler},
+                       {mfargs,{request_throttler,start_link,[]}},
+                       {restart_type,permanent},
+                       {shutdown,1000},
+                       {child_type,worker}]
+
+[error_logger:info,2023-05-15T19:22:21.835Z,couchdb_ns_1@cb.local:error_logger<0.32.0>:ale_error_logger_handler:do_log:203]
+=========================PROGRESS REPORT=========================
+          supervisor: {local,ns_couchdb_sup}
+             started: [{pid,<0.279.0>},
+                       {name,vbucket_map_mirror},
+                       {mfargs,{vbucket_map_mirror,start_link,[]}},
+                       {restart_type,permanent},
+                       {shutdown,brutal_kill},
+                       {child_type,worker}]
+
+[ns_server:info,2023-05-15T19:22:21.841Z,couchdb_ns_1@cb.local:set_view_update_daemon<0.281.0>:set_view_update_daemon:init:50]Set view update daemon, starting with the following settings:
+  update interval:           5000ms
+  minimum number of changes: 5000
+
+[error_logger:info,2023-05-15T19:22:21.844Z,couchdb_ns_1@cb.local:error_logger<0.32.0>:ale_error_logger_handler:do_log:203]
+=========================PROGRESS REPORT=========================
+          supervisor: {local,kernel_safe_sup}
+             started: [{pid,<0.283.0>},
+                       {id,timer2_server},
+                       {mfargs,{timer2,start_link,[]}},
+                       {restart_type,permanent},
+                       {shutdown,1000},
+                       {child_type,worker}]
+
+[error_logger:info,2023-05-15T19:22:21.845Z,couchdb_ns_1@cb.local:error_logger<0.32.0>:ale_error_logger_handler:do_log:203]
+=========================PROGRESS REPORT=========================
+          supervisor: {local,ns_couchdb_sup}
+             started: [{pid,<0.281.0>},
+                       {name,set_view_update_daemon},
+                       {mfargs,{set_view_update_daemon,start_link,[]}},
+                       {restart_type,permanent},
+                       {shutdown,1000},
+                       {child_type,worker}]
+
+[ns_server:info,2023-05-15T19:22:21.848Z,couchdb_ns_1@cb.local:ns_config_rep<0.251.0>:ns_couchdb_config_rep:do_pull:65]Pulling config from: 'ns_1@cb.local'
+
+[ns_server:debug,2023-05-15T19:22:21.931Z,couchdb_ns_1@cb.local:<0.284.0>:restartable:start_child:98]Started child process <0.286.0>
+  MFA: {ns_ssl_services_setup,start_link_capi_service,[]}
+[error_logger:info,2023-05-15T19:22:21.931Z,couchdb_ns_1@cb.local:error_logger<0.32.0>:ale_error_logger_handler:do_log:203]
+=========================PROGRESS REPORT=========================
+          supervisor: {local,ns_couchdb_sup}
+             started: [{pid,<0.284.0>},
+                       {name,ns_capi_ssl_service},
+                       {mfargs,
+                           {restartable,start_link,
+                               [{ns_ssl_services_setup,
+                                    start_link_capi_service,[]},
+                                1000]}},
+                       {restart_type,{permanent,4}},
+                       {shutdown,infinity},
+                       {child_type,worker}]
+
+[ns_server:info,2023-05-15T19:22:21.933Z,couchdb_ns_1@cb.local:ns_couchdb_sup<0.133.0>:dir_size:start_link:39]Starting quick version of dir_size with program name: godu
+[error_logger:info,2023-05-15T19:22:21.934Z,couchdb_ns_1@cb.local:error_logger<0.32.0>:ale_error_logger_handler:do_log:203]
+=========================PROGRESS REPORT=========================
+          supervisor: {local,ns_couchdb_sup}
+             started: [{pid,<0.304.0>},
+                       {name,dir_size},
+                       {mfargs,{dir_size,start_link,[]}},
+                       {restart_type,permanent},
+                       {shutdown,1000},
+                       {child_type,worker}]
+
+[error_logger:info,2023-05-15T19:22:21.934Z,couchdb_ns_1@cb.local:error_logger<0.32.0>:ale_error_logger_handler:do_log:203]
+=========================PROGRESS REPORT=========================
+         application: ns_couchdb
+          started_at: 'couchdb_ns_1@cb.local'
+
+[ns_server:debug,2023-05-15T19:22:21.934Z,couchdb_ns_1@cb.local:<0.5.0>:child_erlang:child_loop:130]313: Entered child_loop
+[ns_server:debug,2023-05-15T19:22:22.094Z,couchdb_ns_1@cb.local:ns_config_log<0.255.0>:ns_config_log:log_common:231]config change:
+otp ->
+[{'_vclock',[{<<"949a059dcc29e773ec37709a7973341b">>,{1,63851397742}}]},
+ {cookie,{sanitized,<<"T/wNzhcfksK5X/1nLqiwD3W7bEjjQyDhy/kyQr3RtcY=">>}}]
+[ns_server:debug,2023-05-15T19:22:22.095Z,couchdb_ns_1@cb.local:ns_config_log<0.255.0>:ns_config_log:log_common:231]config change:
+{local_changes_count,<<"949a059dcc29e773ec37709a7973341b">>} ->
+[{'_vclock',[{<<"949a059dcc29e773ec37709a7973341b">>,{5,63851397742}}]}]
+[ns_server:debug,2023-05-15T19:22:22.095Z,couchdb_ns_1@cb.local:ns_config_log<0.255.0>:ns_config_log:log_common:231]config change:
+{node,'couchdb_ns_1@cb.local',cbas_dirs} ->
+[{'_vclock',[{<<"949a059dcc29e773ec37709a7973341b">>,{1,63851397741}}]},
+ "/opt/couchbase/var/lib/couchbase/data"]
+[ns_server:debug,2023-05-15T19:22:22.095Z,couchdb_ns_1@cb.local:ns_config_log<0.255.0>:ns_config_log:log_common:231]config change:
+{node,'couchdb_ns_1@cb.local',eventing_dir} ->
+[{'_vclock',[{<<"949a059dcc29e773ec37709a7973341b">>,{1,63851397741}}]},
+ 47,111,112,116,47,99,111,117,99,104,98,97,115,101,47,118,97,114,47,108,105,
+ 98,47,99,111,117,99,104,98,97,115,101,47,100,97,116,97]
+[ns_server:debug,2023-05-15T19:22:22.095Z,couchdb_ns_1@cb.local:ns_config_log<0.255.0>:ns_config_log:log_common:231]config change:
+{node,'ns_1@cb.local',cbas_dirs} ->
+[{'_vclock',[{<<"949a059dcc29e773ec37709a7973341b">>,{1,63851397741}}]},
+ "/opt/couchbase/var/lib/couchbase/data"]
+[ns_server:debug,2023-05-15T19:22:22.095Z,couchdb_ns_1@cb.local:ns_config_log<0.255.0>:ns_config_log:log_common:231]config change:
+{node,'ns_1@cb.local',eventing_dir} ->
+[{'_vclock',[{<<"949a059dcc29e773ec37709a7973341b">>,{1,63851397741}}]},
+ 47,111,112,116,47,99,111,117,99,104,98,97,115,101,47,118,97,114,47,108,105,
+ 98,47,99,111,117,99,104,98,97,115,101,47,100,97,116,97]
+[ns_server:debug,2023-05-15T19:22:22.112Z,couchdb_ns_1@cb.local:<0.284.0>:restartable:loop:71]Restarting child <0.286.0>
+  MFA: {ns_ssl_services_setup,start_link_capi_service,[]}
+  Shutdown policy: 1000
+  Caller: {<0.308.0>,#Ref<0.3161903118.2384723977.25362>}
+[ns_server:debug,2023-05-15T19:22:22.113Z,couchdb_ns_1@cb.local:<0.284.0>:restartable:shutdown_child:120]Successfully terminated process <0.286.0>
+[ns_server:info,2023-05-15T19:22:22.113Z,couchdb_ns_1@cb.local:ns_config_rep<0.251.0>:ns_couchdb_config_rep:do_pull:65]Pulling config from: 'ns_1@cb.local'
+
+[ns_server:debug,2023-05-15T19:22:22.133Z,couchdb_ns_1@cb.local:<0.284.0>:restartable:start_child:98]Started child process <0.311.0>
+  MFA: {ns_ssl_services_setup,start_link_capi_service,[]}
+[ns_server:debug,2023-05-15T19:22:22.553Z,couchdb_ns_1@cb.local:ns_config_log<0.255.0>:ns_config_log:log_common:231]config change:
+audit ->
+[{'_vclock',[{<<"949a059dcc29e773ec37709a7973341b">>,{1,63851397742}}]},
+ {enabled,[]},
+ {disabled_users,[]},
+ {auditd_enabled,false},
+ {rotate_interval,86400},
+ {rotate_size,20971520},
+ {disabled,[]},
+ {sync,[]},
+ {log_path,"/opt/couchbase/var/lib/couchbase/logs"}]
+[ns_server:debug,2023-05-15T19:22:22.560Z,couchdb_ns_1@cb.local:ns_config_log<0.255.0>:ns_config_log:log_common:231]config change:
+audit_decriptors ->
+[{'_vclock',[{<<"949a059dcc29e773ec37709a7973341b">>,{1,63851397742}}]},
+ {8243,
+  [{name,<<"mutate document">>},
+   {description,<<"Document was mutated via the REST API">>},
+   {enabled,true},
+   {module,ns_server}]},
+ {8255,
+  [{name,<<"read document">>},
+   {description,<<"Document was read via the REST API">>},
+   {enabled,false},
+   {module,ns_server}]},
+ {8257,
+  [{name,<<"alert email sent">>},
+   {description,<<"An alert email was successfully sent">>},
+   {enabled,true},
+   {module,ns_server}]},
+ {20480,
+  [{name,<<"opened DCP connection">>},
+   {description,<<"opened DCP connection">>},
+   {enabled,true},
+   {module,memcached}]},
+ {20482,
+  [{name,<<"external memcached bucket flush">>},
+   {description,<<"External user flushed the content of a memcached bucket">>},
+   {enabled,true},
+   {module,memcached}]},
+ {20483,
+  [{name,<<"invalid packet">>},
+   {description,<<"Rejected an invalid packet">>},
+   {enabled,true},
+   {module,memcached}]},
+ {20485,
+  [{name,<<"authentication succeeded">>},
+   {description,<<"Authentication to the cluster succeeded">>},
+   {enabled,false},
+   {module,memcached}]},
+ {20488,
+  [{name,<<"document read">>},
+   {description,<<"Document was read">>},
+   {enabled,false},
+   {module,memcached}]},
+ {20489,
+  [{name,<<"document locked">>},
+   {description,<<"Document was locked">>},
+   {enabled,false},
+   {module,memcached}]},
+ {20490,
+  [{name,<<"document modify">>},
+   {description,<<"Document was modified">>},
+   {enabled,false},
+   {module,memcached}]},
+ {20491,
+  [{name,<<"document delete">>},
+   {description,<<"Document was deleted">>},
+   {enabled,false},
+   {module,memcached}]},
+ {20492,
+  [{name,<<"select bucket">>},
+   {description,<<"The specified bucket was selected">>},
+   {enabled,true},
+   {module,memcached}]},
+ {28672,
+  [{name,<<"SELECT statement">>},
+   {description,<<"A N1QL SELECT statement was executed">>},
+   {enabled,false},
+   {module,n1ql}]},
+ {28673,
+  [{name,<<"EXPLAIN statement">>},
+   {description,<<"A N1QL EXPLAIN statement was executed">>},
+   {enabled,false},
+   {module,n1ql}]},
+ {28674,
+  [{name,<<"PREPARE statement">>},
+   {description,<<"A N1QL PREPARE statement was executed">>},
+   {enabled,false},
+   {module,n1ql}]},
+ {28675,
+  [{name,<<"INFER statement">>},
+   {description,<<"A N1QL INFER statement was executed">>},
+   {enabled,false},
+   {module,n1ql}]},
+ {28676,
+  [{name,<<"INSERT statement">>},
+   {description,<<"A N1QL INSERT statement was executed">>},
+   {enabled,false},
+   {module,n1ql}]},
+ {28677,
+  [{name,<<"UPSERT statement">>},
+   {description,<<"A N1QL UPSERT statement was executed">>},
+   {enabled,false},
+   {module,n1ql}]},
+ {28678,
+  [{name,<<"DELETE statement">>},
+   {description,<<"A N1QL DELETE statement was executed">>},
+   {enabled,false},
+   {module,n1ql}]},
+ {28679,
+  [{name,<<"UPDATE statement">>},
+   {description,<<"A N1QL UPDATE statement was executed">>},
+   {enabled,false},
+   {module,n1ql}]},
+ {28680,
+  [{name,<<"MERGE statement">>},
+   {description,<<"A N1QL MERGE statement was executed">>},
+   {enabled,false},
+   {module,n1ql}]},
+ {28681,
+  [{name,<<"CREATE INDEX statement">>},
+   {description,<<"A N1QL CREATE INDEX statement was executed">>},
+   {enabled,false},
+   {module,n1ql}]},
+ {28682,
+  [{name,<<"DROP INDEX statement">>},
+   {description,<<"A N1QL DROP INDEX statement was executed">>},
+   {enabled,false},
+   {module,n1ql}]},
+ {28683,
+  [{name,<<"ALTER INDEX statement">>},
+   {description,<<"A N1QL ALTER INDEX statement was executed">>},
+   {enabled,false},
+   {module,n1ql}]},
+ {28684,
+  [{name,<<"BUILD INDEX statement">>},
+   {description,<<"A N1QL BUILD INDEX statement was executed">>},
+   {enabled,false},
+   {module,n1ql}]},
+ {28685,
+  [{name,<<"GRANT ROLE statement">>},
+   {description,<<"A N1QL GRANT ROLE statement was executed">>},
+   {enabled,false},
+   {module,n1ql}]},
+ {28686,
+  [{name,<<"REVOKE ROLE statement">>},
+   {description,<<"A N1QL REVOKE ROLE statement was executed">>},
+   {enabled,false},
+   {module,n1ql}]},
+ {28687,
+  [{name,<<"UNRECOGNIZED statement">>},
+   {description,<<"An unrecognized statement was received by the N1QL query engine">>},
+   {enabled,false},
+   {module,n1ql}]},
+ {28688,
+  [{name,<<"CREATE PRIMARY INDEX statement">>},
+   {description,<<"A N1QL CREATE PRIMARY INDEX statement was executed">>},
+   {enabled,false},
+   {module,n1ql}]},
+ {28689,
+  [{name,<<"/admin/stats API request">>},
+   {description,<<"An HTTP request was made to the API at /admin/stats.">>},
+   {enabled,false},
+   {module,n1ql}]},
+ {28690,
+  [{name,<<"/admin/vitals API request">>},
+   {description,<<"An HTTP request was made to the API at /admin/vitals.">>},
+   {enabled,false},
+   {module,n1ql}]},
+ {28691,
+  [{name,<<"/admin/prepareds API request">>},
+   {description,<<"An HTTP request was made to the API at /admin/prepareds.">>},
+   {enabled,false},
+   {module,n1ql}]},
+ {28692,
+  [{name,<<"/admin/active_requests API request">>},
+   {description,<<"An HTTP request was made to the API at /admin/active_requests.">>},
+   {enabled,false},
+   {module,n1ql}]},
+ {28693,
+  [{name,<<"/admin/indexes/prepareds API request">>},
+   {description,<<"An HTTP request was made to the API at /admin/indexes/prepareds.">>},
+   {enabled,false},
+   {module,n1ql}]},
+ {28694,
+  [{name,<<"/admin/indexes/active_requests API request">>},
+   {description,<<"An HTTP request was made to the API at /admin/indexes/active_requests.">>},
+   {enabled,false},
+   {module,n1ql}]},
+ {28695,
+  [{name,<<"/admin/indexes/completed_requests API request">>},
+   {description,<<"An HTTP request was made to the API at /admin/indexes/completed_requests.">>},
+   {enabled,false},
+   {module,n1ql}]},
+ {28697,
+  [{name,<<"/admin/ping API request">>},
+   {description,<<"An HTTP request was made to the API at /admin/ping.">>},
+   {enabled,false},
+   {module,n1ql}]},
+ {28698,
+  [{name,<<"/admin/config API request">>},
+   {description,<<"An HTTP request was made to the API at /admin/config.">>},
+   {enabled,false},
+   {module,n1ql}]},
+ {28699,
+  [{name,<<"/admin/ssl_cert API request">>},
+   {description,<<"An HTTP request was made to the API at /admin/ssl_cert.">>},
+   {enabled,false},
+   {module,n1ql}]},
+ {28700,
+  [{name,<<"/admin/settings API request">>},
+   {description,<<"An HTTP request was made to the API at /admin/settings.">>},
+   {enabled,false},
+   {module,n1ql}]},
+ {28701,
+  [{name,<<"/admin/clusters API request">>},
+   {description,<<"An HTTP request was made to the API at /admin/clusters.">>},
+   {enabled,false},
+   {module,n1ql}]},
+ {28702,
+  [{name,<<"/admin/completed_requests API request">>},
+   {description,<<"An HTTP request was made to the API at /admin/completed_requests.">>},
+   {enabled,false},
+   {module,n1ql}]},
+ {28704,
+  [{name,<<"/admin/functions API request">>},
+   {description,<<"An HTTP request was made to the API at /admin/functions.">>},
+   {enabled,false},
+   {module,n1ql}]},
+ {28705,
+  [{name,<<"/admin/indexes/functions API request">>},
+   {description,<<"An HTTP request was made to the API at /admin/indexes/functions.">>},
+   {enabled,false},
+   {module,n1ql}]},
+ {32768,
+  [{name,<<"Create Function">>},
+   {description,<<"Eventing function definition was created or updated">>},
+   {enabled,true},
+   {module,eventing}]},
+ {32769,
+  [{name,<<"Delete Function">>},
+   {description,<<"Eventing function definition was deleted">>},
+   {enabled,true},
+   {module,eventing}]},
+ {32770,
+  [{name,<<"Fetch Functions">>},
+   {description,<<"Eventing function definition was read">>},
+   {enabled,false},
+   {module,eventing}]},
+ {32771,
+  [{name,<<"List Deployed">>},
+   {description,<<"Eventing deployed functions list was read">>},
+   {enabled,false},
+   {module,eventing}]},
+ {32772,
+  [{name,<<"Fetch Drafts">>},
+   {description,<<"Eventing function draft definitions were read">>},
+   {enabled,false},
+   {module,eventing}]},
+ {32773,
+  [{name,<<"Delete Drafts">>},
+   {description,<<"Eventing function draft definitions were deleted">>},
+   {enabled,true},
+   {module,eventing}]},
+ {32774,
+  [{name,<<"Save Draft">>},
+   {description,<<"Save a draft definition to the store">>},
+   {enabled,true},
+   {module,eventing}]},
+ {32775,
+  [{name,<<"Start Debug">>},
+   {description,<<"Start eventing function debugger">>},
+   {enabled,true},
+   {module,eventing}]},
+ {32776,
+  [{name,<<"Stop Debug">>},
+   {description,<<"Stop eventing function debugger">>},
+   {enabled,true},
+   {module,eventing}]},
+ {32777,
+  [{name,<<"Start Tracing">>},
+   {description,<<"Start tracing eventing function execution">>},
+   {enabled,true},
+   {module,eventing}]},
+ {32778,
+  [{name,<<"Stop Tracing">>},
+   {description,<<"Stop tracing eventing function execution">>},
+   {enabled,true},
+   {module,eventing}]},
+ {32779,
+  [{name,<<"Set Settings">>},
+   {description,<<"Save settings for a given app">>},
+   {enabled,true},
+   {module,eventing}]},
+ {32780,
+  [{name,<<"Fetch Config">>},
+   {description,<<"Get config for eventing">>},
+   {enabled,false},
+   {module,eventing}]},
+ {32781,
+  [{name,<<"Save Config">>},
+   {description,<<"Save config for eventing">>},
+   {enabled,true},
+   {module,eventing}]},
+ {32782,
+  [{name,<<"Cleanup Eventing">>},
+   {description,<<"Clears up app definitions and settings from metakv">>},
+   {enabled,true},
+   {module,eventing}]},
+ {32783,
+  [{name,<<"Get Settings">>},
+   {description,<<"Get settings for a given app">>},
+   {enabled,false},
+   {module,eventing}]},
+ {32784,
+  [{name,<<"Import Functions">>},
+   {description,<<"Import a list of functions">>},
+   {enabled,false},
+   {module,eventing}]},
+ {32785,
+  [{name,<<"Export Functions">>},
+   {description,<<"Export the list of functions">>},
+   {enabled,false},
+   {module,eventing}]},
+ {32786,
+  [{name,<<"List Running">>},
+   {description,<<"Eventing running function list was read">>},
+   {enabled,false},
+   {module,eventing}]},
+ {36865,
+  [{name,<<"Service configuration change">>},
+   {description,<<"A successful service configuration change was made.">>},
+   {enabled,true},
+   {module,analytics}]},
+ {36866,
+  [{name,<<"Node configuration change">>},
+   {description,<<"A successful node configuration change was made.">>},
+   {enabled,true},
+   {module,analytics}]},
+ {40960,
+  [{name,<<"Create Design Doc">>},
+   {description,<<"Design Doc is Created">>},
+   {enabled,true},
+   {module,view_engine}]},
+ {40961,
+  [{name,<<"Delete Design Doc">>},
+   {description,<<"Design Doc is Deleted">>},
+   {enabled,true},
+   {module,view_engine}]},
+ {40962,
+  [{name,<<"Query DDoc Meta Data">>},
+   {description,<<"Design Doc Meta Data Query Request">>},
+   {enabled,true},
+   {module,view_engine}]},
+ {40963,
+  [{name,<<"View Query">>},
+   {description,<<"View Query Request">>},
+   {enabled,false},
+   {module,view_engine}]},
+ {40964,
+  [{name,<<"Update Design Doc">>},
+   {description,<<"Design Doc is Updated">>},
+   {enabled,true},
+   {module,view_engine}]}]
+[ns_server:debug,2023-05-15T19:22:22.568Z,couchdb_ns_1@cb.local:ns_config_log<0.255.0>:ns_config_log:log_common:231]config change:
+auto_failover_cfg ->
+[{'_vclock',[{<<"949a059dcc29e773ec37709a7973341b">>,{2,63851397742}}]},
+ {enabled,true},
+ {timeout,120},
+ {count,0},
+ {failover_on_data_disk_issues,[{enabled,false},{timePeriod,120}]},
+ {failover_server_group,false},
+ {max_count,1},
+ {failed_over_server_groups,[]},
+ {can_abort_rebalance,true}]
+[ns_server:debug,2023-05-15T19:22:22.570Z,couchdb_ns_1@cb.local:ns_config_log<0.255.0>:ns_config_log:log_common:231]config change:
+buckets ->
+[[{<<"949a059dcc29e773ec37709a7973341b">>,{2,63851397742}}],{configs,[]}]
+[ns_server:debug,2023-05-15T19:22:22.571Z,couchdb_ns_1@cb.local:ns_config_log<0.255.0>:ns_config_log:log_common:231]config change:
+client_cert_auth ->
+[{'_vclock',[{<<"949a059dcc29e773ec37709a7973341b">>,{1,63851397742}}]},
+ {state,"disable"},
+ {prefixes,[]}]
+[ns_server:debug,2023-05-15T19:22:22.572Z,couchdb_ns_1@cb.local:ns_config_log<0.255.0>:ns_config_log:log_common:231]config change:
+cluster_compat_version ->
+[{'_vclock',[{<<"949a059dcc29e773ec37709a7973341b">>,{5,63851397742}}]},6,5]
+[ns_server:debug,2023-05-15T19:22:22.573Z,couchdb_ns_1@cb.local:ns_config_log<0.255.0>:ns_config_log:log_common:231]config change:
+max_bucket_count ->
+[{'_vclock',[{<<"949a059dcc29e773ec37709a7973341b">>,{1,63851397742}}]}|30]
+[ns_server:debug,2023-05-15T19:22:22.573Z,couchdb_ns_1@cb.local:ns_config_log<0.255.0>:ns_config_log:log_common:231]config change:
+quorum_nodes ->
+[{'_vclock',[{<<"949a059dcc29e773ec37709a7973341b">>,{1,63851397742}}]},
+ 'ns_1@cb.local']
+[ns_server:debug,2023-05-15T19:22:22.575Z,couchdb_ns_1@cb.local:ns_config_log<0.255.0>:ns_config_log:log_common:231]config change:
+retry_rebalance ->
+[{'_vclock',[{<<"949a059dcc29e773ec37709a7973341b">>,{1,63851397742}}]},
+ {enabled,false},
+ {after_time_period,300},
+ {max_attempts,1}]
+[ns_server:debug,2023-05-15T19:22:22.575Z,couchdb_ns_1@cb.local:ns_config_log<0.255.0>:ns_config_log:log_common:231]config change:
+scramsha_fallback_salt ->
+[{'_vclock',[{<<"949a059dcc29e773ec37709a7973341b">>,{1,63851397742}}]}|
+ <<211,88,119,65,90,45,162,36,255,132,241,44>>]
+[ns_server:debug,2023-05-15T19:22:22.575Z,couchdb_ns_1@cb.local:ns_config_log<0.255.0>:ns_config_log:log_common:231]config change:
+{local_changes_count,<<"949a059dcc29e773ec37709a7973341b">>} ->
+[{'_vclock',[{<<"949a059dcc29e773ec37709a7973341b">>,{6,63851397742}}]}]
+[ns_server:debug,2023-05-15T19:22:22.575Z,couchdb_ns_1@cb.local:ns_config_log<0.255.0>:ns_config_log:log_common:231]config change:
+{metakv,<<"/eventing/settings/config">>} ->
+[{'_vclock',[{<<"949a059dcc29e773ec37709a7973341b">>,{1,63851397742}}]}|
+ <<"{\"ram_quota\":256}">>]
+[ns_server:debug,2023-05-15T19:22:22.576Z,couchdb_ns_1@cb.local:ns_config_log<0.255.0>:ns_config_log:log_common:231]config change:
+{metakv,<<"/query/settings/config">>} ->
+[{'_vclock',[{<<"949a059dcc29e773ec37709a7973341b">>,{2,63851397742}}]}|
+ <<"{\"timeout\":0,\"n1ql-feat-ctrl\":12,\"max-parallelism\":1,\"query.settings.curl_whitelist\":{\"all_access\":false,\"allowed_urls\":[],\"disallowed_urls\":[]},\"query.settings.tmp_space_dir\":\"/opt/couchbase/var/lib/couchbase/tmp\",\"completed-limit\":4000,\"prepared-limit\":16384,\"pipeline-batch\":16,\"pipeline-cap\":512,\"scan-cap\":512,\"loglevel\":\"info\",\"completed-threshold\":1000,\"query.settings.tmp_space_si"...>>]
+[ns_server:debug,2023-05-15T19:22:22.576Z,couchdb_ns_1@cb.local:compiled_roles_cache<0.275.0>:versioned_cache:handle_info:92]Flushing cache compiled_roles_cache due to version change from undefined to {[6,
+                                                                              5],
+                                                                             {0,
+                                                                              1442687077},
+                                                                             {0,
+                                                                              1442687077},
+                                                                             false,
+                                                                             []}
+[ns_server:debug,2023-05-15T19:22:22.592Z,couchdb_ns_1@cb.local:<0.284.0>:restartable:loop:71]Restarting child <0.311.0>
+  MFA: {ns_ssl_services_setup,start_link_capi_service,[]}
+  Shutdown policy: 1000
+  Caller: {<0.332.0>,#Ref<0.3161903118.2384723977.25412>}
+[ns_server:debug,2023-05-15T19:22:22.592Z,couchdb_ns_1@cb.local:<0.284.0>:restartable:shutdown_child:120]Successfully terminated process <0.311.0>
+[ns_server:info,2023-05-15T19:22:22.592Z,couchdb_ns_1@cb.local:ns_config_rep<0.251.0>:ns_couchdb_config_rep:do_pull:65]Pulling config from: 'ns_1@cb.local'
+
+[ns_server:debug,2023-05-15T19:22:22.605Z,couchdb_ns_1@cb.local:<0.284.0>:restartable:start_child:98]Started child process <0.334.0>
+  MFA: {ns_ssl_services_setup,start_link_capi_service,[]}
+[ns_server:debug,2023-05-15T19:22:22.622Z,couchdb_ns_1@cb.local:ns_config_log<0.255.0>:ns_config_log:log_common:231]config change:
+{local_changes_count,<<"949a059dcc29e773ec37709a7973341b">>} ->
+[{'_vclock',[{<<"949a059dcc29e773ec37709a7973341b">>,{7,63851397742}}]}]
+[ns_server:debug,2023-05-15T19:22:29.160Z,couchdb_ns_1@cb.local:ns_config_log<0.255.0>:ns_config_log:log_common:231]config change:
+{local_changes_count,<<"949a059dcc29e773ec37709a7973341b">>} ->
+[{'_vclock',[{<<"949a059dcc29e773ec37709a7973341b">>,{8,63851397749}}]}]
+[ns_server:debug,2023-05-15T19:22:29.193Z,couchdb_ns_1@cb.local:ns_config_log<0.255.0>:ns_config_log:log_common:231]config change:
+rest_creds ->
+[{'_vclock',[{<<"949a059dcc29e773ec37709a7973341b">>,{1,63851397749}}]}|
+ {"<ud>admin</ud>",
+  {auth,
+   [{<<"plain">>,"*****"},
+    {<<"sha512">>,
+     {[{<<"h">>,"*****"},
+       {<<"s">>,
+        <<"jKq3uagPhi5t1AL2DKFzCwJ9XijAXGPzN4CMDJ49jhBj2wpebDsACKR53mckqwOl8y8iHeOi2rcPlkuZXdPYKw==">>},
+       {<<"i">>,4000}]}},
+    {<<"sha256">>,
+     {[{<<"h">>,"*****"},
+       {<<"s">>,<<"Qs1ovmU8v9eE2glwXV9FjbSpjNtuOaxf4wBIRRxWELw=">>},
+       {<<"i">>,4000}]}},
+    {<<"sha1">>,
+     {[{<<"h">>,"*****"},
+       {<<"s">>,<<"L8tRj3e1Xvl8os6DTL/uROUmC7Y=">>},
+       {<<"i">>,4000}]}}]}}]
+[ns_server:debug,2023-05-15T19:22:29.193Z,couchdb_ns_1@cb.local:ns_config_log<0.255.0>:ns_config_log:log_common:231]config change:
+{local_changes_count,<<"949a059dcc29e773ec37709a7973341b">>} ->
+[{'_vclock',[{<<"949a059dcc29e773ec37709a7973341b">>,{9,63851397749}}]}]
+[ns_server:debug,2023-05-15T19:22:29.194Z,couchdb_ns_1@cb.local:compiled_roles_cache<0.275.0>:versioned_cache:handle_info:92]Flushing cache compiled_roles_cache due to version change from {[6,5],
+                                                                {0,1442687077},
+                                                                {0,1442687077},
+                                                                false,[]} to {[6,
+                                                                               5],
+                                                                              {0,
+                                                                               1442687077},
+                                                                              {0,
+                                                                               1442687077},
+                                                                              true,
+                                                                              []}
+[ns_server:debug,2023-05-15T19:22:29.208Z,couchdb_ns_1@cb.local:ns_config_log<0.255.0>:ns_config_log:log_common:231]config change:
+uuid ->
+[{'_vclock',[{<<"949a059dcc29e773ec37709a7973341b">>,{1,63851397749}}]}|
+ <<"b1cf035dd538cdacd1c975b6e16f1302">>]
+[ns_server:debug,2023-05-15T19:22:29.208Z,couchdb_ns_1@cb.local:ns_config_log<0.255.0>:ns_config_log:log_common:231]config change:
+{local_changes_count,<<"949a059dcc29e773ec37709a7973341b">>} ->
+[{'_vclock',[{<<"949a059dcc29e773ec37709a7973341b">>,{10,63851397749}}]}]
+[ns_server:info,2023-05-24T12:22:20.067Z,couchdb_ns_1@cb.local:<0.74.0>:ns_couchdb:init_logging:125]Brought up ns_couchdb logging
+[ns_server:debug,2023-05-24T12:22:20.073Z,couchdb_ns_1@cb.local:<0.74.0>:dist_manager:configure_net_kernel:293]Set net_kernel vebosity to 10 -> 0
+[ns_server:info,2023-05-24T12:22:20.074Z,couchdb_ns_1@cb.local:<0.74.0>:ns_couchdb:start:51]CouchDB node 'couchdb_ns_1@cb.local' was initialized for 'ns_1@cb.local'. Cookie: decf3411454760198c06d0ec1bb4164876998fdeb8911143b41749438e504805
+[ns_server:debug,2023-05-24T12:22:20.082Z,couchdb_ns_1@cb.local:menelaus_users_cache<0.132.0>:versioned_cache:init:47]Starting versioned cache menelaus_users_cache
+[ns_server:debug,2023-05-24T12:22:20.083Z,couchdb_ns_1@cb.local:menelaus_users_cache<0.132.0>:dist_manager:wait_for_node:282]Observed node 'ns_1@cb.local' to come up
+[error_logger:info,2023-05-24T12:22:20.083Z,couchdb_ns_1@cb.local:error_logger<0.32.0>:ale_error_logger_handler:do_log:203]
+=========================INFO REPORT=========================
+{net_kernel,{connect,normal,'ns_1@cb.local'}}
+[error_logger:info,2023-05-24T12:22:20.083Z,couchdb_ns_1@cb.local:error_logger<0.32.0>:ale_error_logger_handler:do_log:203]
+=========================PROGRESS REPORT=========================
+          supervisor: {local,ns_couchdb_sup}
+             started: [{pid,<0.132.0>},
+                       {name,menelaus_users_auth_cache},
+                       {mfargs,{menelaus_users,start_auth_cache,[]}},
+                       {restart_type,{permanent,5}},
+                       {shutdown,1000},
+                       {child_type,worker}]
+
+[error_logger:info,2023-05-24T12:22:20.120Z,couchdb_ns_1@cb.local:error_logger<0.32.0>:ale_error_logger_handler:do_log:203]
+=========================PROGRESS REPORT=========================
+          supervisor: {local,cb_couch_sup}
+             started: [{pid,<0.135.0>},
+                       {id,cb_auth_info},
+                       {mfargs,{cb_auth_info,start_link,[]}},
+                       {restart_type,permanent},
+                       {shutdown,brutal_kill},
+                       {child_type,worker}]
+
+[error_logger:info,2023-05-24T12:22:20.129Z,couchdb_ns_1@cb.local:error_logger<0.32.0>:ale_error_logger_handler:do_log:203]
+=========================PROGRESS REPORT=========================
+          supervisor: {local,sasl_safe_sup}
+             started: [{pid,<0.141.0>},
+                       {id,alarm_handler},
+                       {mfargs,{alarm_handler,start_link,[]}},
+                       {restart_type,permanent},
+                       {shutdown,2000},
+                       {child_type,worker}]
+
+[error_logger:info,2023-05-24T12:22:20.129Z,couchdb_ns_1@cb.local:error_logger<0.32.0>:ale_error_logger_handler:do_log:203]
+=========================PROGRESS REPORT=========================
+          supervisor: {local,sasl_sup}
+             started: [{pid,<0.140.0>},
+                       {id,sasl_safe_sup},
+                       {mfargs,
+                           {supervisor,start_link,
+                               [{local,sasl_safe_sup},sasl,safe]}},
+                       {restart_type,permanent},
+                       {shutdown,infinity},
+                       {child_type,supervisor}]
+
+[error_logger:info,2023-05-24T12:22:20.136Z,couchdb_ns_1@cb.local:error_logger<0.32.0>:ale_error_logger_handler:do_log:203]
+=========================PROGRESS REPORT=========================
+          supervisor: {local,sasl_sup}
+             started: [{pid,<0.142.0>},
+                       {id,release_handler},
+                       {mfargs,{release_handler,start_link,[]}},
+                       {restart_type,permanent},
+                       {shutdown,2000},
+                       {child_type,worker}]
+
+[error_logger:info,2023-05-24T12:22:20.136Z,couchdb_ns_1@cb.local:error_logger<0.32.0>:ale_error_logger_handler:do_log:203]
+=========================PROGRESS REPORT=========================
+         application: sasl
+          started_at: 'couchdb_ns_1@cb.local'
+
+[error_logger:info,2023-05-24T12:22:20.155Z,couchdb_ns_1@cb.local:error_logger<0.32.0>:ale_error_logger_handler:do_log:203]
+=========================PROGRESS REPORT=========================
+          supervisor: {local,inets_sup}
+             started: [{pid,<0.149.0>},
+                       {id,ftp_sup},
+                       {mfargs,{ftp_sup,start_link,[]}},
+                       {restart_type,permanent},
+                       {shutdown,infinity},
+                       {child_type,supervisor}]
+
+[error_logger:info,2023-05-24T12:22:20.176Z,couchdb_ns_1@cb.local:error_logger<0.32.0>:ale_error_logger_handler:do_log:203]
+=========================PROGRESS REPORT=========================
+          supervisor: {local,httpc_profile_sup}
+             started: [{pid,<0.152.0>},
+                       {id,httpc_manager},
+                       {mfargs,
+                           {httpc_manager,start_link,
+                               [default,only_session_cookies,inets]}},
+                       {restart_type,permanent},
+                       {shutdown,4000},
+                       {child_type,worker}]
+
+[error_logger:info,2023-05-24T12:22:20.176Z,couchdb_ns_1@cb.local:error_logger<0.32.0>:ale_error_logger_handler:do_log:203]
+=========================PROGRESS REPORT=========================
+          supervisor: {local,httpc_sup}
+             started: [{pid,<0.151.0>},
+                       {id,httpc_profile_sup},
+                       {mfargs,
+                           {httpc_profile_sup,start_link,
+                               [[{httpc,{default,only_session_cookies}}]]}},
+                       {restart_type,permanent},
+                       {shutdown,infinity},
+                       {child_type,supervisor}]
+
+[error_logger:info,2023-05-24T12:22:20.179Z,couchdb_ns_1@cb.local:error_logger<0.32.0>:ale_error_logger_handler:do_log:203]
+=========================PROGRESS REPORT=========================
+          supervisor: {local,httpc_sup}
+             started: [{pid,<0.153.0>},
+                       {id,httpc_handler_sup},
+                       {mfargs,{httpc_handler_sup,start_link,[]}},
+                       {restart_type,permanent},
+                       {shutdown,infinity},
+                       {child_type,supervisor}]
+
+[error_logger:info,2023-05-24T12:22:20.179Z,couchdb_ns_1@cb.local:error_logger<0.32.0>:ale_error_logger_handler:do_log:203]
+=========================PROGRESS REPORT=========================
+          supervisor: {local,inets_sup}
+             started: [{pid,<0.150.0>},
+                       {id,httpc_sup},
+                       {mfargs,
+                           {httpc_sup,start_link,
+                               [[{httpc,{default,only_session_cookies}}]]}},
+                       {restart_type,permanent},
+                       {shutdown,infinity},
+                       {child_type,supervisor}]
+
+[error_logger:info,2023-05-24T12:22:20.182Z,couchdb_ns_1@cb.local:error_logger<0.32.0>:ale_error_logger_handler:do_log:203]
+=========================PROGRESS REPORT=========================
+          supervisor: {local,inets_sup}
+             started: [{pid,<0.154.0>},
+                       {id,httpd_sup},
+                       {mfargs,{httpd_sup,start_link,[[]]}},
+                       {restart_type,permanent},
+                       {shutdown,infinity},
+                       {child_type,supervisor}]
+
+[error_logger:info,2023-05-24T12:22:20.186Z,couchdb_ns_1@cb.local:error_logger<0.32.0>:ale_error_logger_handler:do_log:203]
+=========================PROGRESS REPORT=========================
+          supervisor: {local,inets_sup}
+             started: [{pid,<0.155.0>},
+                       {id,tftp_sup},
+                       {mfargs,{tftp_sup,start_link,[[]]}},
+                       {restart_type,permanent},
+                       {shutdown,infinity},
+                       {child_type,supervisor}]
+
+[error_logger:info,2023-05-24T12:22:20.186Z,couchdb_ns_1@cb.local:error_logger<0.32.0>:ale_error_logger_handler:do_log:203]
+=========================PROGRESS REPORT=========================
+         application: inets
+          started_at: 'couchdb_ns_1@cb.local'
+
+[error_logger:info,2023-05-24T12:22:20.186Z,couchdb_ns_1@cb.local:error_logger<0.32.0>:ale_error_logger_handler:do_log:203]
+=========================PROGRESS REPORT=========================
+         application: oauth
+          started_at: 'couchdb_ns_1@cb.local'
+
+[error_logger:info,2023-05-24T12:22:20.194Z,couchdb_ns_1@cb.local:error_logger<0.32.0>:ale_error_logger_handler:do_log:203]
+=========================PROGRESS REPORT=========================
+          supervisor: {local,lhttpc_sup}
+             started: [{pid,<0.161.0>},
+                       {id,lhttpc_manager},
+                       {mfargs,
+                           {lhttpc_manager,start_link,
+                               [[{name,lhttpc_manager}]]}},
+                       {restart_type,permanent},
+                       {shutdown,10000},
+                       {child_type,worker}]
+
+[error_logger:info,2023-05-24T12:22:20.194Z,couchdb_ns_1@cb.local:error_logger<0.32.0>:ale_error_logger_handler:do_log:203]
+=========================PROGRESS REPORT=========================
+         application: lhttpc
+          started_at: 'couchdb_ns_1@cb.local'
+
+[error_logger:info,2023-05-24T12:22:20.197Z,couchdb_ns_1@cb.local:error_logger<0.32.0>:ale_error_logger_handler:do_log:203]
+=========================PROGRESS REPORT=========================
+         application: xmerl
+          started_at: 'couchdb_ns_1@cb.local'
+
+[error_logger:info,2023-05-24T12:22:20.204Z,couchdb_ns_1@cb.local:error_logger<0.32.0>:ale_error_logger_handler:do_log:203]
+=========================PROGRESS REPORT=========================
+         application: compiler
+          started_at: 'couchdb_ns_1@cb.local'
+
+[error_logger:info,2023-05-24T12:22:20.208Z,couchdb_ns_1@cb.local:error_logger<0.32.0>:ale_error_logger_handler:do_log:203]
+=========================PROGRESS REPORT=========================
+         application: syntax_tools
+          started_at: 'couchdb_ns_1@cb.local'
+
+[error_logger:info,2023-05-24T12:22:20.208Z,couchdb_ns_1@cb.local:error_logger<0.32.0>:ale_error_logger_handler:do_log:203]
+=========================PROGRESS REPORT=========================
+         application: mochiweb
+          started_at: 'couchdb_ns_1@cb.local'
+
+[error_logger:info,2023-05-24T12:22:20.214Z,couchdb_ns_1@cb.local:error_logger<0.32.0>:ale_error_logger_handler:do_log:203]
+=========================PROGRESS REPORT=========================
+          supervisor: {local,os_mon_sup}
+             started: [{pid,<0.170.0>},
+                       {id,disksup},
+                       {mfargs,{disksup,start_link,[]}},
+                       {restart_type,permanent},
+                       {shutdown,2000},
+                       {child_type,worker}]
+
+[error_logger:info,2023-05-24T12:22:20.218Z,couchdb_ns_1@cb.local:error_logger<0.32.0>:ale_error_logger_handler:do_log:203]
+=========================PROGRESS REPORT=========================
+          supervisor: {local,os_mon_sup}
+             started: [{pid,<0.171.0>},
+                       {id,memsup},
+                       {mfargs,{memsup,start_link,[]}},
+                       {restart_type,permanent},
+                       {shutdown,2000},
+                       {child_type,worker}]
+
+[error_logger:info,2023-05-24T12:22:20.222Z,couchdb_ns_1@cb.local:error_logger<0.32.0>:ale_error_logger_handler:do_log:203]
+=========================PROGRESS REPORT=========================
+          supervisor: {local,os_mon_sup}
+             started: [{pid,<0.173.0>},
+                       {id,cpu_sup},
+                       {mfargs,{cpu_sup,start_link,[]}},
+                       {restart_type,permanent},
+                       {shutdown,2000},
+                       {child_type,worker}]
+
+[error_logger:info,2023-05-24T12:22:20.222Z,couchdb_ns_1@cb.local:error_logger<0.32.0>:ale_error_logger_handler:do_log:203]
+=========================PROGRESS REPORT=========================
+         application: os_mon
+          started_at: 'couchdb_ns_1@cb.local'
+
+[error_logger:info,2023-05-24T12:22:20.223Z,couchdb_ns_1@cb.local:error_logger<0.32.0>:ale_error_logger_handler:do_log:203]
+=========================PROGRESS REPORT=========================
+          supervisor: {local,kernel_safe_sup}
+             started: [{pid,<0.176.0>},
+                       {id,timer_server},
+                       {mfargs,{timer,start_link,[]}},
+                       {restart_type,permanent},
+                       {shutdown,1000},
+                       {child_type,worker}]
+
+[error_logger:info,2023-05-24T12:22:20.226Z,couchdb_ns_1@cb.local:error_logger<0.32.0>:ale_error_logger_handler:do_log:203]
+=========================PROGRESS REPORT=========================
+         application: couch_view_parser
+          started_at: 'couchdb_ns_1@cb.local'
+
+[error_logger:info,2023-05-24T12:22:20.230Z,couchdb_ns_1@cb.local:error_logger<0.32.0>:ale_error_logger_handler:do_log:203]
+=========================PROGRESS REPORT=========================
+         application: couch_set_view
+          started_at: 'couchdb_ns_1@cb.local'
+
+[error_logger:info,2023-05-24T12:22:20.244Z,couchdb_ns_1@cb.local:error_logger<0.32.0>:ale_error_logger_handler:do_log:203]
+=========================PROGRESS REPORT=========================
+          supervisor: {local,couch_index_sup}
+             started: [{pid,<0.183.0>},
+                       {id,couch_query_logger},
+                       {mfargs,{couch_query_logger,start_link,[]}},
+                       {restart_type,permanent},
+                       {shutdown,1000},
+                       {child_type,worker}]
+
+[error_logger:info,2023-05-24T12:22:20.244Z,couchdb_ns_1@cb.local:error_logger<0.32.0>:ale_error_logger_handler:do_log:203]
+=========================PROGRESS REPORT=========================
+         application: couch_index_merger
+          started_at: 'couchdb_ns_1@cb.local'
+
+[error_logger:info,2023-05-24T12:22:20.247Z,couchdb_ns_1@cb.local:error_logger<0.32.0>:ale_error_logger_handler:do_log:203]
+=========================PROGRESS REPORT=========================
+         application: mapreduce
+          started_at: 'couchdb_ns_1@cb.local'
+
+[error_logger:info,2023-05-24T12:22:20.263Z,couchdb_ns_1@cb.local:error_logger<0.32.0>:ale_error_logger_handler:do_log:203]
+=========================PROGRESS REPORT=========================
+          supervisor: {local,couch_server_sup}
+             started: [{pid,<0.185.0>},
+                       {id,couch_config},
+                       {mfargs,
+                           {couch_server_sup,couch_config_start_link_wrapper,
+                               [["/opt/couchbase/etc/couchdb/default.ini",
+                                 "/opt/couchbase/etc/couchdb/default.d/capi.ini",
+                                 "/opt/couchbase/etc/couchdb/default.d/geocouch.ini",
+                                 "/opt/couchbase/etc/couchdb/local.ini"],
+                                <0.185.0>]}},
+                       {restart_type,permanent},
+                       {shutdown,brutal_kill},
+                       {child_type,worker}]
+
+[error_logger:info,2023-05-24T12:22:20.265Z,couchdb_ns_1@cb.local:error_logger<0.32.0>:ale_error_logger_handler:do_log:203]
+=========================PROGRESS REPORT=========================
+          supervisor: {local,couch_primary_services}
+             started: [{pid,<0.188.0>},
+                       {id,couch_task_events},
+                       {mfargs,
+                           {gen_event,start_link,[{local,couch_task_events}]}},
+                       {restart_type,permanent},
+                       {shutdown,brutal_kill},
+                       {child_type,worker}]
+
+[error_logger:info,2023-05-24T12:22:20.268Z,couchdb_ns_1@cb.local:error_logger<0.32.0>:ale_error_logger_handler:do_log:203]
+=========================PROGRESS REPORT=========================
+          supervisor: {local,couch_primary_services}
+             started: [{pid,<0.189.0>},
+                       {id,couch_task_status},
+                       {mfargs,{couch_task_status,start_link,[]}},
+                       {restart_type,permanent},
+                       {shutdown,brutal_kill},
+                       {child_type,worker}]
+
+[error_logger:info,2023-05-24T12:22:20.270Z,couchdb_ns_1@cb.local:error_logger<0.32.0>:ale_error_logger_handler:do_log:203]
+=========================PROGRESS REPORT=========================
+          supervisor: {local,couch_primary_services}
+             started: [{pid,<0.190.0>},
+                       {id,couch_file_write_guard},
+                       {mfargs,{couch_file_write_guard,sup_start_link,[]}},
+                       {restart_type,permanent},
+                       {shutdown,10000},
+                       {child_type,worker}]
+
+[error_logger:info,2023-05-24T12:22:20.283Z,couchdb_ns_1@cb.local:error_logger<0.32.0>:ale_error_logger_handler:do_log:203]
+=========================PROGRESS REPORT=========================
+          supervisor: {local,couch_primary_services}
+             started: [{pid,<0.191.0>},
+                       {id,couch_server},
+                       {mfargs,{couch_server,sup_start_link,[]}},
+                       {restart_type,permanent},
+                       {shutdown,brutal_kill},
+                       {child_type,worker}]
+
+[error_logger:info,2023-05-24T12:22:20.283Z,couchdb_ns_1@cb.local:error_logger<0.32.0>:ale_error_logger_handler:do_log:203]
+=========================PROGRESS REPORT=========================
+          supervisor: {local,couch_primary_services}
+             started: [{pid,<0.192.0>},
+                       {id,couch_db_update_event},
+                       {mfargs,
+                           {gen_event,start_link,[{local,couch_db_update}]}},
+                       {restart_type,permanent},
+                       {shutdown,brutal_kill},
+                       {child_type,worker}]
+
+[error_logger:info,2023-05-24T12:22:20.283Z,couchdb_ns_1@cb.local:error_logger<0.32.0>:ale_error_logger_handler:do_log:203]
+=========================PROGRESS REPORT=========================
+          supervisor: {local,couch_primary_services}
+             started: [{pid,<0.193.0>},
+                       {id,couch_replication_event},
+                       {mfargs,
+                           {gen_event,start_link,[{local,couch_replication}]}},
+                       {restart_type,permanent},
+                       {shutdown,brutal_kill},
+                       {child_type,worker}]
+
+[error_logger:info,2023-05-24T12:22:20.286Z,couchdb_ns_1@cb.local:error_logger<0.32.0>:ale_error_logger_handler:do_log:203]
+=========================PROGRESS REPORT=========================
+          supervisor: {local,couch_primary_services}
+             started: [{pid,<0.194.0>},
+                       {id,couch_replication_supervisor},
+                       {mfargs,{couch_rep_sup,start_link,[]}},
+                       {restart_type,permanent},
+                       {shutdown,infinity},
+                       {child_type,supervisor}]
+
+[error_logger:info,2023-05-24T12:22:20.289Z,couchdb_ns_1@cb.local:error_logger<0.32.0>:ale_error_logger_handler:do_log:203]
+=========================PROGRESS REPORT=========================
+          supervisor: {local,couch_primary_services}
+             started: [{pid,<0.195.0>},
+                       {id,couch_log},
+                       {mfargs,{couch_log,start_link,[]}},
+                       {restart_type,permanent},
+                       {shutdown,brutal_kill},
+                       {child_type,worker}]
+
+[error_logger:info,2023-05-24T12:22:20.292Z,couchdb_ns_1@cb.local:error_logger<0.32.0>:ale_error_logger_handler:do_log:203]
+=========================PROGRESS REPORT=========================
+          supervisor: {local,couch_primary_services}
+             started: [{pid,<0.196.0>},
+                       {id,couch_main_index_barrier},
+                       {mfargs,
+                           {couch_index_barrier,start_link,
+                               [couch_main_index_barrier,
+                                "max_parallel_indexers"]}},
+                       {restart_type,permanent},
+                       {shutdown,brutal_kill},
+                       {child_type,worker}]
+
+[error_logger:info,2023-05-24T12:22:20.293Z,couchdb_ns_1@cb.local:error_logger<0.32.0>:ale_error_logger_handler:do_log:203]
+=========================PROGRESS REPORT=========================
+          supervisor: {local,couch_primary_services}
+             started: [{pid,<0.197.0>},
+                       {id,couch_replica_index_barrier},
+                       {mfargs,
+                           {couch_index_barrier,start_link,
+                               [couch_replica_index_barrier,
+                                "max_parallel_replica_indexers"]}},
+                       {restart_type,permanent},
+                       {shutdown,brutal_kill},
+                       {child_type,worker}]
+
+[error_logger:info,2023-05-24T12:22:20.293Z,couchdb_ns_1@cb.local:error_logger<0.32.0>:ale_error_logger_handler:do_log:203]
+=========================PROGRESS REPORT=========================
+          supervisor: {local,couch_primary_services}
+             started: [{pid,<0.198.0>},
+                       {id,couch_spatial_index_barrier},
+                       {mfargs,
+                           {couch_index_barrier,start_link,
+                               [couch_spatial_index_barrier,
+                                "max_parallel_spatial_indexers"]}},
+                       {restart_type,permanent},
+                       {shutdown,brutal_kill},
+                       {child_type,worker}]
+
+[error_logger:info,2023-05-24T12:22:20.293Z,couchdb_ns_1@cb.local:error_logger<0.32.0>:ale_error_logger_handler:do_log:203]
+=========================PROGRESS REPORT=========================
+          supervisor: {local,couch_server_sup}
+             started: [{pid,<0.187.0>},
+                       {id,couch_primary_services},
+                       {mfargs,{couch_primary_sup,start_link,[]}},
+                       {restart_type,permanent},
+                       {shutdown,infinity},
+                       {child_type,supervisor}]
+
+[error_logger:info,2023-05-24T12:22:20.297Z,couchdb_ns_1@cb.local:error_logger<0.32.0>:ale_error_logger_handler:do_log:203]
+=========================PROGRESS REPORT=========================
+          supervisor: {local,couch_secondary_services}
+             started: [{pid,<0.200.0>},
+                       {id,couch_db_update_notifier_sup},
+                       {mfargs,{couch_db_update_notifier_sup,start_link,[]}},
+                       {restart_type,permanent},
+                       {shutdown,infinity},
+                       {child_type,supervisor}]
+
+[error_logger:info,2023-05-24T12:22:20.300Z,couchdb_ns_1@cb.local:error_logger<0.32.0>:ale_error_logger_handler:do_log:203]
+=========================PROGRESS REPORT=========================
+          supervisor: {local,couch_secondary_services}
+             started: [{pid,<0.201.0>},
+                       {id,query_servers},
+                       {mfargs,{couch_query_servers,start_link,[]}},
+                       {restart_type,permanent},
+                       {shutdown,brutal_kill},
+                       {child_type,worker}]
+
+[error_logger:info,2023-05-24T12:22:20.331Z,couchdb_ns_1@cb.local:error_logger<0.32.0>:ale_error_logger_handler:do_log:203]
+=========================PROGRESS REPORT=========================
+          supervisor: {local,couch_secondary_services}
+             started: [{pid,<0.203.0>},
+                       {id,spatial_view_manager},
+                       {mfargs,
+                           {couch_set_view,start_link,[prod,spatial_view]}},
+                       {restart_type,permanent},
+                       {shutdown,brutal_kill},
+                       {child_type,worker}]
+
+[error_logger:info,2023-05-24T12:22:20.338Z,couchdb_ns_1@cb.local:error_logger<0.32.0>:ale_error_logger_handler:do_log:203]
+=========================PROGRESS REPORT=========================
+          supervisor: {local,couch_secondary_services}
+             started: [{pid,<0.206.0>},
+                       {id,set_view_manager},
+                       {mfargs,
+                           {couch_set_view,start_link,[prod,mapreduce_view]}},
+                       {restart_type,permanent},
+                       {shutdown,brutal_kill},
+                       {child_type,worker}]
+
+[error_logger:info,2023-05-24T12:22:20.341Z,couchdb_ns_1@cb.local:error_logger<0.32.0>:ale_error_logger_handler:do_log:203]
+=========================PROGRESS REPORT=========================
+          supervisor: {local,couch_secondary_services}
+             started: [{pid,<0.208.0>},
+                       {id,couch_set_view_ddoc_cache},
+                       {mfargs,{couch_set_view_ddoc_cache,start_link,[]}},
+                       {restart_type,permanent},
+                       {shutdown,brutal_kill},
+                       {child_type,worker}]
+
+[error_logger:info,2023-05-24T12:22:20.354Z,couchdb_ns_1@cb.local:error_logger<0.32.0>:ale_error_logger_handler:do_log:203]
+=========================PROGRESS REPORT=========================
+          supervisor: {local,couch_secondary_services}
+             started: [{pid,<0.210.0>},
+                       {id,httpd},
+                       {mfargs,{couch_httpd,start_link,[]}},
+                       {restart_type,permanent},
+                       {shutdown,brutal_kill},
+                       {child_type,worker}]
+
+[error_logger:info,2023-05-24T12:22:20.354Z,couchdb_ns_1@cb.local:error_logger<0.32.0>:ale_error_logger_handler:do_log:203]
+=========================PROGRESS REPORT=========================
+          supervisor: {local,couch_secondary_services}
+             started: [{pid,<0.227.0>},
+                       {id,index_merger_pool},
+                       {mfargs,
+                           {lhttpc_manager,start_link,
+                               [[{connection_timeout,90000},
+                                 {pool_size,10000},
+                                 {name,couch_index_merger_connection_pool}]]}},
+                       {restart_type,permanent},
+                       {shutdown,brutal_kill},
+                       {child_type,worker}]
+
+[error_logger:info,2023-05-24T12:22:20.359Z,couchdb_ns_1@cb.local:error_logger<0.32.0>:ale_error_logger_handler:do_log:203]
+=========================PROGRESS REPORT=========================
+          supervisor: {local,couch_secondary_services}
+             started: [{pid,<0.228.0>},
+                       {id,spatial_view_manager_dev},
+                       {mfargs,{couch_set_view,start_link,[dev,spatial_view]}},
+                       {restart_type,permanent},
+                       {shutdown,brutal_kill},
+                       {child_type,worker}]
+
+[error_logger:info,2023-05-24T12:22:20.366Z,couchdb_ns_1@cb.local:error_logger<0.32.0>:ale_error_logger_handler:do_log:203]
+=========================PROGRESS REPORT=========================
+          supervisor: {local,couch_secondary_services}
+             started: [{pid,<0.230.0>},
+                       {id,view_manager},
+                       {mfargs,{couch_view,start_link,[]}},
+                       {restart_type,permanent},
+                       {shutdown,brutal_kill},
+                       {child_type,worker}]
+
+[error_logger:info,2023-05-24T12:22:20.371Z,couchdb_ns_1@cb.local:error_logger<0.32.0>:ale_error_logger_handler:do_log:203]
+=========================PROGRESS REPORT=========================
+          supervisor: {local,couch_secondary_services}
+             started: [{pid,<0.232.0>},
+                       {id,set_view_manager_dev},
+                       {mfargs,
+                           {couch_set_view,start_link,[dev,mapreduce_view]}},
+                       {restart_type,permanent},
+                       {shutdown,brutal_kill},
+                       {child_type,worker}]
+
+[error_logger:info,2023-05-24T12:22:20.379Z,couchdb_ns_1@cb.local:error_logger<0.32.0>:ale_error_logger_handler:do_log:203]
+=========================PROGRESS REPORT=========================
+          supervisor: {local,couch_secondary_services}
+             started: [{pid,<0.234.0>},
+                       {id,uuids},
+                       {mfargs,{couch_uuids,start,[]}},
+                       {restart_type,permanent},
+                       {shutdown,brutal_kill},
+                       {child_type,worker}]
+
+[error_logger:info,2023-05-24T12:22:20.380Z,couchdb_ns_1@cb.local:error_logger<0.32.0>:ale_error_logger_handler:do_log:203]
+=========================PROGRESS REPORT=========================
+          supervisor: {local,couch_server_sup}
+             started: [{pid,<0.199.0>},
+                       {id,couch_secondary_services},
+                       {mfargs,{couch_secondary_sup,start_link,[]}},
+                       {restart_type,permanent},
+                       {shutdown,infinity},
+                       {child_type,supervisor}]
+
+[error_logger:info,2023-05-24T12:22:20.389Z,couchdb_ns_1@cb.local:error_logger<0.32.0>:ale_error_logger_handler:do_log:203]
+=========================PROGRESS REPORT=========================
+          supervisor: {local,couch_audit_sup}
+             started: [{pid,<0.240.0>},
+                       {id,couch_audit},
+                       {mfargs,{couch_audit,start_link,[]}},
+                       {restart_type,permanent},
+                       {shutdown,1000},
+                       {child_type,worker}]
+
+[error_logger:info,2023-05-24T12:22:20.389Z,couchdb_ns_1@cb.local:error_logger<0.32.0>:ale_error_logger_handler:do_log:203]
+=========================PROGRESS REPORT=========================
+         application: couch_audit
+          started_at: 'couchdb_ns_1@cb.local'
+
+[error_logger:info,2023-05-24T12:22:20.390Z,couchdb_ns_1@cb.local:error_logger<0.32.0>:ale_error_logger_handler:do_log:203]
+=========================PROGRESS REPORT=========================
+          supervisor: {local,cb_couch_sup}
+             started: [{pid,<0.186.0>},
+                       {id,couch_app},
+                       {mfargs,
+                           {couch_app,start,
+                               [fake,
+                                ["/opt/couchbase/etc/couchdb/default.ini",
+                                 "/opt/couchbase/etc/couchdb/local.ini"]]}},
+                       {restart_type,permanent},
+                       {shutdown,infinity},
+                       {child_type,supervisor}]
+
+[error_logger:info,2023-05-24T12:22:20.390Z,couchdb_ns_1@cb.local:error_logger<0.32.0>:ale_error_logger_handler:do_log:203]
+=========================PROGRESS REPORT=========================
+          supervisor: {local,ns_couchdb_sup}
+             started: [{pid,<0.133.0>},
+                       {name,cb_couch_sup},
+                       {mfargs,{cb_couch_sup,start_link,[]}},
+                       {restart_type,permanent},
+                       {shutdown,5000},
+                       {child_type,supervisor}]
+
+[error_logger:info,2023-05-24T12:22:20.395Z,couchdb_ns_1@cb.local:error_logger<0.32.0>:ale_error_logger_handler:do_log:203]
+=========================PROGRESS REPORT=========================
+          supervisor: {local,ns_couchdb_sup}
+             started: [{pid,<0.242.0>},
+                       {name,timeout_diag_logger},
+                       {mfargs,{timeout_diag_logger,start_link,[]}},
+                       {restart_type,permanent},
+                       {shutdown,1000},
+                       {child_type,worker}]
+
+[error_logger:info,2023-05-24T12:22:20.398Z,couchdb_ns_1@cb.local:error_logger<0.32.0>:ale_error_logger_handler:do_log:203]
+=========================PROGRESS REPORT=========================
+          supervisor: {local,ns_couchdb_sup}
+             started: [{pid,<0.243.0>},
+                       {name,ns_memcached_sockets_pool},
+                       {mfargs,{ns_memcached_sockets_pool,start_link,[]}},
+                       {restart_type,permanent},
+                       {shutdown,1000},
+                       {child_type,worker}]
+
+[error_logger:info,2023-05-24T12:22:20.399Z,couchdb_ns_1@cb.local:error_logger<0.32.0>:ale_error_logger_handler:do_log:203]
+=========================PROGRESS REPORT=========================
+          supervisor: {local,ns_couchdb_sup}
+             started: [{pid,<0.244.0>},
+                       {name,ns_couchdb_stats_collector},
+                       {mfargs,{ns_couchdb_stats_collector,start_link,[]}},
+                       {restart_type,permanent},
+                       {shutdown,1000},
+                       {child_type,worker}]
+
+[error_logger:info,2023-05-24T12:22:20.401Z,couchdb_ns_1@cb.local:error_logger<0.32.0>:ale_error_logger_handler:do_log:203]
+=========================PROGRESS REPORT=========================
+          supervisor: {local,ns_couchdb_config_sup}
+             started: [{pid,<0.246.0>},
+                       {id,ns_config_events},
+                       {mfargs,
+                           {gen_event,start_link,[{local,ns_config_events}]}},
+                       {restart_type,permanent},
+                       {shutdown,1000},
+                       {child_type,worker}]
+
+[error_logger:info,2023-05-24T12:22:20.401Z,couchdb_ns_1@cb.local:error_logger<0.32.0>:ale_error_logger_handler:do_log:203]
+=========================PROGRESS REPORT=========================
+          supervisor: {local,ns_couchdb_config_sup}
+             started: [{pid,<0.247.0>},
+                       {id,ns_config_events_local},
+                       {mfargs,
+                           {gen_event,start_link,
+                               [{local,ns_config_events_local}]}},
+                       {restart_type,permanent},
+                       {shutdown,brutal_kill},
+                       {child_type,worker}]
+
+[error_logger:info,2023-05-24T12:22:20.406Z,couchdb_ns_1@cb.local:error_logger<0.32.0>:ale_error_logger_handler:do_log:203]
+=========================PROGRESS REPORT=========================
+          supervisor: {local,ns_couchdb_config_sup}
+             started: [{pid,<0.248.0>},
+                       {id,ns_config},
+                       {mfargs,
+                           {ns_config,start_link,
+                               [{pull_from_node,'ns_1@cb.local'}]}},
+                       {restart_type,permanent},
+                       {shutdown,1000},
+                       {child_type,worker}]
+
+[error_logger:info,2023-05-24T12:22:20.407Z,couchdb_ns_1@cb.local:error_logger<0.32.0>:ale_error_logger_handler:do_log:203]
+=========================PROGRESS REPORT=========================
+          supervisor: {local,ns_couchdb_config_sup}
+             started: [{pid,<0.249.0>},
+                       {id,ns_couchdb_config_rep},
+                       {mfargs,{ns_couchdb_config_rep,start_link,[]}},
+                       {restart_type,permanent},
+                       {shutdown,1000},
+                       {child_type,worker}]
+
+[error_logger:info,2023-05-24T12:22:20.408Z,couchdb_ns_1@cb.local:error_logger<0.32.0>:ale_error_logger_handler:do_log:203]
+=========================PROGRESS REPORT=========================
+          supervisor: {local,ns_couchdb_config_sup}
+             started: [{pid,<0.250.0>},
+                       {id,cb_config_couch_sync},
+                       {mfargs,{cb_config_couch_sync,start_link,[]}},
+                       {restart_type,permanent},
+                       {shutdown,1000},
+                       {child_type,worker}]
+
+[error_logger:info,2023-05-24T12:22:20.409Z,couchdb_ns_1@cb.local:error_logger<0.32.0>:ale_error_logger_handler:do_log:203]
+=========================PROGRESS REPORT=========================
+          supervisor: {local,ns_couchdb_config_sup}
+             started: [{pid,<0.253.0>},
+                       {id,ns_config_log},
+                       {mfargs,{ns_config_log,start_link,[]}},
+                       {restart_type,permanent},
+                       {shutdown,1000},
+                       {child_type,worker}]
+
+[error_logger:info,2023-05-24T12:22:20.410Z,couchdb_ns_1@cb.local:error_logger<0.32.0>:ale_error_logger_handler:do_log:203]
+=========================PROGRESS REPORT=========================
+          supervisor: {local,ns_couchdb_sup}
+             started: [{pid,<0.245.0>},
+                       {name,ns_couchdb_config_sup},
+                       {mfargs,{ns_couchdb_config_sup,start_link,[]}},
+                       {restart_type,permanent},
+                       {shutdown,infinity},
+                       {child_type,supervisor}]
+
+[error_logger:error,2023-05-24T12:22:20.411Z,couchdb_ns_1@cb.local:error_logger<0.32.0>:ale_error_logger_handler:do_log:203]
+=========================SUPERVISOR REPORT=========================
+     Supervisor: {local,couch_secondary_services}
+     Context:    child_terminated
+     Reason:     normal
+     Offender:   [{pid,<0.210.0>},
+                  {id,httpd},
+                  {mfargs,{couch_httpd,start_link,[]}},
+                  {restart_type,permanent},
+                  {shutdown,brutal_kill},
+                  {child_type,worker}]
+
+
+[error_logger:info,2023-05-24T12:22:20.412Z,couchdb_ns_1@cb.local:error_logger<0.32.0>:ale_error_logger_handler:do_log:203]
+=========================PROGRESS REPORT=========================
+          supervisor: {local,couch_secondary_services}
+             started: [{pid,<0.256.0>},
+                       {id,httpd},
+                       {mfargs,{couch_httpd,start_link,[]}},
+                       {restart_type,permanent},
+                       {shutdown,brutal_kill},
+                       {child_type,worker}]
+
+[ns_server:debug,2023-05-24T12:22:20.413Z,couchdb_ns_1@cb.local:compiled_roles_cache<0.273.0>:versioned_cache:init:47]Starting versioned cache compiled_roles_cache
+[ns_server:debug,2023-05-24T12:22:20.413Z,couchdb_ns_1@cb.local:compiled_roles_cache<0.273.0>:dist_manager:wait_for_node:282]Observed node 'ns_1@cb.local' to come up
+[error_logger:info,2023-05-24T12:22:20.413Z,couchdb_ns_1@cb.local:error_logger<0.32.0>:ale_error_logger_handler:do_log:203]
+=========================PROGRESS REPORT=========================
+          supervisor: {local,ns_couchdb_sup}
+             started: [{pid,<0.273.0>},
+                       {name,compiled_roles_cache},
+                       {mfargs,{menelaus_roles,start_compiled_roles_cache,[]}},
+                       {restart_type,{permanent,5}},
+                       {shutdown,1000},
+                       {child_type,worker}]
+
+[error_logger:info,2023-05-24T12:22:20.413Z,couchdb_ns_1@cb.local:error_logger<0.32.0>:ale_error_logger_handler:do_log:203]
+=========================INFO REPORT=========================
+{net_kernel,{connect,normal,'ns_1@cb.local'}}
+[error_logger:info,2023-05-24T12:22:20.414Z,couchdb_ns_1@cb.local:error_logger<0.32.0>:ale_error_logger_handler:do_log:203]
+=========================PROGRESS REPORT=========================
+          supervisor: {local,ns_couchdb_sup}
+             started: [{pid,<0.276.0>},
+                       {name,request_throttler},
+                       {mfargs,{request_throttler,start_link,[]}},
+                       {restart_type,permanent},
+                       {shutdown,1000},
+                       {child_type,worker}]
+
+[error_logger:info,2023-05-24T12:22:20.418Z,couchdb_ns_1@cb.local:error_logger<0.32.0>:ale_error_logger_handler:do_log:203]
+=========================PROGRESS REPORT=========================
+          supervisor: {local,ns_couchdb_sup}
+             started: [{pid,<0.277.0>},
+                       {name,vbucket_map_mirror},
+                       {mfargs,{vbucket_map_mirror,start_link,[]}},
+                       {restart_type,permanent},
+                       {shutdown,brutal_kill},
+                       {child_type,worker}]
+
+[ns_server:info,2023-05-24T12:22:20.430Z,couchdb_ns_1@cb.local:set_view_update_daemon<0.279.0>:set_view_update_daemon:init:50]Set view update daemon, starting with the following settings:
+  update interval:           5000ms
+  minimum number of changes: 5000
+
+[error_logger:info,2023-05-24T12:22:20.432Z,couchdb_ns_1@cb.local:error_logger<0.32.0>:ale_error_logger_handler:do_log:203]
+=========================PROGRESS REPORT=========================
+          supervisor: {local,kernel_safe_sup}
+             started: [{pid,<0.281.0>},
+                       {id,timer2_server},
+                       {mfargs,{timer2,start_link,[]}},
+                       {restart_type,permanent},
+                       {shutdown,1000},
+                       {child_type,worker}]
+
+[error_logger:info,2023-05-24T12:22:20.432Z,couchdb_ns_1@cb.local:error_logger<0.32.0>:ale_error_logger_handler:do_log:203]
+=========================PROGRESS REPORT=========================
+          supervisor: {local,ns_couchdb_sup}
+             started: [{pid,<0.279.0>},
+                       {name,set_view_update_daemon},
+                       {mfargs,{set_view_update_daemon,start_link,[]}},
+                       {restart_type,permanent},
+                       {shutdown,1000},
+                       {child_type,worker}]
+
+[ns_server:info,2023-05-24T12:22:20.434Z,couchdb_ns_1@cb.local:ns_config_rep<0.249.0>:ns_couchdb_config_rep:do_pull:65]Pulling config from: 'ns_1@cb.local'
+
+[ns_server:debug,2023-05-24T12:22:20.475Z,couchdb_ns_1@cb.local:<0.282.0>:restartable:start_child:98]Started child process <0.284.0>
+  MFA: {ns_ssl_services_setup,start_link_capi_service,[]}
+[error_logger:info,2023-05-24T12:22:20.475Z,couchdb_ns_1@cb.local:error_logger<0.32.0>:ale_error_logger_handler:do_log:203]
+=========================PROGRESS REPORT=========================
+          supervisor: {local,ns_couchdb_sup}
+             started: [{pid,<0.282.0>},
+                       {name,ns_capi_ssl_service},
+                       {mfargs,
+                           {restartable,start_link,
+                               [{ns_ssl_services_setup,
+                                    start_link_capi_service,[]},
+                                1000]}},
+                       {restart_type,{permanent,4}},
+                       {shutdown,infinity},
+                       {child_type,worker}]
+
+[ns_server:info,2023-05-24T12:22:20.476Z,couchdb_ns_1@cb.local:ns_couchdb_sup<0.131.0>:dir_size:start_link:39]Starting quick version of dir_size with program name: godu
+[error_logger:info,2023-05-24T12:22:20.476Z,couchdb_ns_1@cb.local:error_logger<0.32.0>:ale_error_logger_handler:do_log:203]
+=========================PROGRESS REPORT=========================
+          supervisor: {local,ns_couchdb_sup}
+             started: [{pid,<0.302.0>},
+                       {name,dir_size},
+                       {mfargs,{dir_size,start_link,[]}},
+                       {restart_type,permanent},
+                       {shutdown,1000},
+                       {child_type,worker}]
+
+[ns_server:debug,2023-05-24T12:22:20.476Z,couchdb_ns_1@cb.local:<0.5.0>:child_erlang:child_loop:130]283: Entered child_loop
+[error_logger:info,2023-05-24T12:22:20.476Z,couchdb_ns_1@cb.local:error_logger<0.32.0>:ale_error_logger_handler:do_log:203]
+=========================PROGRESS REPORT=========================
+         application: ns_couchdb
+          started_at: 'couchdb_ns_1@cb.local'
+
+[ns_server:debug,2023-05-24T12:22:20.553Z,couchdb_ns_1@cb.local:<0.282.0>:restartable:loop:71]Restarting child <0.284.0>
+  MFA: {ns_ssl_services_setup,start_link_capi_service,[]}
+  Shutdown policy: 1000
+  Caller: {<0.306.0>,#Ref<0.660067620.32505862.173477>}
+[ns_server:debug,2023-05-24T12:22:20.554Z,couchdb_ns_1@cb.local:<0.282.0>:restartable:shutdown_child:120]Successfully terminated process <0.284.0>
+[ns_server:info,2023-05-24T12:22:20.554Z,couchdb_ns_1@cb.local:ns_config_rep<0.249.0>:ns_couchdb_config_rep:do_pull:65]Pulling config from: 'ns_1@cb.local'
+
+[ns_server:debug,2023-05-24T12:22:20.559Z,couchdb_ns_1@cb.local:<0.282.0>:restartable:start_child:98]Started child process <0.308.0>
+  MFA: {ns_ssl_services_setup,start_link_capi_service,[]}
+[ns_server:debug,2023-05-24T12:22:20.815Z,couchdb_ns_1@cb.local:ns_config_log<0.253.0>:ns_config_log:log_common:231]config change:
+{local_changes_count,<<"949a059dcc29e773ec37709a7973341b">>} ->
+[{'_vclock',[{<<"949a059dcc29e773ec37709a7973341b">>,{12,63852150140}}]}]
+[ns_server:info,2023-05-27T08:32:48.145Z,couchdb_ns_1@cb.local:<0.74.0>:ns_couchdb:init_logging:125]Brought up ns_couchdb logging
+[ns_server:debug,2023-05-27T08:32:48.148Z,couchdb_ns_1@cb.local:<0.74.0>:dist_manager:configure_net_kernel:293]Set net_kernel vebosity to 10 -> 0
+[ns_server:info,2023-05-27T08:32:48.149Z,couchdb_ns_1@cb.local:<0.74.0>:ns_couchdb:start:51]CouchDB node 'couchdb_ns_1@cb.local' was initialized for 'ns_1@cb.local'. Cookie: '0540339ca1585d22802fb6fce97632a1e41d40bd2a1d03eb7f0e8ea70a4b49ae'
+[ns_server:debug,2023-05-27T08:32:48.154Z,couchdb_ns_1@cb.local:menelaus_users_cache<0.131.0>:versioned_cache:init:47]Starting versioned cache menelaus_users_cache
+[ns_server:debug,2023-05-27T08:32:48.155Z,couchdb_ns_1@cb.local:menelaus_users_cache<0.131.0>:dist_manager:wait_for_node:282]Observed node 'ns_1@cb.local' to come up
+[error_logger:info,2023-05-27T08:32:48.155Z,couchdb_ns_1@cb.local:error_logger<0.32.0>:ale_error_logger_handler:do_log:203]
+=========================INFO REPORT=========================
+{net_kernel,{connect,normal,'ns_1@cb.local'}}
+[error_logger:info,2023-05-27T08:32:48.155Z,couchdb_ns_1@cb.local:error_logger<0.32.0>:ale_error_logger_handler:do_log:203]
+=========================PROGRESS REPORT=========================
+          supervisor: {local,ns_couchdb_sup}
+             started: [{pid,<0.131.0>},
+                       {name,menelaus_users_auth_cache},
+                       {mfargs,{menelaus_users,start_auth_cache,[]}},
+                       {restart_type,{permanent,5}},
+                       {shutdown,1000},
+                       {child_type,worker}]
+
+[error_logger:info,2023-05-27T08:32:48.180Z,couchdb_ns_1@cb.local:error_logger<0.32.0>:ale_error_logger_handler:do_log:203]
+=========================PROGRESS REPORT=========================
+          supervisor: {local,cb_couch_sup}
+             started: [{pid,<0.134.0>},
+                       {id,cb_auth_info},
+                       {mfargs,{cb_auth_info,start_link,[]}},
+                       {restart_type,permanent},
+                       {shutdown,brutal_kill},
+                       {child_type,worker}]
+
+[error_logger:info,2023-05-27T08:32:48.186Z,couchdb_ns_1@cb.local:error_logger<0.32.0>:ale_error_logger_handler:do_log:203]
+=========================PROGRESS REPORT=========================
+          supervisor: {local,sasl_safe_sup}
+             started: [{pid,<0.140.0>},
+                       {id,alarm_handler},
+                       {mfargs,{alarm_handler,start_link,[]}},
+                       {restart_type,permanent},
+                       {shutdown,2000},
+                       {child_type,worker}]
+
+[error_logger:info,2023-05-27T08:32:48.186Z,couchdb_ns_1@cb.local:error_logger<0.32.0>:ale_error_logger_handler:do_log:203]
+=========================PROGRESS REPORT=========================
+          supervisor: {local,sasl_sup}
+             started: [{pid,<0.139.0>},
+                       {id,sasl_safe_sup},
+                       {mfargs,
+                           {supervisor,start_link,
+                               [{local,sasl_safe_sup},sasl,safe]}},
+                       {restart_type,permanent},
+                       {shutdown,infinity},
+                       {child_type,supervisor}]
+
+[error_logger:info,2023-05-27T08:32:48.192Z,couchdb_ns_1@cb.local:error_logger<0.32.0>:ale_error_logger_handler:do_log:203]
+=========================PROGRESS REPORT=========================
+          supervisor: {local,sasl_sup}
+             started: [{pid,<0.141.0>},
+                       {id,release_handler},
+                       {mfargs,{release_handler,start_link,[]}},
+                       {restart_type,permanent},
+                       {shutdown,2000},
+                       {child_type,worker}]
+
+[error_logger:info,2023-05-27T08:32:48.192Z,couchdb_ns_1@cb.local:error_logger<0.32.0>:ale_error_logger_handler:do_log:203]
+=========================PROGRESS REPORT=========================
+         application: sasl
+          started_at: 'couchdb_ns_1@cb.local'
+
+[error_logger:info,2023-05-27T08:32:48.201Z,couchdb_ns_1@cb.local:error_logger<0.32.0>:ale_error_logger_handler:do_log:203]
+=========================PROGRESS REPORT=========================
+          supervisor: {local,inets_sup}
+             started: [{pid,<0.147.0>},
+                       {id,ftp_sup},
+                       {mfargs,{ftp_sup,start_link,[]}},
+                       {restart_type,permanent},
+                       {shutdown,infinity},
+                       {child_type,supervisor}]
+
+[error_logger:info,2023-05-27T08:32:48.218Z,couchdb_ns_1@cb.local:error_logger<0.32.0>:ale_error_logger_handler:do_log:203]
+=========================PROGRESS REPORT=========================
+          supervisor: {local,httpc_profile_sup}
+             started: [{pid,<0.150.0>},
+                       {id,httpc_manager},
+                       {mfargs,
+                           {httpc_manager,start_link,
+                               [default,only_session_cookies,inets]}},
+                       {restart_type,permanent},
+                       {shutdown,4000},
+                       {child_type,worker}]
+
+[error_logger:info,2023-05-27T08:32:48.218Z,couchdb_ns_1@cb.local:error_logger<0.32.0>:ale_error_logger_handler:do_log:203]
+=========================PROGRESS REPORT=========================
+          supervisor: {local,httpc_sup}
+             started: [{pid,<0.149.0>},
+                       {id,httpc_profile_sup},
+                       {mfargs,
+                           {httpc_profile_sup,start_link,
+                               [[{httpc,{default,only_session_cookies}}]]}},
+                       {restart_type,permanent},
+                       {shutdown,infinity},
+                       {child_type,supervisor}]
+
+[error_logger:info,2023-05-27T08:32:48.220Z,couchdb_ns_1@cb.local:error_logger<0.32.0>:ale_error_logger_handler:do_log:203]
+=========================PROGRESS REPORT=========================
+          supervisor: {local,httpc_sup}
+             started: [{pid,<0.151.0>},
+                       {id,httpc_handler_sup},
+                       {mfargs,{httpc_handler_sup,start_link,[]}},
+                       {restart_type,permanent},
+                       {shutdown,infinity},
+                       {child_type,supervisor}]
+
+[error_logger:info,2023-05-27T08:32:48.220Z,couchdb_ns_1@cb.local:error_logger<0.32.0>:ale_error_logger_handler:do_log:203]
+=========================PROGRESS REPORT=========================
+          supervisor: {local,inets_sup}
+             started: [{pid,<0.148.0>},
+                       {id,httpc_sup},
+                       {mfargs,
+                           {httpc_sup,start_link,
+                               [[{httpc,{default,only_session_cookies}}]]}},
+                       {restart_type,permanent},
+                       {shutdown,infinity},
+                       {child_type,supervisor}]
+
+[error_logger:info,2023-05-27T08:32:48.223Z,couchdb_ns_1@cb.local:error_logger<0.32.0>:ale_error_logger_handler:do_log:203]
+=========================PROGRESS REPORT=========================
+          supervisor: {local,inets_sup}
+             started: [{pid,<0.152.0>},
+                       {id,httpd_sup},
+                       {mfargs,{httpd_sup,start_link,[[]]}},
+                       {restart_type,permanent},
+                       {shutdown,infinity},
+                       {child_type,supervisor}]
+
+[error_logger:info,2023-05-27T08:32:48.227Z,couchdb_ns_1@cb.local:error_logger<0.32.0>:ale_error_logger_handler:do_log:203]
+=========================PROGRESS REPORT=========================
+          supervisor: {local,inets_sup}
+             started: [{pid,<0.153.0>},
+                       {id,tftp_sup},
+                       {mfargs,{tftp_sup,start_link,[[]]}},
+                       {restart_type,permanent},
+                       {shutdown,infinity},
+                       {child_type,supervisor}]
+
+[error_logger:info,2023-05-27T08:32:48.227Z,couchdb_ns_1@cb.local:error_logger<0.32.0>:ale_error_logger_handler:do_log:203]
+=========================PROGRESS REPORT=========================
+         application: inets
+          started_at: 'couchdb_ns_1@cb.local'
+
+[error_logger:info,2023-05-27T08:32:48.227Z,couchdb_ns_1@cb.local:error_logger<0.32.0>:ale_error_logger_handler:do_log:203]
+=========================PROGRESS REPORT=========================
+         application: oauth
+          started_at: 'couchdb_ns_1@cb.local'
+
+[error_logger:info,2023-05-27T08:32:48.234Z,couchdb_ns_1@cb.local:error_logger<0.32.0>:ale_error_logger_handler:do_log:203]
+=========================PROGRESS REPORT=========================
+          supervisor: {local,lhttpc_sup}
+             started: [{pid,<0.159.0>},
+                       {id,lhttpc_manager},
+                       {mfargs,
+                           {lhttpc_manager,start_link,
+                               [[{name,lhttpc_manager}]]}},
+                       {restart_type,permanent},
+                       {shutdown,10000},
+                       {child_type,worker}]
+
+[error_logger:info,2023-05-27T08:32:48.234Z,couchdb_ns_1@cb.local:error_logger<0.32.0>:ale_error_logger_handler:do_log:203]
+=========================PROGRESS REPORT=========================
+         application: lhttpc
+          started_at: 'couchdb_ns_1@cb.local'
+
+[error_logger:info,2023-05-27T08:32:48.238Z,couchdb_ns_1@cb.local:error_logger<0.32.0>:ale_error_logger_handler:do_log:203]
+=========================PROGRESS REPORT=========================
+         application: xmerl
+          started_at: 'couchdb_ns_1@cb.local'
+
+[error_logger:info,2023-05-27T08:32:48.244Z,couchdb_ns_1@cb.local:error_logger<0.32.0>:ale_error_logger_handler:do_log:203]
+=========================PROGRESS REPORT=========================
+         application: compiler
+          started_at: 'couchdb_ns_1@cb.local'
+
+[error_logger:info,2023-05-27T08:32:48.247Z,couchdb_ns_1@cb.local:error_logger<0.32.0>:ale_error_logger_handler:do_log:203]
+=========================PROGRESS REPORT=========================
+         application: syntax_tools
+          started_at: 'couchdb_ns_1@cb.local'
+
+[error_logger:info,2023-05-27T08:32:48.248Z,couchdb_ns_1@cb.local:error_logger<0.32.0>:ale_error_logger_handler:do_log:203]
+=========================PROGRESS REPORT=========================
+         application: mochiweb
+          started_at: 'couchdb_ns_1@cb.local'
+
+[error_logger:info,2023-05-27T08:32:48.253Z,couchdb_ns_1@cb.local:error_logger<0.32.0>:ale_error_logger_handler:do_log:203]
+=========================PROGRESS REPORT=========================
+          supervisor: {local,os_mon_sup}
+             started: [{pid,<0.169.0>},
+                       {id,disksup},
+                       {mfargs,{disksup,start_link,[]}},
+                       {restart_type,permanent},
+                       {shutdown,2000},
+                       {child_type,worker}]
+
+[error_logger:info,2023-05-27T08:32:48.258Z,couchdb_ns_1@cb.local:error_logger<0.32.0>:ale_error_logger_handler:do_log:203]
+=========================PROGRESS REPORT=========================
+          supervisor: {local,os_mon_sup}
+             started: [{pid,<0.170.0>},
+                       {id,memsup},
+                       {mfargs,{memsup,start_link,[]}},
+                       {restart_type,permanent},
+                       {shutdown,2000},
+                       {child_type,worker}]
+
+[error_logger:info,2023-05-27T08:32:48.262Z,couchdb_ns_1@cb.local:error_logger<0.32.0>:ale_error_logger_handler:do_log:203]
+=========================PROGRESS REPORT=========================
+          supervisor: {local,os_mon_sup}
+             started: [{pid,<0.172.0>},
+                       {id,cpu_sup},
+                       {mfargs,{cpu_sup,start_link,[]}},
+                       {restart_type,permanent},
+                       {shutdown,2000},
+                       {child_type,worker}]
+
+[error_logger:info,2023-05-27T08:32:48.262Z,couchdb_ns_1@cb.local:error_logger<0.32.0>:ale_error_logger_handler:do_log:203]
+=========================PROGRESS REPORT=========================
+         application: os_mon
+          started_at: 'couchdb_ns_1@cb.local'
+
+[error_logger:info,2023-05-27T08:32:48.263Z,couchdb_ns_1@cb.local:error_logger<0.32.0>:ale_error_logger_handler:do_log:203]
+=========================PROGRESS REPORT=========================
+          supervisor: {local,kernel_safe_sup}
+             started: [{pid,<0.175.0>},
+                       {id,timer_server},
+                       {mfargs,{timer,start_link,[]}},
+                       {restart_type,permanent},
+                       {shutdown,1000},
+                       {child_type,worker}]
+
+[error_logger:info,2023-05-27T08:32:48.267Z,couchdb_ns_1@cb.local:error_logger<0.32.0>:ale_error_logger_handler:do_log:203]
+=========================PROGRESS REPORT=========================
+         application: couch_view_parser
+          started_at: 'couchdb_ns_1@cb.local'
+
+[error_logger:info,2023-05-27T08:32:48.270Z,couchdb_ns_1@cb.local:error_logger<0.32.0>:ale_error_logger_handler:do_log:203]
+=========================PROGRESS REPORT=========================
+         application: couch_set_view
+          started_at: 'couchdb_ns_1@cb.local'
+
+[error_logger:info,2023-05-27T08:32:48.277Z,couchdb_ns_1@cb.local:error_logger<0.32.0>:ale_error_logger_handler:do_log:203]
+=========================PROGRESS REPORT=========================
+          supervisor: {local,couch_index_sup}
+             started: [{pid,<0.182.0>},
+                       {id,couch_query_logger},
+                       {mfargs,{couch_query_logger,start_link,[]}},
+                       {restart_type,permanent},
+                       {shutdown,1000},
+                       {child_type,worker}]
+
+[error_logger:info,2023-05-27T08:32:48.277Z,couchdb_ns_1@cb.local:error_logger<0.32.0>:ale_error_logger_handler:do_log:203]
+=========================PROGRESS REPORT=========================
+         application: couch_index_merger
+          started_at: 'couchdb_ns_1@cb.local'
+
+[error_logger:info,2023-05-27T08:32:48.279Z,couchdb_ns_1@cb.local:error_logger<0.32.0>:ale_error_logger_handler:do_log:203]
+=========================PROGRESS REPORT=========================
+         application: mapreduce
+          started_at: 'couchdb_ns_1@cb.local'
+
+[error_logger:info,2023-05-27T08:32:48.290Z,couchdb_ns_1@cb.local:error_logger<0.32.0>:ale_error_logger_handler:do_log:203]
+=========================PROGRESS REPORT=========================
+          supervisor: {local,couch_server_sup}
+             started: [{pid,<0.184.0>},
+                       {id,couch_config},
+                       {mfargs,
+                           {couch_server_sup,couch_config_start_link_wrapper,
+                               [["/opt/couchbase/etc/couchdb/default.ini",
+                                 "/opt/couchbase/etc/couchdb/default.d/capi.ini",
+                                 "/opt/couchbase/etc/couchdb/default.d/geocouch.ini",
+                                 "/opt/couchbase/etc/couchdb/local.ini"],
+                                <0.184.0>]}},
+                       {restart_type,permanent},
+                       {shutdown,brutal_kill},
+                       {child_type,worker}]
+
+[error_logger:info,2023-05-27T08:32:48.292Z,couchdb_ns_1@cb.local:error_logger<0.32.0>:ale_error_logger_handler:do_log:203]
+=========================PROGRESS REPORT=========================
+          supervisor: {local,couch_primary_services}
+             started: [{pid,<0.187.0>},
+                       {id,couch_task_events},
+                       {mfargs,
+                           {gen_event,start_link,[{local,couch_task_events}]}},
+                       {restart_type,permanent},
+                       {shutdown,brutal_kill},
+                       {child_type,worker}]
+
+[error_logger:info,2023-05-27T08:32:48.294Z,couchdb_ns_1@cb.local:error_logger<0.32.0>:ale_error_logger_handler:do_log:203]
+=========================PROGRESS REPORT=========================
+          supervisor: {local,couch_primary_services}
+             started: [{pid,<0.188.0>},
+                       {id,couch_task_status},
+                       {mfargs,{couch_task_status,start_link,[]}},
+                       {restart_type,permanent},
+                       {shutdown,brutal_kill},
+                       {child_type,worker}]
+
+[error_logger:info,2023-05-27T08:32:48.295Z,couchdb_ns_1@cb.local:error_logger<0.32.0>:ale_error_logger_handler:do_log:203]
+=========================PROGRESS REPORT=========================
+          supervisor: {local,couch_primary_services}
+             started: [{pid,<0.189.0>},
+                       {id,couch_file_write_guard},
+                       {mfargs,{couch_file_write_guard,sup_start_link,[]}},
+                       {restart_type,permanent},
+                       {shutdown,10000},
+                       {child_type,worker}]
+
+[error_logger:info,2023-05-27T08:32:48.305Z,couchdb_ns_1@cb.local:error_logger<0.32.0>:ale_error_logger_handler:do_log:203]
+=========================PROGRESS REPORT=========================
+          supervisor: {local,couch_primary_services}
+             started: [{pid,<0.190.0>},
+                       {id,couch_server},
+                       {mfargs,{couch_server,sup_start_link,[]}},
+                       {restart_type,permanent},
+                       {shutdown,brutal_kill},
+                       {child_type,worker}]
+
+[error_logger:info,2023-05-27T08:32:48.305Z,couchdb_ns_1@cb.local:error_logger<0.32.0>:ale_error_logger_handler:do_log:203]
+=========================PROGRESS REPORT=========================
+          supervisor: {local,couch_primary_services}
+             started: [{pid,<0.191.0>},
+                       {id,couch_db_update_event},
+                       {mfargs,
+                           {gen_event,start_link,[{local,couch_db_update}]}},
+                       {restart_type,permanent},
+                       {shutdown,brutal_kill},
+                       {child_type,worker}]
+
+[error_logger:info,2023-05-27T08:32:48.305Z,couchdb_ns_1@cb.local:error_logger<0.32.0>:ale_error_logger_handler:do_log:203]
+=========================PROGRESS REPORT=========================
+          supervisor: {local,couch_primary_services}
+             started: [{pid,<0.192.0>},
+                       {id,couch_replication_event},
+                       {mfargs,
+                           {gen_event,start_link,[{local,couch_replication}]}},
+                       {restart_type,permanent},
+                       {shutdown,brutal_kill},
+                       {child_type,worker}]
+
+[error_logger:info,2023-05-27T08:32:48.307Z,couchdb_ns_1@cb.local:error_logger<0.32.0>:ale_error_logger_handler:do_log:203]
+=========================PROGRESS REPORT=========================
+          supervisor: {local,couch_primary_services}
+             started: [{pid,<0.193.0>},
+                       {id,couch_replication_supervisor},
+                       {mfargs,{couch_rep_sup,start_link,[]}},
+                       {restart_type,permanent},
+                       {shutdown,infinity},
+                       {child_type,supervisor}]
+
+[error_logger:info,2023-05-27T08:32:48.309Z,couchdb_ns_1@cb.local:error_logger<0.32.0>:ale_error_logger_handler:do_log:203]
+=========================PROGRESS REPORT=========================
+          supervisor: {local,couch_primary_services}
+             started: [{pid,<0.194.0>},
+                       {id,couch_log},
+                       {mfargs,{couch_log,start_link,[]}},
+                       {restart_type,permanent},
+                       {shutdown,brutal_kill},
+                       {child_type,worker}]
+
+[error_logger:info,2023-05-27T08:32:48.312Z,couchdb_ns_1@cb.local:error_logger<0.32.0>:ale_error_logger_handler:do_log:203]
+=========================PROGRESS REPORT=========================
+          supervisor: {local,couch_primary_services}
+             started: [{pid,<0.195.0>},
+                       {id,couch_main_index_barrier},
+                       {mfargs,
+                           {couch_index_barrier,start_link,
+                               [couch_main_index_barrier,
+                                "max_parallel_indexers"]}},
+                       {restart_type,permanent},
+                       {shutdown,brutal_kill},
+                       {child_type,worker}]
+
+[error_logger:info,2023-05-27T08:32:48.312Z,couchdb_ns_1@cb.local:error_logger<0.32.0>:ale_error_logger_handler:do_log:203]
+=========================PROGRESS REPORT=========================
+          supervisor: {local,couch_primary_services}
+             started: [{pid,<0.196.0>},
+                       {id,couch_replica_index_barrier},
+                       {mfargs,
+                           {couch_index_barrier,start_link,
+                               [couch_replica_index_barrier,
+                                "max_parallel_replica_indexers"]}},
+                       {restart_type,permanent},
+                       {shutdown,brutal_kill},
+                       {child_type,worker}]
+
+[error_logger:info,2023-05-27T08:32:48.312Z,couchdb_ns_1@cb.local:error_logger<0.32.0>:ale_error_logger_handler:do_log:203]
+=========================PROGRESS REPORT=========================
+          supervisor: {local,couch_primary_services}
+             started: [{pid,<0.197.0>},
+                       {id,couch_spatial_index_barrier},
+                       {mfargs,
+                           {couch_index_barrier,start_link,
+                               [couch_spatial_index_barrier,
+                                "max_parallel_spatial_indexers"]}},
+                       {restart_type,permanent},
+                       {shutdown,brutal_kill},
+                       {child_type,worker}]
+
+[error_logger:info,2023-05-27T08:32:48.312Z,couchdb_ns_1@cb.local:error_logger<0.32.0>:ale_error_logger_handler:do_log:203]
+=========================PROGRESS REPORT=========================
+          supervisor: {local,couch_server_sup}
+             started: [{pid,<0.186.0>},
+                       {id,couch_primary_services},
+                       {mfargs,{couch_primary_sup,start_link,[]}},
+                       {restart_type,permanent},
+                       {shutdown,infinity},
+                       {child_type,supervisor}]
+
+[error_logger:info,2023-05-27T08:32:48.316Z,couchdb_ns_1@cb.local:error_logger<0.32.0>:ale_error_logger_handler:do_log:203]
+=========================PROGRESS REPORT=========================
+          supervisor: {local,couch_secondary_services}
+             started: [{pid,<0.199.0>},
+                       {id,couch_db_update_notifier_sup},
+                       {mfargs,{couch_db_update_notifier_sup,start_link,[]}},
+                       {restart_type,permanent},
+                       {shutdown,infinity},
+                       {child_type,supervisor}]
+
+[error_logger:info,2023-05-27T08:32:48.318Z,couchdb_ns_1@cb.local:error_logger<0.32.0>:ale_error_logger_handler:do_log:203]
+=========================PROGRESS REPORT=========================
+          supervisor: {local,couch_secondary_services}
+             started: [{pid,<0.200.0>},
+                       {id,query_servers},
+                       {mfargs,{couch_query_servers,start_link,[]}},
+                       {restart_type,permanent},
+                       {shutdown,brutal_kill},
+                       {child_type,worker}]
+
+[error_logger:info,2023-05-27T08:32:48.353Z,couchdb_ns_1@cb.local:error_logger<0.32.0>:ale_error_logger_handler:do_log:203]
+=========================PROGRESS REPORT=========================
+          supervisor: {local,couch_secondary_services}
+             started: [{pid,<0.202.0>},
+                       {id,spatial_view_manager},
+                       {mfargs,
+                           {couch_set_view,start_link,[prod,spatial_view]}},
+                       {restart_type,permanent},
+                       {shutdown,brutal_kill},
+                       {child_type,worker}]
+
+[error_logger:info,2023-05-27T08:32:48.358Z,couchdb_ns_1@cb.local:error_logger<0.32.0>:ale_error_logger_handler:do_log:203]
+=========================PROGRESS REPORT=========================
+          supervisor: {local,couch_secondary_services}
+             started: [{pid,<0.205.0>},
+                       {id,set_view_manager},
+                       {mfargs,
+                           {couch_set_view,start_link,[prod,mapreduce_view]}},
+                       {restart_type,permanent},
+                       {shutdown,brutal_kill},
+                       {child_type,worker}]
+
+[error_logger:info,2023-05-27T08:32:48.360Z,couchdb_ns_1@cb.local:error_logger<0.32.0>:ale_error_logger_handler:do_log:203]
+=========================PROGRESS REPORT=========================
+          supervisor: {local,couch_secondary_services}
+             started: [{pid,<0.207.0>},
+                       {id,couch_set_view_ddoc_cache},
+                       {mfargs,{couch_set_view_ddoc_cache,start_link,[]}},
+                       {restart_type,permanent},
+                       {shutdown,brutal_kill},
+                       {child_type,worker}]
+
+[error_logger:info,2023-05-27T08:32:48.371Z,couchdb_ns_1@cb.local:error_logger<0.32.0>:ale_error_logger_handler:do_log:203]
+=========================PROGRESS REPORT=========================
+          supervisor: {local,couch_secondary_services}
+             started: [{pid,<0.209.0>},
+                       {id,httpd},
+                       {mfargs,{couch_httpd,start_link,[]}},
+                       {restart_type,permanent},
+                       {shutdown,brutal_kill},
+                       {child_type,worker}]
+
+[error_logger:info,2023-05-27T08:32:48.371Z,couchdb_ns_1@cb.local:error_logger<0.32.0>:ale_error_logger_handler:do_log:203]
+=========================PROGRESS REPORT=========================
+          supervisor: {local,couch_secondary_services}
+             started: [{pid,<0.226.0>},
+                       {id,index_merger_pool},
+                       {mfargs,
+                           {lhttpc_manager,start_link,
+                               [[{connection_timeout,90000},
+                                 {pool_size,10000},
+                                 {name,couch_index_merger_connection_pool}]]}},
+                       {restart_type,permanent},
+                       {shutdown,brutal_kill},
+                       {child_type,worker}]
+
+[error_logger:info,2023-05-27T08:32:48.374Z,couchdb_ns_1@cb.local:error_logger<0.32.0>:ale_error_logger_handler:do_log:203]
+=========================PROGRESS REPORT=========================
+          supervisor: {local,couch_secondary_services}
+             started: [{pid,<0.227.0>},
+                       {id,spatial_view_manager_dev},
+                       {mfargs,{couch_set_view,start_link,[dev,spatial_view]}},
+                       {restart_type,permanent},
+                       {shutdown,brutal_kill},
+                       {child_type,worker}]
+
+[error_logger:info,2023-05-27T08:32:48.380Z,couchdb_ns_1@cb.local:error_logger<0.32.0>:ale_error_logger_handler:do_log:203]
+=========================PROGRESS REPORT=========================
+          supervisor: {local,couch_secondary_services}
+             started: [{pid,<0.229.0>},
+                       {id,view_manager},
+                       {mfargs,{couch_view,start_link,[]}},
+                       {restart_type,permanent},
+                       {shutdown,brutal_kill},
+                       {child_type,worker}]
+
+[error_logger:info,2023-05-27T08:32:48.384Z,couchdb_ns_1@cb.local:error_logger<0.32.0>:ale_error_logger_handler:do_log:203]
+=========================PROGRESS REPORT=========================
+          supervisor: {local,couch_secondary_services}
+             started: [{pid,<0.231.0>},
+                       {id,set_view_manager_dev},
+                       {mfargs,
+                           {couch_set_view,start_link,[dev,mapreduce_view]}},
+                       {restart_type,permanent},
+                       {shutdown,brutal_kill},
+                       {child_type,worker}]
+
+[error_logger:info,2023-05-27T08:32:48.390Z,couchdb_ns_1@cb.local:error_logger<0.32.0>:ale_error_logger_handler:do_log:203]
+=========================PROGRESS REPORT=========================
+          supervisor: {local,couch_secondary_services}
+             started: [{pid,<0.233.0>},
+                       {id,uuids},
+                       {mfargs,{couch_uuids,start,[]}},
+                       {restart_type,permanent},
+                       {shutdown,brutal_kill},
+                       {child_type,worker}]
+
+[error_logger:info,2023-05-27T08:32:48.391Z,couchdb_ns_1@cb.local:error_logger<0.32.0>:ale_error_logger_handler:do_log:203]
+=========================PROGRESS REPORT=========================
+          supervisor: {local,couch_server_sup}
+             started: [{pid,<0.198.0>},
+                       {id,couch_secondary_services},
+                       {mfargs,{couch_secondary_sup,start_link,[]}},
+                       {restart_type,permanent},
+                       {shutdown,infinity},
+                       {child_type,supervisor}]
+
+[error_logger:info,2023-05-27T08:32:48.398Z,couchdb_ns_1@cb.local:error_logger<0.32.0>:ale_error_logger_handler:do_log:203]
+=========================PROGRESS REPORT=========================
+          supervisor: {local,couch_audit_sup}
+             started: [{pid,<0.239.0>},
+                       {id,couch_audit},
+                       {mfargs,{couch_audit,start_link,[]}},
+                       {restart_type,permanent},
+                       {shutdown,1000},
+                       {child_type,worker}]
+
+[error_logger:info,2023-05-27T08:32:48.398Z,couchdb_ns_1@cb.local:error_logger<0.32.0>:ale_error_logger_handler:do_log:203]
+=========================PROGRESS REPORT=========================
+         application: couch_audit
+          started_at: 'couchdb_ns_1@cb.local'
+
+[error_logger:info,2023-05-27T08:32:48.399Z,couchdb_ns_1@cb.local:error_logger<0.32.0>:ale_error_logger_handler:do_log:203]
+=========================PROGRESS REPORT=========================
+          supervisor: {local,cb_couch_sup}
+             started: [{pid,<0.185.0>},
+                       {id,couch_app},
+                       {mfargs,
+                           {couch_app,start,
+                               [fake,
+                                ["/opt/couchbase/etc/couchdb/default.ini",
+                                 "/opt/couchbase/etc/couchdb/local.ini"]]}},
+                       {restart_type,permanent},
+                       {shutdown,infinity},
+                       {child_type,supervisor}]
+
+[error_logger:info,2023-05-27T08:32:48.399Z,couchdb_ns_1@cb.local:error_logger<0.32.0>:ale_error_logger_handler:do_log:203]
+=========================PROGRESS REPORT=========================
+          supervisor: {local,ns_couchdb_sup}
+             started: [{pid,<0.132.0>},
+                       {name,cb_couch_sup},
+                       {mfargs,{cb_couch_sup,start_link,[]}},
+                       {restart_type,permanent},
+                       {shutdown,5000},
+                       {child_type,supervisor}]
+
+[error_logger:info,2023-05-27T08:32:48.402Z,couchdb_ns_1@cb.local:error_logger<0.32.0>:ale_error_logger_handler:do_log:203]
+=========================PROGRESS REPORT=========================
+          supervisor: {local,ns_couchdb_sup}
+             started: [{pid,<0.241.0>},
+                       {name,timeout_diag_logger},
+                       {mfargs,{timeout_diag_logger,start_link,[]}},
+                       {restart_type,permanent},
+                       {shutdown,1000},
+                       {child_type,worker}]
+
+[error_logger:info,2023-05-27T08:32:48.404Z,couchdb_ns_1@cb.local:error_logger<0.32.0>:ale_error_logger_handler:do_log:203]
+=========================PROGRESS REPORT=========================
+          supervisor: {local,ns_couchdb_sup}
+             started: [{pid,<0.242.0>},
+                       {name,ns_memcached_sockets_pool},
+                       {mfargs,{ns_memcached_sockets_pool,start_link,[]}},
+                       {restart_type,permanent},
+                       {shutdown,1000},
+                       {child_type,worker}]
+
+[error_logger:info,2023-05-27T08:32:48.405Z,couchdb_ns_1@cb.local:error_logger<0.32.0>:ale_error_logger_handler:do_log:203]
+=========================PROGRESS REPORT=========================
+          supervisor: {local,ns_couchdb_sup}
+             started: [{pid,<0.243.0>},
+                       {name,ns_couchdb_stats_collector},
+                       {mfargs,{ns_couchdb_stats_collector,start_link,[]}},
+                       {restart_type,permanent},
+                       {shutdown,1000},
+                       {child_type,worker}]
+
+[error_logger:info,2023-05-27T08:32:48.407Z,couchdb_ns_1@cb.local:error_logger<0.32.0>:ale_error_logger_handler:do_log:203]
+=========================PROGRESS REPORT=========================
+          supervisor: {local,ns_couchdb_config_sup}
+             started: [{pid,<0.245.0>},
+                       {id,ns_config_events},
+                       {mfargs,
+                           {gen_event,start_link,[{local,ns_config_events}]}},
+                       {restart_type,permanent},
+                       {shutdown,1000},
+                       {child_type,worker}]
+
+[error_logger:info,2023-05-27T08:32:48.407Z,couchdb_ns_1@cb.local:error_logger<0.32.0>:ale_error_logger_handler:do_log:203]
+=========================PROGRESS REPORT=========================
+          supervisor: {local,ns_couchdb_config_sup}
+             started: [{pid,<0.246.0>},
+                       {id,ns_config_events_local},
+                       {mfargs,
+                           {gen_event,start_link,
+                               [{local,ns_config_events_local}]}},
+                       {restart_type,permanent},
+                       {shutdown,brutal_kill},
+                       {child_type,worker}]
+
+[error_logger:info,2023-05-27T08:32:48.412Z,couchdb_ns_1@cb.local:error_logger<0.32.0>:ale_error_logger_handler:do_log:203]
+=========================PROGRESS REPORT=========================
+          supervisor: {local,ns_couchdb_config_sup}
+             started: [{pid,<0.247.0>},
+                       {id,ns_config},
+                       {mfargs,
+                           {ns_config,start_link,
+                               [{pull_from_node,'ns_1@cb.local'}]}},
+                       {restart_type,permanent},
+                       {shutdown,1000},
+                       {child_type,worker}]
+
+[error_logger:info,2023-05-27T08:32:48.413Z,couchdb_ns_1@cb.local:error_logger<0.32.0>:ale_error_logger_handler:do_log:203]
+=========================PROGRESS REPORT=========================
+          supervisor: {local,ns_couchdb_config_sup}
+             started: [{pid,<0.248.0>},
+                       {id,ns_couchdb_config_rep},
+                       {mfargs,{ns_couchdb_config_rep,start_link,[]}},
+                       {restart_type,permanent},
+                       {shutdown,1000},
+                       {child_type,worker}]
+
+[error_logger:info,2023-05-27T08:32:48.414Z,couchdb_ns_1@cb.local:error_logger<0.32.0>:ale_error_logger_handler:do_log:203]
+=========================PROGRESS REPORT=========================
+          supervisor: {local,ns_couchdb_config_sup}
+             started: [{pid,<0.249.0>},
+                       {id,cb_config_couch_sync},
+                       {mfargs,{cb_config_couch_sync,start_link,[]}},
+                       {restart_type,permanent},
+                       {shutdown,1000},
+                       {child_type,worker}]
+
+[error_logger:info,2023-05-27T08:32:48.415Z,couchdb_ns_1@cb.local:error_logger<0.32.0>:ale_error_logger_handler:do_log:203]
+=========================PROGRESS REPORT=========================
+          supervisor: {local,ns_couchdb_config_sup}
+             started: [{pid,<0.252.0>},
+                       {id,ns_config_log},
+                       {mfargs,{ns_config_log,start_link,[]}},
+                       {restart_type,permanent},
+                       {shutdown,1000},
+                       {child_type,worker}]
+
+[error_logger:info,2023-05-27T08:32:48.415Z,couchdb_ns_1@cb.local:error_logger<0.32.0>:ale_error_logger_handler:do_log:203]
+=========================PROGRESS REPORT=========================
+          supervisor: {local,ns_couchdb_sup}
+             started: [{pid,<0.244.0>},
+                       {name,ns_couchdb_config_sup},
+                       {mfargs,{ns_couchdb_config_sup,start_link,[]}},
+                       {restart_type,permanent},
+                       {shutdown,infinity},
+                       {child_type,supervisor}]
+
+[error_logger:error,2023-05-27T08:32:48.416Z,couchdb_ns_1@cb.local:error_logger<0.32.0>:ale_error_logger_handler:do_log:203]
+=========================SUPERVISOR REPORT=========================
+     Supervisor: {local,couch_secondary_services}
+     Context:    child_terminated
+     Reason:     normal
+     Offender:   [{pid,<0.209.0>},
+                  {id,httpd},
+                  {mfargs,{couch_httpd,start_link,[]}},
+                  {restart_type,permanent},
+                  {shutdown,brutal_kill},
+                  {child_type,worker}]
+
+
+[error_logger:info,2023-05-27T08:32:48.417Z,couchdb_ns_1@cb.local:error_logger<0.32.0>:ale_error_logger_handler:do_log:203]
+=========================PROGRESS REPORT=========================
+          supervisor: {local,couch_secondary_services}
+             started: [{pid,<0.255.0>},
+                       {id,httpd},
+                       {mfargs,{couch_httpd,start_link,[]}},
+                       {restart_type,permanent},
+                       {shutdown,brutal_kill},
+                       {child_type,worker}]
+
+[ns_server:debug,2023-05-27T08:32:48.417Z,couchdb_ns_1@cb.local:compiled_roles_cache<0.272.0>:versioned_cache:init:47]Starting versioned cache compiled_roles_cache
+[ns_server:debug,2023-05-27T08:32:48.417Z,couchdb_ns_1@cb.local:compiled_roles_cache<0.272.0>:dist_manager:wait_for_node:282]Observed node 'ns_1@cb.local' to come up
+[error_logger:info,2023-05-27T08:32:48.417Z,couchdb_ns_1@cb.local:error_logger<0.32.0>:ale_error_logger_handler:do_log:203]
+=========================PROGRESS REPORT=========================
+          supervisor: {local,ns_couchdb_sup}
+             started: [{pid,<0.272.0>},
+                       {name,compiled_roles_cache},
+                       {mfargs,{menelaus_roles,start_compiled_roles_cache,[]}},
+                       {restart_type,{permanent,5}},
+                       {shutdown,1000},
+                       {child_type,worker}]
+
+[error_logger:info,2023-05-27T08:32:48.418Z,couchdb_ns_1@cb.local:error_logger<0.32.0>:ale_error_logger_handler:do_log:203]
+=========================INFO REPORT=========================
+{net_kernel,{connect,normal,'ns_1@cb.local'}}
+[error_logger:info,2023-05-27T08:32:48.418Z,couchdb_ns_1@cb.local:error_logger<0.32.0>:ale_error_logger_handler:do_log:203]
+=========================PROGRESS REPORT=========================
+          supervisor: {local,ns_couchdb_sup}
+             started: [{pid,<0.275.0>},
+                       {name,request_throttler},
+                       {mfargs,{request_throttler,start_link,[]}},
+                       {restart_type,permanent},
+                       {shutdown,1000},
+                       {child_type,worker}]
+
+[error_logger:info,2023-05-27T08:32:48.420Z,couchdb_ns_1@cb.local:error_logger<0.32.0>:ale_error_logger_handler:do_log:203]
+=========================PROGRESS REPORT=========================
+          supervisor: {local,ns_couchdb_sup}
+             started: [{pid,<0.276.0>},
+                       {name,vbucket_map_mirror},
+                       {mfargs,{vbucket_map_mirror,start_link,[]}},
+                       {restart_type,permanent},
+                       {shutdown,brutal_kill},
+                       {child_type,worker}]
+
+[ns_server:info,2023-05-27T08:32:48.423Z,couchdb_ns_1@cb.local:set_view_update_daemon<0.278.0>:set_view_update_daemon:init:50]Set view update daemon, starting with the following settings:
+  update interval:           5000ms
+  minimum number of changes: 5000
+
+[error_logger:info,2023-05-27T08:32:48.424Z,couchdb_ns_1@cb.local:error_logger<0.32.0>:ale_error_logger_handler:do_log:203]
+=========================PROGRESS REPORT=========================
+          supervisor: {local,kernel_safe_sup}
+             started: [{pid,<0.280.0>},
+                       {id,timer2_server},
+                       {mfargs,{timer2,start_link,[]}},
+                       {restart_type,permanent},
+                       {shutdown,1000},
+                       {child_type,worker}]
+
+[error_logger:info,2023-05-27T08:32:48.425Z,couchdb_ns_1@cb.local:error_logger<0.32.0>:ale_error_logger_handler:do_log:203]
+=========================PROGRESS REPORT=========================
+          supervisor: {local,ns_couchdb_sup}
+             started: [{pid,<0.278.0>},
+                       {name,set_view_update_daemon},
+                       {mfargs,{set_view_update_daemon,start_link,[]}},
+                       {restart_type,permanent},
+                       {shutdown,1000},
+                       {child_type,worker}]
+
+[ns_server:info,2023-05-27T08:32:48.426Z,couchdb_ns_1@cb.local:ns_config_rep<0.248.0>:ns_couchdb_config_rep:do_pull:65]Pulling config from: 'ns_1@cb.local'
+
+[ns_server:debug,2023-05-27T08:32:48.457Z,couchdb_ns_1@cb.local:<0.281.0>:restartable:start_child:98]Started child process <0.283.0>
+  MFA: {ns_ssl_services_setup,start_link_capi_service,[]}
+[error_logger:info,2023-05-27T08:32:48.458Z,couchdb_ns_1@cb.local:error_logger<0.32.0>:ale_error_logger_handler:do_log:203]
+=========================PROGRESS REPORT=========================
+          supervisor: {local,ns_couchdb_sup}
+             started: [{pid,<0.281.0>},
+                       {name,ns_capi_ssl_service},
+                       {mfargs,
+                           {restartable,start_link,
+                               [{ns_ssl_services_setup,
+                                    start_link_capi_service,[]},
+                                1000]}},
+                       {restart_type,{permanent,4}},
+                       {shutdown,infinity},
+                       {child_type,worker}]
+
+[ns_server:info,2023-05-27T08:32:48.458Z,couchdb_ns_1@cb.local:ns_couchdb_sup<0.130.0>:dir_size:start_link:39]Starting quick version of dir_size with program name: godu
+[error_logger:info,2023-05-27T08:32:48.459Z,couchdb_ns_1@cb.local:error_logger<0.32.0>:ale_error_logger_handler:do_log:203]
+=========================PROGRESS REPORT=========================
+          supervisor: {local,ns_couchdb_sup}
+             started: [{pid,<0.301.0>},
+                       {name,dir_size},
+                       {mfargs,{dir_size,start_link,[]}},
+                       {restart_type,permanent},
+                       {shutdown,1000},
+                       {child_type,worker}]
+
+[error_logger:info,2023-05-27T08:32:48.459Z,couchdb_ns_1@cb.local:error_logger<0.32.0>:ale_error_logger_handler:do_log:203]
+=========================PROGRESS REPORT=========================
+         application: ns_couchdb
+          started_at: 'couchdb_ns_1@cb.local'
+
+[ns_server:debug,2023-05-27T08:32:48.459Z,couchdb_ns_1@cb.local:<0.5.0>:child_erlang:child_loop:130]283: Entered child_loop
+[ns_server:debug,2023-05-27T08:32:48.534Z,couchdb_ns_1@cb.local:<0.281.0>:restartable:loop:71]Restarting child <0.283.0>
+  MFA: {ns_ssl_services_setup,start_link_capi_service,[]}
+  Shutdown policy: 1000
+  Caller: {<0.305.0>,#Ref<0.3608399927.1740636161.34423>}
+[ns_server:debug,2023-05-27T08:32:48.535Z,couchdb_ns_1@cb.local:<0.281.0>:restartable:shutdown_child:120]Successfully terminated process <0.283.0>
+[ns_server:info,2023-05-27T08:32:48.535Z,couchdb_ns_1@cb.local:ns_config_rep<0.248.0>:ns_couchdb_config_rep:do_pull:65]Pulling config from: 'ns_1@cb.local'
+
+[ns_server:debug,2023-05-27T08:32:48.540Z,couchdb_ns_1@cb.local:<0.281.0>:restartable:start_child:98]Started child process <0.307.0>
+  MFA: {ns_ssl_services_setup,start_link_capi_service,[]}
+[ns_server:debug,2023-05-27T08:32:48.747Z,couchdb_ns_1@cb.local:ns_config_log<0.252.0>:ns_config_log:log_common:231]config change:
+{local_changes_count,<<"949a059dcc29e773ec37709a7973341b">>} ->
+[{'_vclock',[{<<"949a059dcc29e773ec37709a7973341b">>,{14,63852395568}}]}]

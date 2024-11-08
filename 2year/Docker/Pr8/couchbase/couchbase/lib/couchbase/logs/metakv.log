@@ -1,0 +1,33 @@
+[metakv:debug,2023-05-15T19:22:22.147Z,ns_1@cb.local:simple_store_xdcr_ckpt_data<0.366.0>:simple_store:init:114]Creating Table: xdcr_ckpt_data
+[metakv:debug,2023-05-15T19:22:22.316Z,ns_1@cb.local:simple_store_testconditions<0.473.0>:simple_store:init:114]Creating Table: testconditions
+[metakv:debug,2023-05-15T19:22:22.716Z,ns_1@cb.local:<0.390.0>:menelaus_metakv:handle_iterate:132]Starting iteration of /remoteCluster/. Continuous = false
+[metakv:debug,2023-05-15T19:22:22.719Z,ns_1@cb.local:<0.390.0>:menelaus_metakv:handle_iterate:132]Starting iteration of /remoteCluster/. Continuous = false
+[metakv:debug,2023-05-15T19:22:22.721Z,ns_1@cb.local:<0.390.0>:menelaus_metakv:handle_iterate:132]Starting iteration of /replicationSpec/. Continuous = false
+[metakv:debug,2023-05-15T19:22:22.738Z,ns_1@cb.local:<0.392.0>:menelaus_metakv:handle_iterate:132]Starting iteration of /GlobalConfiguration/. Continuous = true
+[metakv:debug,2023-05-15T19:22:23.739Z,ns_1@cb.local:<0.393.0>:menelaus_metakv:handle_iterate:132]Starting iteration of /V2InternalSettings/. Continuous = true
+[metakv:debug,2023-05-15T19:22:24.759Z,ns_1@cb.local:<0.693.0>:menelaus_metakv:handle_iterate:132]Starting iteration of /remoteCluster/. Continuous = true
+[metakv:debug,2023-05-15T19:22:25.752Z,ns_1@cb.local:<0.402.0>:menelaus_metakv:handle_iterate:132]Starting iteration of /replicationSpec/. Continuous = true
+[metakv:debug,2023-05-15T19:22:29.499Z,ns_1@cb.local:<0.401.0>:menelaus_metakv:handle_iterate:132]Starting iteration of /indexing/settings/. Continuous = true
+[metakv:debug,2023-05-15T19:22:29.500Z,ns_1@cb.local:<0.401.0>:menelaus_metakv:output_kv:166]Sent /indexing/settings/config rev: g2o=
+[metakv:debug,2023-05-24T12:22:20.569Z,ns_1@cb.local:simple_store_xdcr_ckpt_data<0.351.0>:simple_store:init:114]Creating Table: xdcr_ckpt_data
+[metakv:debug,2023-05-24T12:22:20.634Z,ns_1@cb.local:simple_store_testconditions<0.459.0>:simple_store:init:114]Creating Table: testconditions
+[metakv:debug,2023-05-24T12:22:20.877Z,ns_1@cb.local:<0.380.0>:menelaus_metakv:handle_iterate:132]Starting iteration of /remoteCluster/. Continuous = false
+[metakv:debug,2023-05-24T12:22:20.881Z,ns_1@cb.local:<0.380.0>:menelaus_metakv:handle_iterate:132]Starting iteration of /remoteCluster/. Continuous = false
+[metakv:debug,2023-05-24T12:22:20.884Z,ns_1@cb.local:<0.380.0>:menelaus_metakv:handle_iterate:132]Starting iteration of /replicationSpec/. Continuous = false
+[metakv:debug,2023-05-24T12:22:20.891Z,ns_1@cb.local:<0.383.0>:menelaus_metakv:handle_iterate:132]Starting iteration of /GlobalConfiguration/. Continuous = true
+[metakv:debug,2023-05-24T12:22:21.664Z,ns_1@cb.local:<0.378.0>:menelaus_metakv:handle_iterate:132]Starting iteration of /indexing/settings/. Continuous = true
+[metakv:debug,2023-05-24T12:22:21.665Z,ns_1@cb.local:<0.378.0>:menelaus_metakv:output_kv:166]Sent /indexing/settings/config rev: g2o=
+[metakv:debug,2023-05-24T12:22:21.892Z,ns_1@cb.local:<0.382.0>:menelaus_metakv:handle_iterate:132]Starting iteration of /V2InternalSettings/. Continuous = true
+[metakv:debug,2023-05-24T12:22:22.892Z,ns_1@cb.local:<0.621.0>:menelaus_metakv:handle_iterate:132]Starting iteration of /remoteCluster/. Continuous = true
+[metakv:debug,2023-05-24T12:22:23.892Z,ns_1@cb.local:<0.388.0>:menelaus_metakv:handle_iterate:132]Starting iteration of /replicationSpec/. Continuous = true
+[metakv:debug,2023-05-27T08:32:48.553Z,ns_1@cb.local:simple_store_xdcr_ckpt_data<0.350.0>:simple_store:init:114]Creating Table: xdcr_ckpt_data
+[metakv:debug,2023-05-27T08:32:48.614Z,ns_1@cb.local:simple_store_testconditions<0.458.0>:simple_store:init:114]Creating Table: testconditions
+[metakv:debug,2023-05-27T08:32:48.791Z,ns_1@cb.local:<0.381.0>:menelaus_metakv:handle_iterate:132]Starting iteration of /remoteCluster/. Continuous = false
+[metakv:debug,2023-05-27T08:32:48.793Z,ns_1@cb.local:<0.381.0>:menelaus_metakv:handle_iterate:132]Starting iteration of /remoteCluster/. Continuous = false
+[metakv:debug,2023-05-27T08:32:48.795Z,ns_1@cb.local:<0.381.0>:menelaus_metakv:handle_iterate:132]Starting iteration of /replicationSpec/. Continuous = false
+[metakv:debug,2023-05-27T08:32:48.802Z,ns_1@cb.local:<0.383.0>:menelaus_metakv:handle_iterate:132]Starting iteration of /GlobalConfiguration/. Continuous = true
+[metakv:debug,2023-05-27T08:32:49.639Z,ns_1@cb.local:<0.380.0>:menelaus_metakv:handle_iterate:132]Starting iteration of /indexing/settings/. Continuous = true
+[metakv:debug,2023-05-27T08:32:49.640Z,ns_1@cb.local:<0.380.0>:menelaus_metakv:output_kv:166]Sent /indexing/settings/config rev: g2o=
+[metakv:debug,2023-05-27T08:32:49.802Z,ns_1@cb.local:<0.384.0>:menelaus_metakv:handle_iterate:132]Starting iteration of /V2InternalSettings/. Continuous = true
+[metakv:debug,2023-05-27T08:32:50.802Z,ns_1@cb.local:<0.620.0>:menelaus_metakv:handle_iterate:132]Starting iteration of /remoteCluster/. Continuous = true
+[metakv:debug,2023-05-27T08:32:51.802Z,ns_1@cb.local:<0.392.0>:menelaus_metakv:handle_iterate:132]Starting iteration of /replicationSpec/. Continuous = true

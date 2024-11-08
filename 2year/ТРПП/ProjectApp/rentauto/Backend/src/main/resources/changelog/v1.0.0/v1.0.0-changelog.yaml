@@ -1,0 +1,11 @@
+databaseChangeLog:
+  - include:
+      file: changelog/v1.0.0/create-table-person.sql
+  - include:
+      file: changelog/v1.0.0/create-table-car.sql
+  - include:
+      file: changelog/v1.0.0/add-car-id-column.sql
+  - include:
+      file: changelog/v1.0.0/add-person-id-column.sql
+  - include:
+      file: changelog/v1.0.0/add-columns-imagename-and-istaken-to-car.sql

@@ -1,0 +1,14 @@
+version: '3'
+services:
+  container1:
+    build: ./app1
+    ports:
+      - 8080:8080
+    links:
+      - container2
+  container2:
+    build: ./app2
+
+
+
+      

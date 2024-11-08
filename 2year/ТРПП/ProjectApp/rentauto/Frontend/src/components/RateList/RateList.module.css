@@ -1,0 +1,30 @@
+.table {
+    width: 100%;
+    align-items: center;
+    padding: 20px;
+    font-size: 1.1em;
+    box-shadow: 0 0 5px 1px gray;
+}
+
+.table h2 {
+    color: forestgreen;
+}
+
+.table > tr {
+    display: grid;
+    padding: 10px 0;
+    border-bottom: 1px solid forestgreen;
+    grid-template-columns: 2fr 3fr 3fr 2fr;
+}
+
+.table td {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+@media (max-width: 60vh) {
+    .table {
+        padding: 10px;
+        font-size: 0.7em;
+    }
+}

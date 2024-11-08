@@ -1,0 +1,33 @@
+version: '3.8'
+
+services:
+  server:
+    build: server/
+    ports:
+      - 1234:80
+  client:
+    build: client/
+    command: python ./client.py
+    network_mode: host
+    depends_on:
+      - server
+  db1:
+    image: mysql
+    container_name: db1
+    environment:
+      MYSQL_DATABASE: database
+      MYSQL_ROOT_PASSWORD: password
+    ports:
+      - 5432:5432
+  phpmyadmin:
+    image: phpmyadmin
+    container_name: phpmyadmin
+    links:
+      - db1
+    environment:
+      PMA_HOST: db1
+      PMA_PORT: 5432
+      PMA_ARBITRARY: 1
+    restart: always
+    ports:
+      - 8088:80

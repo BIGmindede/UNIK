@@ -1,0 +1,149 @@
+Unit 9
+Task 1
+adware - рекламное ПО
+backdoor - задний ход
+cybercrime - киберпреступность
+Ddos attack - DDoS-атака
+to encrypt data - шифровать данные
+firewall - брандмауэр
+hacker - хакер
+to infiltrate - проникать
+IP spoofing - подмена IP-адреса
+keylogger - программный шпион
+malware - вредоносное ПО
+phishing - рыболовство (мошенничество с использованием поддельных сообщений)
+piggybacking - присоединение (несанкционированное использование сети другого пользователя)
+piracy - пиратство
+salami shaving - метод кражи маленьких сумм (финансовое мошенничество)
+security measures - меры безопасности
+spyware - шпионское ПО
+Trojan - троян
+unauthorized access - несанкционированный доступ
+unwanted request - нежелательный запрос
+worm – червь
+Task 2
+1 A
+2 А
+Вирусы
+Страх от заражения компьютера вирусом знаком многим. Даже неопытные пользователи понимают, что незнакомые файлы могут содержать вирусы.
+Хотя вирусы являются хорошо известной угрозой, многие пользователи компьютеров не знают своего врага. Существует много конкретных типов вирусов, от которых нужно защищаться.
+Одним из опасных типов вирусов является вирус перезаписи. Эти вирусы не только распространяют вредоносный код, но и замещают информацию, содержащуюся в других программах. Они стирают важную информацию, иногда делая компьютер полностью непригодным к использованию.
+Еще один распространенный вирус - это резидентный вирус. Они находятся в спящем состоянии до тех пор, пока не наступит определенное событие, активизирующее их. Если ваш компьютер содержит резидентные вирусы, вы можете не обнаружить их, пока не будет совершен ущерб.
+Троянский конь - это еще один разрушительный тип программы. Технически он не является вирусом, потому что не размножается сам по себе, но он все равно опасен. Троянский конь выглядит как обычный полезный файл или программа. Однако в нем встроена разрушительная программа. Эта программа может также прикрепиться к полезным файлам. Наконец, в отличие от вирусов и троянских коней, червь не требует присоединения к другой программе.
+Task 3
+1. virus - d) a harmful program that infects a computer
+2. host - b) a computer or program that carries a virus
+3. to embed - f) to plant a harmful program within an ordinary program
+4. resident virus - c) a virus that is dormant until activated
+5. to piggyback - e) to attach to another program for transferring
+6. overwriting virus - a) a virus that erases information by replacing it 
+Task 4
+1. until
+2. of
+3. like
+4. in
+5. to
+6. by
+7. into
+8. without
+9. from
+10. with
+Task 5
+1. A Trojan horse
+2. spyware
+3. Adware
+4. replicate
+5. Piggybacking
+Task 6
+1. triggered
+2. standalone
+3. intervention
+4. dormant
+5. malicious code
+6. host file
+7. infect
+Task 7
+a) What are the three common ways for malware to enter your computer?
+Malware can make entry onto your computer via malicious email attachments, visiting infected websites, and downloading files from untrusted sources.
+
+b) What activates viruses existing on your system?
+Viruses often activate on the Internet and trigger when downloading a file infected with a virus.
+
+c) What is the harmful effect of ransomware?
+The harmful effect of ransomware is that it holds your PC hostage and demands money. It locks up your computer with the intention to destroy data if the ransom is not paid.
+
+d) How do worms operate?
+Worms can self-replicate and infect multiple computers on the network without requiring any triggering event or human intervention.
+
+e) What is the difference between viruses and worms?
+The difference between viruses and worms is that viruses require activation by the host file, while worms can propagate and replicate independently without the need for a triggering event or host file.
+
+1. Malware can make entry onto your computer via malicious email attachments, visiting infected websites, and downloading files from untrusted sources.
+2. Viruses often spread on the Internet and activate when downloading a file infected with a virus.
+3. A Trojan is a harmful piece of software that looks harmless.
+4. Ransomware holds your PC hostage and demands money. It locks up your computer aiming to destroy data if the ransom is not paid.
+5. Spyware secretly gathers private information about the user's activity.
+6. Worms can self-replicate and infect multiple computers on the network without requiring any specific triggering event.
+Task 8
+1. Spyware
+2. Malicious code
+3. Adware
+4. Keylogger
+5. Worm
+6. Trojan
+7. Ransomware
+Task 9
+1. C to clarify information about firewalls
+2. C Data is broken into packets.
+3. A to allow communication from a particular program
+Перевод статьи:
+Брандмауэр
+
+Существует несколько способов работы брандмауэров. Большинство используют комбинацию методов. Один из распространенных методов - это фильтрация пакетов. Входящие данные разбиваются на небольшие части, или пакеты. Затем брандмауэр проверяет каждый пакет, используя набор фильтров. На основе настроек, установленных пользователем, брандмауэр решает, разрешить или запретить доступ.
+
+Фильтры могут быть основаны на различных критериях. Например, фильтры могут блокировать всю связь с определенными доменными именами. Если администратор сети замечает, что определенный IP-адрес генерирует много трафика в или из сети, он может создать фильтр для блокировки этого IP-адреса. Фильтры также могут искать определенные слова или фразы.
+
+Для большинства пользователей настройки программы по умолчанию обеспечивают достаточную защиту. Пользователь всегда может создать исключение, чтобы разрешить неразрешенную программу. Это дает программе разрешение на общение через брандмауэр, даже если программа обычно заблокирована. Программа получает доступ к Интернету без снижения настроек для всего брандмауэра.
+Task 10
+1. firewall - e) a program used to protect private networks
+2. deny - d) not to allow someone to do something
+3. packet - b) a division of data
+4. unauthorized - a) not allowed
+5. default - f) a present value of a particular setting
+6. permit - c) to allow someone to do something
+Task 11
+1. Firewall protects the system from public access.
+2. Usually the firewall's default settings provide enough protection.
+3. If a website has a lot of traffic, it means it has a lot of visitors.
+4. A firewall scans incoming data to decide whether or not to receive it.
+5. Some firewalls block all traffic to a certain website.
+6. The network administrator can give users permission to access certain sites.
+7. They have installed the latest anti-virus software.
+8. Biometric scanning is one way to make sure that only authorized people access the network.
+Task 12
+1. action
+2. traced
+3. suspicious
+4. robust
+5. hands-off
+6. apart
+7. target
+8. executable
+9. intent
+10. combination
+Task 13
+1) take action
+2) unwanted spyware
+3) suspicious websites
+4) one step ahead
+Task 14
+1. This is a program that automatically displays advertisements on the screen.
+2. An important security rule is not to click on suspicious links and not to run suspicious programs.
+3. This is a free program that contains a virus.
+4. There are several measures that block the installation of viruses, worms, spyware, and other malicious software.
+5. The security service has recorded an attempt to gain unauthorized access to the system.
+6. Users may be unaware of the presence of a virus on their computers.
+7. He wants to install antivirus software.
+8. Default settings do not guarantee sufficient protection.
+9. Piracy is a violation of copyright.
+10. Phishing is an illegal attempt to obtain passwords and credit card data.

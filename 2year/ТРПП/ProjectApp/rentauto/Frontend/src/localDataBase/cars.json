@@ -1,0 +1,113 @@
+[
+    {
+        "id": 1,
+        "modelName": "niva rs6",
+        "horsePowers": 800,
+        "description": "Norm tachka",
+        "category": "sportcar",
+        "personId": 1,
+        "price": 1000,
+        "imageName": "lada.png",
+        "isTaken": "false"
+    },
+    {
+        "model": "Hyundai Solaris",
+        "category": "Стандарт",
+        "cost": "2300"
+    },
+    {
+        "model": "Hyundai Sonata",
+        "category": "Бизнес",
+        "cost": "3400"
+    },
+    {
+        "model": "Genesis G80",
+        "category": "Премиум",
+        "cost": "8300"
+    },
+    {
+        "model": "Hyundai H-1",
+        "category": "Минивен",
+        "cost": "4900"
+    },
+    {
+        "model": "Haval Jolion",
+        "category": "Кроссовер",
+        "cost": "2800"
+    },
+    {
+        "model": "Chevrolet Tahoe",
+        "category": "Внедорожник",
+        "cost": "9400"
+    },
+    {
+        "model": "Lada Granta",
+        "category": "Эконом",
+        "cost": "1300"
+    },
+    {
+        "model": "Hyundai Solaris",
+        "category": "Стандарт",
+        "cost": "2300"
+    },
+    {
+        "model": "Hyundai Sonata",
+        "category": "Бизнес",
+        "cost": "3400"
+    },
+    {
+        "model": "Genesis G80",
+        "category": "Премиум",
+        "cost": "8300"
+    },
+    {
+        "model": "Hyundai H-1",
+        "category": "Минивен",
+        "cost": "4900"
+    },
+    {
+        "model": "Haval Jolion",
+        "category": "Кроссовер",
+        "cost": "2800"
+    },
+    {
+        "model": "Chevrolet Tahoe",
+        "category": "Внедорожник",
+        "cost": "9400"
+    },
+    {
+        "model": "Lada Granta",
+        "category": "Эконом",
+        "cost": "1300"
+    },
+    {
+        "model": "Hyundai Solaris",
+        "category": "Стандарт",
+        "cost": "2300"
+    },
+    {
+        "model": "Hyundai Sonata",
+        "category": "Бизнес",
+        "cost": "3400"
+    },
+    {
+        "model": "Genesis G80",
+        "category": "Премиум",
+        "cost": "8300"
+    },
+    {
+        "model": "Hyundai H-1",
+        "category": "Минивен",
+        "cost": "4900"
+    },
+    {
+        "model": "Haval Jolion",
+        "category": "Кроссовер",
+        "cost": "2800"
+    },
+    {
+        "model": "Chevrolet Tahoe",
+        "category": "Внедорожник",
+        "cost": "9400"
+    }
+]   
