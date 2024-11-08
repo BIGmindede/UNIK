@@ -1,0 +1,717 @@
+create database hr_service
+
+use hr_service
+
+create table hr_specialists (
+specialist_id int(10) AUTO_INCREMENT,
+specialization varchar(50) NOT NULL,
+carried_candidates int(2) NOT NULL,
+specialist_name varchar(40) NOT NULL,
+specialist_email varchar(30) NOT NULL,
+specialist_tel varchar(15) NOT NULL,
+PRIMARY KEY (specialist_id)
+);
+
+create table interv_tasks (
+task_set_id int(10) AUTO_INCREMENT,
+teor_tasks_link varchar(45) NOT NULL,
+prac_tasks_link varchar(45) NOT NULL,
+specialist_id int(10) DEFAULT NULL,
+PRIMARY KEY (task_set_id),
+CONSTRAINT fk_interv_tasks_hr_specialists
+FOREIGN KEY (specialist_id) REFERENCES hr_specialists (specialist_id)
+ON DELETE SET NULL
+ON UPDATE NO ACTION
+);
+
+create table candidates (
+candidate_id int(10) AUTO_INCREMENT,
+candidate_name varchar(40) NOT NULL,
+candidate_email varchar(30) NOT NULL,
+candidate_tel varchar(15) NOT NULL,
+task_set_id int (10) DEFAULT NULL,
+PRIMARY KEY (candidate_id),
+CONSTRAINT fk_candidates_interv_tasks
+FOREIGN KEY (task_set_id) REFERENCES interv_tasks (task_set_id) 
+ON DELETE SET NULL
+ON UPDATE NO ACTION
+);
+
+create table resumes (
+resume_id int(10) AUTO_INCREMENT,
+loading_date varchar(45) NOT NULL,
+last_update_date varchar(45) NOT NULL,
+resume_file varchar(45) NOT NULL,
+resume_status varchar(45) NOT NULL,
+candidate_id int(10) NOT NULL,
+PRIMARY KEY (resume_id, candidate_id),
+CONSTRAINT fk_resumes_candidates
+FOREIGN KEY (candidate_id) REFERENCES candidates (candidate_id)
+ON DELETE CASCADE
+ON UPDATE NO ACTION
+);
+
+create table recruiters (
+recruiter_id int(10) AUTO_INCREMENT,
+recruiter_name varchar(45) NOT NULL,
+carried_department varchar(45) NOT NULL,
+recruiter_email varchar(45) NOT NULL,
+recruiter_tel varchar(45) NOT NULL,
+PRIMARY KEY (recruiter_id)
+);
+
+create table resumes_feedbacks (
+feedback_id int AUTO_INCREMENT,
+resume_points varchar(45) NOT NULL,
+resume_conclusion varchar(45) NOT NULL,
+resume_id int(10) NOT NULL,
+candidate_id int(10) NOT NULL,
+recruiter_id int(10) NOT NULL,
+PRIMARY KEY (feedback_id, resume_id, candidate_id),
+CONSTRAINT fk_resumes_feedbacks_resumes1
+FOREIGN KEY (resume_id, candidate_id)
+REFERENCES resumes (resume_id, candidate_id)
+ON DELETE CASCADE
+ON UPDATE NO ACTION,
+CONSTRAINT fk_resumes_feedbacks_recruiters
+FOREIGN KEY (recruiter_id)
+REFERENCES recruiters (recruiter_id)
+ON DELETE CASCADE
+ON UPDATE NO ACTION
+);
+
+create table interv_results (
+results_id int AUTO_INCREMENT,
+interv_points INT (3) NOT NULL,
+interv_conclusion varchar(45) NOT NULL,
+interv_notes varchar(45) NOT NULL,
+interviewed_id int(10) NOT NULL,
+PRIMARY KEY (results_id, interviewed_id),
+CONSTRAINT fk_interv_results_candidates
+FOREIGN KEY (interviewed_id) REFERENCES candidates (candidate_id)
+ON DELETE CASCADE
+ON UPDATE NO ACTION
+);
+
+
+----------------------------------------------------------------------
+
+INSERT INTO hr_specialists (
+specialization,
+carried_candidates,
+specialist_name,
+specialist_email,
+specialist_tel
+) VALUES (
+"spec1",
+"2",
+"spec_name1",
+"spec_email1",
+"spec_tel1"
+);
+
+INSERT INTO hr_specialists (
+specialization,
+carried_candidates,
+specialist_name,
+specialist_email,
+specialist_tel
+) VALUES (
+"spec2",
+"3",
+"spec_name2",
+"spec_email2",
+"spec_tel2"
+);
+
+INSERT INTO hr_specialists (
+specialization,
+carried_candidates,
+specialist_name,
+specialist_email,
+specialist_tel
+) VALUES (
+"spec3",
+"1",
+"spec_name3",
+"spec_email3",
+"spec_tel3"
+);
+
+INSERT INTO hr_specialists (
+specialization,
+carried_candidates,
+specialist_name,
+specialist_email,
+specialist_tel
+) VALUES (
+"spec4",
+"2",
+"spec_name4",
+"spec_email4",
+"spec_tel4"
+);
+
+----------------------------------------------------------------------
+INSERT INTO interv_tasks (
+teor_tasks_link,
+prac_tasks_link,
+specialist_id
+) VALUES (
+"https://hr_service.com/teor/link1",
+"https://hr_service.com/prac/link1",
+1
+);
+
+INSERT INTO interv_tasks (
+teor_tasks_link,
+prac_tasks_link,
+specialist_id
+) VALUES (
+"https://hr_service.com/teor/link2",
+"https://hr_service.com/prac/link2",
+1
+);
+
+INSERT INTO interv_tasks (
+teor_tasks_link,
+prac_tasks_link,
+specialist_id
+) VALUES (
+"https://hr_service.com/teor/link3",
+"https://hr_service.com/prac/link3",
+2
+);
+
+INSERT INTO interv_tasks (
+teor_tasks_link,
+prac_tasks_link,
+specialist_id
+) VALUES (
+"https://hr_service.com/teor/link4",
+"https://hr_service.com/prac/link4",
+4
+);
+
+INSERT INTO interv_tasks (
+teor_tasks_link,
+prac_tasks_link,
+specialist_id
+) VALUES (
+"https://hr_service.com/teor/link5",
+"https://hr_service.com/prac/link5",
+3
+);
+
+INSERT INTO interv_tasks (
+teor_tasks_link,
+prac_tasks_link
+) VALUES (
+"https://hr_service.com/teor/link6",
+"https://hr_service.com/prac/link6"
+);
+
+----------------------------------------------------------------------
+
+INSERT INTO candidates (
+candidate_name,
+candidate_email,
+candidate_tel,
+task_set_id
+) VALUES (
+"cand_name1",
+"cand_email1",
+"cand_tel1",
+1
+);
+
+INSERT INTO candidates (
+candidate_name,
+candidate_email,
+candidate_tel,
+task_set_id
+) VALUES (
+"cand_name2",
+"cand_email2",
+"cand_tel2",
+2
+);
+
+INSERT INTO candidates (
+candidate_name,
+candidate_email,
+candidate_tel,
+task_set_id
+) VALUES (
+"cand_name3",
+"cand_email3",
+"cand_tel3",
+3
+);
+
+INSERT INTO candidates (
+candidate_name,
+candidate_email,
+candidate_tel,
+task_set_id
+) VALUES (
+"cand_name4",
+"cand_email4",
+"cand_tel4",
+3
+);
+
+INSERT INTO candidates (
+candidate_name,
+candidate_email,
+candidate_tel,
+task_set_id
+) VALUES (
+"cand_name11",A
+"cand_email11",
+"cand_tel11",
+3
+);
+
+INSERT INTO candidates (
+candidate_name,
+candidate_email,
+candidate_tel,
+task_set_id
+) VALUES (
+"cand_name6",
+"cand_email6",
+"cand_tel6",
+4
+);
+
+INSERT INTO candidates (
+candidate_name,
+candidate_email,
+candidate_tel,
+task_set_id
+) VALUES (
+"cand_name7",
+"cand_email7",
+"cand_tel7",
+4
+);
+
+INSERT INTO candidates (
+candidate_name,
+candidate_email,
+candidate_tel,
+task_set_id
+) VALUES (
+"cand_name8",
+"cand_email8",
+"cand_tel8",
+5
+);
+
+INSERT INTO candidates (
+candidate_name,
+candidate_email,
+candidate_tel
+) VALUES (
+"cand_name9",
+"cand_email9",
+"cand_tel9"
+);
+
+INSERT INTO candidates (
+candidate_name,
+candidate_email,
+candidate_tel
+) VALUES (
+"cand_name15",
+"cand_email15",
+"cand_tel15"
+);
+
+----------------------------------------------------------------------
+
+INSERT INTO resumes (
+loading_date,
+last_update_date,
+resume_file,
+resume_status,
+candidate_id
+) VALUES (
+"2022-01-01",
+"2022-03-01",
+"resume1.pdf",
+"accepted",
+1
+);
+
+INSERT INTO resumes (
+loading_date,
+last_update_date,
+resume_file,
+resume_status,
+candidate_id
+) VALUES (
+"2022-02-01",
+"2022-04-01",
+"resume2.pdf",
+"accepted",
+2
+);
+
+INSERT INTO resumes (
+loading_date,
+last_update_date,
+resume_file,
+resume_status,
+candidate_id
+) VALUES (
+"2022-03-01",
+"2022-05-01",
+"resume3.pdf",
+"accepted",
+3
+);
+
+INSERT INTO resumes (
+loading_date,
+last_update_date,
+resume_file,
+resume_status,
+candidate_id
+) VALUES (
+"2022-04-01",
+"2022-06-01",
+"resume4.pdf",
+"accepted",
+4
+);
+
+
+INSERT INTO resumes (
+loading_date,
+last_update_date,
+resume_file,
+resume_status,
+candidate_id
+) VALUES (
+"2022-05-01",
+"2022-07-01",
+"resume5.pdf",
+"accepted",
+5
+);
+
+INSERT INTO resumes (
+loading_date,
+last_update_date,
+resume_file,
+resume_status,
+candidate_id
+) VALUES (
+"2022-06-01",
+"2022-08-01",
+"resume6.pdf",
+"accepted",
+6
+);
+
+INSERT INTO resumes (
+loading_date,
+last_update_date,
+resume_file,
+resume_status,
+candidate_id
+) VALUES (
+"2022-07-01",
+"2022-10-01",
+"resume7.pdf",
+"accepted",
+7
+);
+
+INSERT INTO resumes (
+loading_date,
+last_update_date,
+resume_file,
+resume_status,
+candidate_id
+) VALUES (
+"2022-08-01",
+"2022-11-01",
+"resume8.pdf",
+"accepted",
+8
+);
+
+INSERT INTO resumes (
+loading_date,
+last_update_date,
+resume_file,
+resume_status,
+candidate_id
+) VALUES (
+"2022-09-01",
+"2022-12-01",
+"resume9.pdf",
+"declined",
+9
+);
+
+INSERT INTO resumes (
+loading_date,
+last_update_date,
+resume_file,
+resume_status,
+candidate_id
+) VALUES (
+"2023-11-17",
+"2023-11-24",
+"resume20.pdf",
+"processing",
+15
+);
+
+----------------------------------------------------------------------
+
+INSERT INTO recruiters (
+recruiter_name,
+carried_department,
+recruiter_email,
+recruiter_tel
+) VALUES (
+"recr_name1",
+"carr_dep1",
+"recr_email1",
+"recr_tel1"
+);
+
+INSERT INTO recruiters (
+recruiter_name,
+carried_department,
+recruiter_email,
+recruiter_tel
+) VALUES (
+"recr_name2",
+"carr_dep2",
+"recr_email2",
+"recr_tel2"
+);
+
+INSERT INTO recruiters (
+recruiter_name,
+carried_department,
+recruiter_email,
+recruiter_tel
+) VALUES (
+"recr_name3",
+"carr_dep2",
+"recr_email3",
+"recr_tel3"
+);
+
+INSERT INTO recruiters (
+recruiter_name,
+carried_department,
+recruiter_email,
+recruiter_tel
+) VALUES (
+"recr_name4",
+"carr_dep3",
+"recr_email4",
+"recr_tel4"
+);
+
+INSERT INTO recruiters (
+recruiter_name,
+carried_department,
+recruiter_email,
+recruiter_tel
+) VALUES (
+"recr_name5",
+"carr_dep3",
+"recr_email5",
+"recr_tel5"
+);
+
+----------------------------------------------------------------------
+
+INSERT INTO resumes_feedbacks (
+resume_points,
+resume_conclusion,
+resume_id,
+candidate_id,
+recruiter_id
+) VALUES (
+89, "accepted",
+1, 1, 1
+);
+
+INSERT INTO resumes_feedbacks (
+resume_points,
+resume_conclusion,
+resume_id,
+candidate_id,
+recruiter_id
+) VALUES (
+91, "accepted",
+2, 2, 1
+);
+
+INSERT INTO resumes_feedbacks (
+resume_points,
+resume_conclusion,
+resume_id,
+candidate_id,
+recruiter_id
+) VALUES (
+79, "accepted",
+3, 3, 4
+);
+
+INSERT INTO resumes_feedbacks (
+resume_points,
+resume_conclusion,
+resume_id,
+candidate_id,
+recruiter_id
+) VALUES (
+95, "accepted",
+4, 4, 5
+);
+
+INSERT INTO resumes_feedbacks (
+resume_points,
+resume_conclusion,
+resume_id,
+candidate_id,
+recruiter_id
+) VALUES (
+95, "accepted",
+5, 5, 4
+);
+
+INSERT INTO resumes_feedbacks (
+resume_points,
+resume_conclusion,
+resume_id,
+candidate_id,
+recruiter_id
+) VALUES (
+85, "accepted",
+6, 6, 3
+);
+
+INSERT INTO resumes_feedbacks (
+resume_points,
+resume_conclusion,
+resume_id,
+candidate_id,
+recruiter_id
+) VALUES (
+88, "accepted",
+7, 7, 3
+);
+
+INSERT INTO resumes_feedbacks (
+resume_points,
+resume_conclusion,
+resume_id,
+candidate_id,
+recruiter_id
+) VALUES (
+90, "accepted",
+8, 8, 2
+);
+
+INSERT INTO resumes_feedbacks (
+resume_points,
+resume_conclusion,
+resume_id,
+candidate_id,
+recruiter_id
+) VALUES (
+33, "declined",
+9, 9, 2
+);
+
+----------------------------------------------------------------------
+
+INSERT INTO interv_results (
+interv_points,
+interv_conclusion,
+interv_notes,
+interviewed_id
+) VALUES (
+95,
+"accepted",
+"completed all tasks",
+1
+);
+
+INSERT INTO interv_results (
+interv_points,
+interv_conclusion,
+interv_notes,
+interviewed_id
+) VALUES (
+50,
+"declined",
+"completed less than half tasks",
+3
+);
+
+INSERT INTO interv_results (
+interv_points,
+interv_conclusion,
+interv_notes,
+interviewed_id
+) VALUES (
+89,
+"accepted",
+"completed all tasks except one last",
+5
+);
+
+INSERT INTO interv_results (
+interv_points,
+interv_conclusion,
+interv_notes,
+interviewed_id
+) VALUES (
+43,
+"declined",
+"completed less than half tasks",
+6
+);
+
+INSERT INTO interv_results (
+interv_points,
+interv_conclusion,
+interv_notes,
+interviewed_id
+) VALUES (
+93,
+"accepted",
+"completed all tasks",
+7
+);
+
+INSERT INTO interv_results (
+interv_points,
+interv_conclusion,
+interv_notes,
+interviewed_id
+) VALUES (
+83,
+"accepted",
+"completed all tasks except two last",
+8
+);
+
+
+
+
+
+
+

@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Покупки</title>
+</head>
+<body>
+<h1>Приложение для хранения списков покупок</h1>
+
+<div>
+    <label for="purchaseId">ID покупки: </label>
+    <input type="text" id="purchaseId">
+</div>
+
+<div>
+    <label for="userId">ID пользователя: </label>
+    <input type="text" id="userId">
+</div>
+
+<div>
+    <label for="newPurchaseText">Текст новой покупки: </label>
+    <input type="text" id="newPurchaseText">
+</div>
+
+<div>
+    <label for="newPurchaseQty">Количество покупки: </label>
+    <input type="text" id="newPurchaseQty">
+</div>
+
+<div>
+    <label for="newPurchaseCompleted">Завершена ли покупка?</label>
+    <input type="checkbox" id="newPurchaseCompleted">
+</div>
+
+<button onclick="getPurchaseById()">Получить покупку по ID</button>
+<button onclick="getPurchasesByUserId()">Получить покупки по ID пользователя</button>
+<button onclick="getUserById()">Получить пользователя по ID</button>
+<button onclick="createPurchase()">Создать покупку</button>
+<button onclick="getAllUsers()">Получить всех пользователей</button>
+<button onclick="getAllPurchases()">Получить все покупки</button>
+
+<div id="output">
+
+</div>
+
+<script>
+    const apiUrl = 'http://127.0.0.1:1234/graphql';
+
+    function sendGraphQLRequest(query, variables = {}) {
+        fetch(apiUrl, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                query,
+                variables,
+            }),
+        })
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('output').innerHTML = JSON.stringify(data, null, 2);
+            })
+            .catch(error => console.error('Error:', error));
+    }
+
+    function getPurchaseById() {
+        const purchaseId = document.getElementById('purchaseId').value;
+
+        const query = `
+        query ($id: ID!) {
+          purchaseById(id: $id) {
+            id
+            text
+            qty
+            completed
+            userId
+          }
+        }
+        `;
+
+        const variables = {
+            "id": purchaseId
+        };
+
+        sendGraphQLRequest(query, variables);
+    }
+
+    function getPurchasesByUserId() {
+        const userId = document.getElementById('userId').value;
+
+        const query = `
+        query ($userId: ID!) {
+          purchasesByUserId(userId: $userId) {
+            id
+            text
+            qty
+            completed
+            userId
+          }
+        }
+        `;
+
+        const variables = {
+            "userId": userId
+        };
+
+        sendGraphQLRequest(query, variables);
+    }
+
+    function getUserById() {
+        const userId = document.getElementById('userId').value;
+
+        const query = `
+        query ($id: ID!) {
+          userById(id: $id) {
+            id
+            name
+            email
+            password
+          }
+        }
+        `;
+
+        const variables = {
+            "id": userId
+        };
+
+        sendGraphQLRequest(query, variables);
+    }
+
+    function createPurchase() {
+        const text = document.getElementById('newPurchaseText').value;
+        const qty = parseInt(document.getElementById('newPurchaseQty').value);
+        const completed = document.getElementById('newPurchaseCompleted').checked;
+        const userId = document.getElementById('userId').value;
+
+        const query = `
+        mutation ($text: String!, $qty: Int!, $completed: Boolean!, $userId: ID!) {
+          createPurchase(text: $text, qty: $qty, completed: $completed, userId: $userId) {
+            id
+            text
+            qty
+            completed
+            userId
+          }
+        }
+        `;
+
+        const variables = {
+            "text": text,
+            "qty": qty,
+            "completed": completed,
+            "userId": userId
+        };
+
+        sendGraphQLRequest(query, variables);
+    }
+
+    function getAllUsers() {
+        const query = `
+        query {
+          getAllUsers {
+            id
+            name
+            email
+            password
+          }
+        }
+        `;
+
+        sendGraphQLRequest(query);
+    }
+
+    function getAllPurchases() {
+        const query = `
+        query {
+          getAllPurchases {
+            id
+            text
+            qty
+            completed
+            userId
+          }
+        }
+        `;
+
+        sendGraphQLRequest(query);
+    }
+</script>
+</body>
+</html>

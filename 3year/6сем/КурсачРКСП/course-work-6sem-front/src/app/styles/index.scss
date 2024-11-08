@@ -1,0 +1,106 @@
+@import "themes/dark";
+@import "themes/light";
+@import "variables/globals";
+
+html {
+    background-color: var(--main-bg);
+}
+
+*:not(hr) {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    box-sizing: border-box;
+}
+
+.app  {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    min-height: 100vh;
+    color: var(--main-txt);
+    background-color: var(--main-bg);
+    transition: all 0.25s ease-in-out;
+
+    *:not(h1,h2,h3,h4,h5,h6,button) {
+        font-family: var(--basic-font-family);
+        font-size: clamp(8px, 1.6vw, 16px);
+    }
+
+    input,
+    textarea,
+    select,
+    label {
+        margin: 0;
+        font: inherit;
+        font-size: clamp(10px, 1.6vw, 16px);
+    }
+
+    span {
+        font-size: clamp(8px, 1.6vw, 16px);
+    }
+
+    button {
+        font-family: var(--accent-font-family);
+        font-size: clamp(8px, 1.6vw, 16px);
+        
+        * {
+            font-family: var(--accent-font-family);
+            font-size: clamp(8px, 1.6vw, 16px);
+        }
+    }
+
+    h1,h2,h3,h4,h5,h6 {
+        font-family: var(--accent-font-family);
+    }
+
+    .pagewrapper {
+        position: relative;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        top: var(--header-height-normal);
+        background-color: var(--main-bg);
+        transition: all 0.25s ease-in-out;
+        width: 100%;
+        height: fit-content;
+
+        > div {
+            display: flex;
+            flex-wrap: wrap;
+            gap: clamp(10px, 1vw, 20px);
+            padding: clamp(5px, 1vw, 10px);
+            min-width: 250px;
+            width: 100%;
+            max-width: 1495px;
+            height: fit-content;
+            overflow-x: hidden;
+            justify-content: center;
+        }
+    }
+
+    .opened {
+        width: 100%;
+        left: 0;
+    }
+
+    .collapsed{
+        left: var(--sidebar-width);
+        width: calc(100% - var(--sidebar-width));
+    }
+
+    svg {
+        width: clamp(15px, 3vw,30px);
+        height: clamp(15px, 3vw,30px);
+    }
+    
+    @media (max-width: 1240px) {
+        .pagewrapper {
+            top: calc(2 * var(--header-height-normal) - clamp(25px, 3vw, 30px));
+        }
+    }
+
+}
+
+

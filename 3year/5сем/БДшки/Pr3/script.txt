@@ -1,0 +1,100 @@
+------------------------------------------------------------------------------
+триггеры
+
+CREATE TRIGGER set_resume_status
+AFTER INSERT ON resumes
+FOR EACH ROW
+BEGIN
+    IF NEW.resume_status IS NULL THEN
+        UPDATE resumes
+    	SET resume_status = "processing"
+    	WHERE id = NEW.resume_id;
+    END IF;
+END;$$
+
+CREATE TRIGGER update_resume_status
+AFTER INSERT ON resumes_feedbacks
+FOR EACH ROW
+BEGIN
+    UPDATE resumes
+    SET resume_status = NEW.resume_conclusion
+    WHERE resume_id = NEW.resume_id; 
+END;$$
+
+CREATE TRIGGER update_candidate_task_set_id
+AFTER INSERT ON resumes_feedbacks
+FOR EACH ROW
+BEGIN
+    DECLARE min_ca INT;
+    DECLARE min_cc INT;
+    DECLARE min_ts INT;
+    IF NEW.resume_conclusion = 'accepted' THEN
+	SELECT MIN(carried_candidates) INTO min_ca FROM hr_specialists LIMIT 1;
+        SELECT specialist_id INTO min_cc FROM hr_specialists
+        WHERE carried_candidates = min_ca LIMIT 1;
+        SELECT MIN(task_set_id) INTO min_ts FROM interv_tasks 
+        WHERE specialist_id = min_cc LIMIT 1;
+        UPDATE candidates
+        SET task_set_id = min_ts
+        WHERE candidate_id = NEW.candidate_id;
+    END IF;
+END;$$
+
+CREATE TRIGGER update_specs_car_cand
+AFTER UPDATE ON candidates
+FOR EACH ROW
+BEGIN
+    DECLARE spec_id INT;
+    DECLARE sum_cc INT;
+    SET spec_id = get_spec_by_tasks(NEW.task_set_id);
+    SET sum_cc = count_cands(spec_id);
+    UPDATE hr_specialists
+    SET carried_candidates = sum_cc
+    WHERE specialist_id = spec_id;
+END;$$
+
+------------------------------------------------------------------------------
+функции
+
+функция подсчета кандидатов в очереди у одного интервьюера
+
+CREATE FUNCTION count_cands(hr_spec_id INT)
+RETURNS INT DETERMINISTIC
+BEGIN
+    DECLARE count INT;
+    SELECT COUNT(*) INTO count FROM candidates
+    INNER JOIN interv_tasks
+    ON candidates.task_set_id = interv_tasks.task_set_id
+    INNER JOIN hr_specialists
+    ON interv_tasks.specialist_id = hr_specialists.specialist_id
+    WHERE hr_specialists.specialist_id = hr_spec_id;
+    RETURN count;
+END;$$
+
+CREATE FUNCTION get_spec_by_tasks(tasks_id INT)
+RETURNS INT DETERMINISTIC
+BEGIN
+    DECLARE result INT;
+    SELECT specialist_id INTO result FROM interv_tasks 
+    WHERE task_set_id = tasks_id;
+    RETURN result;
+END;$$
+
+CREATE FUNCTION get_avg_accepted_resumes()
+RETURNS FLOAT DETERMINISTIC
+BEGIN
+    DECLARE amount INT;
+    DECLARE sum_points INT;
+    SELECT COUNT(*) INTO amount FROM resumes_feedbacks
+    WHERE resume_conclusion = "accepted";
+    SELECT SUM(resume_points) INTO sum_points FROM resumes_feedbacks
+    WHERE resume_conclusion = "accepted";
+    RETURN sum_points / amount;
+END;$$
+
+
+
+
+
+
+

@@ -1,0 +1,126 @@
+openapi: 3.0.3
+info:
+  title: Sigma-Computers
+  description: API для продажи компьютеров
+  contact:
+    email: hitrov.qazws@gmail.com
+  version: 1.0.0
+servers:
+- url: https://api.example.com/v1
+paths:
+  /computers:
+    post:
+      tags:
+      - computers
+      summary: Add computer to our store
+      description: Config computer with your own specs and add it to our store 
+      operationId: addComputer
+      requestBody:
+        content:
+          application/json:
+            schema: 
+             $ref: '#/components/schemas/Computer'
+        required: true
+      responses:
+        "200":
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Computer'
+        "400":
+          description: Invalid request
+    get:
+      tags:
+      - computers
+      summary: Get list of cumputers
+      description: Get list of all computers in our store 
+      operationId: getComputers
+      responses:
+        "200":
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Computer'
+        "400":
+          description: Invalid request
+  /computers/{id}:
+    get:
+      tags:
+      - computers/id
+      summary: Get computer
+      description: Get computer from our store by id
+      operationId: getComputer
+      responses:
+        "200":
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Computer'
+        "400":
+          description: Invalid request
+    put:
+      tags:
+      - computers
+      summary: update computer specs
+      description: Update specs of any computer in our store by id
+      operationId: updComputer
+      requestBody:
+        content:
+          application/json:
+            schema: 
+             $ref: '#/components/schemas/Computer'
+        required: true
+      responses:
+        "200":
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Computer'
+        "400":
+          description: Invalid request
+    delete:
+      tags:
+      - computers
+      summary: delete computer from store
+      description: delete computer from store by its id
+      operationId: delComputer
+      responses:
+        "200":
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Computer'
+        "400":
+          description: Invalid request
+    
+components:
+  schemas:
+    Computer:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        vendor:
+          type: string
+        os:
+          type: string
+        GPU:
+          type: string
+        CPU:
+          type: string
+        mem:
+          type: string
+        ram:
+          type: string
+        quantity:
+          type: integer
+        price:
+          type: integer

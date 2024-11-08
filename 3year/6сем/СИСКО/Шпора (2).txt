@@ -1,0 +1,155 @@
+Все маски 255.255.255.0
+
+Комп А находится во vlan 20
+- ip: 192.168.20.3
+- шлюз: 192.168.20.1
+
+Комп B находится во vlan 30
+- ip: 192.168.30.3
+- шлюз: 192.168.30.1
+
+На коммутаторах и маршрутизаторе проводим базовую настройку:
+en
+conf t
+hostname (S1/S2/R1)
+no ip domain-lookup
+
+На коммутаторах объявляем все vlan`ы
+vlan 10
+name Management
+vlan 20
+name Sales
+vlan 30
+name Operations
+vlan 1000
+name Native
+
+На коммутаторах настраиваем порты(интерфейсы) для доступа по соответствующим vlan
+Порт на S1, связанный с комп А (f0/6), находится во vlan 20, так как комп А находится во vlan 20
+int f0/6
+switchport mode access
+switchport access vlan 20
+exit
+Порт на S2, связанный с комп B (f0/18), находится во vlan 30, так как комп B находится во vlan 30
+int f0/18
+switchport mode access
+switchport access vlan 30
+exit
+
+Настраиваем транковые порты между S1 и S2 и между R1 и S1
+Порт на S1, связанный с коммутатором S2 (f0/1), настраиваем в режим транка и задаем трафик каких vlan может проходить
+по этому транку
+int f0/1
+switchport mode trunk
+switchport trunk native vlan 1000
+switchport trunk allowed vlan 10,20,30,1000
+exit
+Порт на S2, связанный с коммутатором S1 (f0/1), настраиваем в режим транка и задаем трафик каких vlan может проходить
+по этому транку
+int f0/1
+switchport mode trunk
+switchport trunk native vlan 1000
+switchport trunk allowed vlan 10,20,30,1000
+exit
+Порт на S1, связанный с маршрутизатором R1 (f0/5), настраиваем в режим транка и задаем трафик каких vlan может проходить
+по этому транку
+int f0/5
+switchport mode trunk
+switchport trunk native vlan 1000
+switchport trunk allowed vlan 10,20,30,1000
+exit
+
+Настраиваем подинтерфейсы на маршрутизаторе R1, в соответствии с vlan`ами
+int g0/1.10
+encapsulation dot1q 10
+ip address 192.168.10.1 255.255.255.0
+int g0/1.20
+encapsulation dot1q 20
+ip address 192.168.20.1 255.255.255.0
+int g0/1.30
+encapsulation dot1q 30
+ip address 192.168.30.1 255.255.255.0
+int g0/1.1000
+encapsulation dot1q 1000
+int g0/1
+no shut
+
+Можем пинговать
+
+______________________________________________________________________________________________________________________________________________________________________________________________________
+
+Агрегирование портов в каналы:
+1.Базовая настройка коммутаторов
+на всех коммутаторах
+hostname (S1/S2/S3)
+no ip domain-lookup
+2.Выключение всех портов кроме направленных к компьютерам на каждом коммутаторе
+- S1
+int range f0/1-5, f0/7-24, g0/1-2
+shut
+- S2
+int range f0/1-17, f0/19-24, g0/1-2
+shut
+- S3
+int range f0/1-17, f0/19-24, g0/1-2
+shut
+3.Объявление vlan (10-для компов, 99 транковый)
+на всех коммутаторах
+vlan 10
+name Management
+vlan 99
+name Native
+4.Настройка ip для интерфейса транкового vlan порта (99) на каждом коммутаторе
+- S1
+int vlan 99
+ip address 192.168.99.11 255.255.255.0
+- S2
+int vlan 99
+ip address 192.168.99.12 255.255.255.0
+- S3
+int vlan 99
+ip address 192.168.99.13 255.255.255.0
+5.Настройка ip на компьютерах
+- PC-A
+ip: 192.168.10.1 маска: 255.255.255.0
+- PC-B
+ip: 192.168.10.2 маска: 255.255.255.0
+- PC-C
+ip: 192.168.10.3 маска: 255.255.255.0
+6.Настройка каналов
+Между S1 и S3 PAgP канал, между S1 и S2 и между S2 и S3 LACP канал
+- Для PAgP:
+Между S1 S3 порты добавляем в channel-group 1
+На S1 порты устанавливаем в режим desirable
+На S3 порты в режим auto
+int f0/3-4
+channel-group 1 mode desirable/auto
+Далее на каждом коммутаторе одинаково
+Включаем эти порты
+no shut
+Интерфейс созданного канала устанавливаем в режим транка
+int port-channel 1
+switchport mode trunk
+Устанавливаем vlan 99 для транка
+switchport trunk native vlan 99
+
+- Для LACP:
+Между S1 и S2 и между S2 и S3 соответствующие порты задаем в режим транка
+- S1 и S2 сначала их прогоняем до конца а потом только канал между S2 и S3 или наоборот
+int range f0/1-2
+- S2
+int range f0/3-4
+- S3
+int range f0/1-2
+Режим транка для всех одинаково
+switchport mode trunk
+switchport trunk native vlan 99
+- S1 (f0/1-2)
+channel-group 2 mode active
+- S2 (f0/1-2) 
+channel-group 2 mode passive
+
+- S2 (f0/3-4)
+channel-group 2 mode active
+- S3  (f0/1-2)
+channel-group 2 mode passive

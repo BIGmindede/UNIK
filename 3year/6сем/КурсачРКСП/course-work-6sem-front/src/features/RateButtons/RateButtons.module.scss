@@ -1,0 +1,24 @@
+.ratebuttons {
+
+    .btnsbound {
+        position: relative;
+        display: grid;
+        grid-template-columns: 3fr 2fr;
+        justify-content: flex-start;
+        > div {
+            width: max-content;
+        }
+    }
+
+
+    .likescontainer {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        svg {
+            color: red;
+        }
+    }
+}

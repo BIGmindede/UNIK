@@ -1,0 +1,24 @@
+.list {
+    display: grid;
+    width: 100%;
+    justify-content: center;
+    gap: clamp(5px, 1vw, 10px);
+
+    .emptyplaceholder {
+        min-height: 200px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: xx-large;
+        font-family: var(--accent-font-family);
+        color: var(--pale-txt);
+    }
+}
+
+.stroke {
+    grid-template-columns: repeat(auto-fit, clamp(200px, 100%, 720px));
+}
+
+.square {
+    grid-template-columns: repeat(auto-fit, calc(clamp(90px,36vw,360px) + 3 * clamp(5px, 1vw, 10px)));
+}

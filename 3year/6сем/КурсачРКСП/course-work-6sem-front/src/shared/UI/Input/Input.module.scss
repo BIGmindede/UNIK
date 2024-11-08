@@ -1,0 +1,283 @@
+.inputwrapper {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: max-content;
+
+    > *:disabled {
+        color: var(--pale-txt);
+    }
+}
+
+.upperlabel {
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: translateY(-100%);
+    scale: 0.9;
+    transition: all 0.25s ease-in-out;
+    transition: left 0.05s linear;
+}
+
+.input {
+    width: 100%;
+    height: clamp(30px, 4vw, 40px);
+    border-radius: 10px;
+    padding: 0 clamp(5px, 1vw, 10px);
+    background-color: var(--input-bg);
+    color: var(--input-txt);
+    border: 1px solid var(--pale-txt);
+}
+
+.date {
+    -webkit-align-items: center;
+    background-color: var(--input-bg);
+    color: var(--input-txt);
+    border: 1px solid var(--pale-txt);
+    border-radius: 10px;
+    height: clamp(30px, 4vw, 40px);
+    min-width: clamp(100px, 18vw ,180px);
+    padding: 5px;
+    width: 100%;
+}
+
+.range {
+    -webkit-appearance: none;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    min-width: clamp(100px, 18vw ,180px);
+    height: clamp(30px, 4vw, 40px);
+    background-color: unset;
+
+    &::before {
+        content: '';
+        width: 100%;
+        height: clamp(3px, 0.5vw, 5px);
+        border-radius: 5px;
+        position: absolute;
+        background-color: var(--pale-txt);
+        z-index: -1;
+    }
+
+    &::-webkit-slider-runnable-track {
+        -webkit-appearance: none;
+        width: 100%;
+        height: fit-content;
+        background-color: unset;
+        display: flex;
+    }
+
+    &::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        height: clamp(15px, 2vw, 20px);
+        width: clamp(15px, 2vw, 20px);
+        border-radius: 100%;
+        background-color: var(--main-txt);
+    }
+}
+
+.textareawrapper {
+
+    position: relative;
+    // width: clamp(200px, 100%, 640px);
+    width: 100%;
+    display: flex;
+    justify-content: center;
+
+    > *:disabled {
+        color: var(--pale-txt);
+    }
+}
+
+.textarea {
+    width: 100%;
+    min-height: 150px;
+    border-radius: 10px;
+    padding: clamp(5px, 1vw, 10px);
+    background-color: var(--input-bg);
+    color: var(--input-txt);
+    resize: vertical;
+    border: 1px solid var(--pale-txt);
+}
+
+.select {
+    width: 100%;
+    height: clamp(30px, 4vw, 40px);
+    border-radius: 10px;
+    color: var(--input-txt);
+    position: relative;
+    transition: all 0.25s ease-in-out;
+    user-select: none;
+    z-index: 1;
+    --arrow-rotation: 90deg;
+
+    .selectcollapsed {
+        border-radius: 10px;
+        margin-top: 0;
+        max-height: clamp(30px, 4vw, 40px);
+    }
+
+    .selectexpanded {
+        border-radius: 0 0 10px 10px;
+        margin-top: calc(clamp(30px, 4vw, 40px) - 2px);
+        .toggler {
+            border-radius: 10px 10px 0 0;
+                
+            svg {
+                rotate: 180deg;
+            }
+        }
+    }
+
+    > ul {
+        box-sizing: border-box;
+        width: 100%;
+        max-height: calc(7 * clamp(30px, 4vw, 40px));
+        list-style: none;
+        overflow-x: hidden;
+        overflow-y: auto;
+        background-color: var(--sec-bg);
+        color: var(--main-txt);
+        border: 1px solid var(--pale-txt);
+        z-index: 2;
+        transition: all 0.15s ease-in-out;
+
+        > span {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background-color: var(--input-bg);
+            border-radius: 10px;
+            padding: 0 clamp(5px, 1vw, 10px);
+            width: 100%;
+            min-width: clamp(100px, 18vw ,180px);
+            height: 100%;
+            cursor: pointer;
+            transition: all 0.15s ease-in-out;
+            z-index: 2;
+            border: 1px solid var(--pale-txt);
+    
+            svg {
+                transition: rotate 0.15s ease-in-out;
+            }
+
+            &:hover {
+                background-color: var(--subaccent-el);
+                color: var(--accent-txt);
+            }
+        }
+
+        li {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background-color: var(--input-bg);
+            padding: 0 clamp(5px, 1vw, 10px);
+            width: 100%;
+            min-width: clamp(100px, 18vw ,180px);
+            height: 100%;
+            cursor: pointer;
+            transition: all 0.15s ease-in-out;
+            z-index: 1;
+    
+            svg {
+                transition: rotate 0.15s ease-in-out;
+            }
+        }
+
+        &::-webkit-scrollbar {
+            background: none;
+            scrollbar-width: thick;
+        }
+
+        &::-webkit-scrollbar-thumb {
+            border-radius: 10px;
+            background-color: var(--pale-txt);
+            border: 5px solid var(--sec-bg);
+            width: 50%;
+        }
+
+        li {
+            width: 100%;
+            height: clamp(30px, 4vw, 40px);
+            padding: 0 clamp(5px, 1vw, 10px);
+            transition: all 0.15s ease-in-out;
+
+            label {
+                display: flex;
+                align-items: center;
+                width: 100%;
+                height: clamp(30px, 4vw, 40px);
+                cursor: pointer;
+            }
+        }
+
+        li:hover {
+            color: var(--accent-txt);
+            background-color: var(--subaccent-el);
+        }
+    }
+
+    .checkbox:checked + ul {
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+.fileinput {
+    display: none;
+}
+
+.fileinputlabel {
+    width: 100%;
+    min-width: clamp(100px, 20vw, 200px);
+    height: clamp(30px, 4vw, 40px);
+    cursor: pointer;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: clamp(2px, 1vw, 5px);
+    background-color: green;
+    color: var(--accent-txt);
+    padding: clamp(5px, 1vw, 10px);
+    border-radius: 10px;
+    border: 1px solid var(--pale-txt);
+    overflow: hidden;
+
+    > span {
+        position: relative;
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: clamp(2px, 1vw, 5px);
+        
+        hr {
+            height: 100%;
+            width: 0px;
+            border: 1px solid var(--pale-txt);
+        }
+
+        .uploadarrowicon {
+            position: absolute;
+            left: 0;
+        }
+
+        .fileplaceholder {
+            position: relative;
+            flex-grow: 1;
+            text-align: center;
+            z-index: 0;
+        }
+    }
+}

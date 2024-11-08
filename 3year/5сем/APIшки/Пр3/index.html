@@ -1,0 +1,39 @@
+<!doctype html>
+<html>
+    <meta charset="UTF-8">
+    <head>
+        <title>Карскас страницы с погодой</title>
+        <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script>
+            var settings = {
+                "url": "https://api.openweathermap.org/data/2.5/weather?q=Moscow&units=metric&appid=8585e471825ef54dabe8f89e5a2c5788",
+                "method": "GET",
+                "timeout": 0,
+            };
+
+            $.ajax(settings).done(function (response, xhr) {
+                console.log("Return code: " + response.cod);
+                var temp = response.main.temp;
+                var min_temp = response.main.temp_min;
+                var max_temp = response.main.temp_max;
+                var pressure = response.main.pressure;
+                var wind = response.wind;
+                $("#Temp").append(temp); {/* добавляем при помощи метода jQuery append значение которое получили в ответе в содержимое HTML-элемента с id="Temp"*/}
+                $("#Temp_min").append(min_temp);
+                $("#Temp_max").append(max_temp);
+                $("#Pressure").append(pressure);
+                $("#Wind").append(JSON.stringify(wind));
+            });
+        </script>
+    </head>
+    <body>
+        <h1>Страница с погодой</h1>
+        temp: <span id="Temp"></span><br>
+        min-temp: <span id="Temp_min"></span><br>
+        max-temp: <span id="Temp_max"></span><br>
+        pressure: <span id="Pressure"></span><br>
+        wind: <span id="Wind"></span><br>
+        <cite>Выполнил студент ИКБО-20-21</cite>
+    </body>
+</html>
